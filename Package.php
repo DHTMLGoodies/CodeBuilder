@@ -55,27 +55,27 @@ class Package
 
     public function getJSFileName()
     {
-        $folder = implode("/", array($this->getRootFolder() . "js"));
-        return $folder . "/" . strtolower($this->getName()) . ".js";
+         $folder = $this->getRootFolder() . "/css";
+        return $folder . "/" . $this->getName() . ".js";
     }
 
     public function getJSFileNameMinified()
     {
-        $folder = implode("/", array($this->getRootFolder() . "js"));
-        return $folder . "/" . strtolower($this->getName()) . "-minified.js";
+        $folder = $this->getRootFolder() . "/js";
+        return $folder . "/" . $this->getName() . "-minified.js";
     }
 
     public function getCSSFileName($skinName = null)
     {
         if(isset($skinName))$skinName = "-".$skinName;
-        $folder = implode("/", array($this->getRootFolder() . "css"));
-        return $folder . "/" . strtolower($this->getName()) . $skinName . ".css";
+        $folder = $this->getRootFolder() . "/css";
+        return $folder . "/" . $this->getName() . $skinName . ".css";
     }
 
     public function getCSSFileNameMinified()
     {
-        $folder = implode("/", array($this->getRootFolder() . "css"));
-        return $folder . "/" . strtolower($this->getName()) . "-minified.css";
+        $folder = $this->getRootFolder() . "/css";
+        return $folder . "/" . $this->getName() . "-minified.css";
     }
 
     private function isNamespace($key)
@@ -86,7 +86,6 @@ class Package
     private function isModule($key)
     {
         $tokens = explode("/", $key);
-
         return preg_match("/^[A-Z][a-z].+$/", array_pop($tokens));
     }
 
@@ -143,7 +142,6 @@ class Package
                         }
                     }
                 }
-
                 $ret = array_merge($ret, $this->getCssFromNode($moduleName, $module));
             }
         }
@@ -290,7 +288,7 @@ class Package
             }
             return implode("/", $tokens) . "/";
         }
-        return "";
+        return $this->isNamespace($item) ? $item."/" : "";
     }
 
     public function getCssSkinFiles(){
