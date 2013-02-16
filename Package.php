@@ -54,7 +54,7 @@ class Package
 
     private function isNamespace($key)
     {
-        return preg_match("/^[a-z\-]+$/s", $key);
+        return preg_match("/^[a-z\-0-9\/]+$/s", $key);
     }
 
     public function getAModule($key)
@@ -62,7 +62,7 @@ class Package
         $tokens = explode("/", $key);
         $currentModule = $this->getAllModules();
         foreach ($tokens as $token) {
-            if (isset($currentModule['modules']) && is_array($currentModule['modules'])) {
+            if (is_array($currentModule) && isset($currentModule['modules']) && is_array($currentModule['modules'])) {
                 $currentModule = $currentModule['modules'];
             }
             $currentModule = & $currentModule[$token];
@@ -85,10 +85,11 @@ class Package
                 if ($this->isNamespace($moduleName)) {
                     $ret = array_merge($ret, $this->getFilesFor($this->getModuleKeys($moduleName, $module), false));
                 } else {
-                    if (isset($module['dependencies'])) {
+                    if (is_array($module) && isset($module['dependencies'])) {
                         foreach ($module['dependencies'] as $dependency) {
                             if ($this->isFile($dependency)) {
                                 $ret[] = $dependency;
+                                // TODO check if $dependency is depending
                             } else {
                                 $ret = array_merge($ret, $this->getFilesFor(array($dependency), false));
                             }
@@ -96,31 +97,57 @@ class Package
                     }
                     $ret[] = $this->toFileName($moduleName);
                 }
+            }else{
+
+                $ret[] = $this->toFileName($moduleName);
             }
         }
-        if($firstRun){
-            return $this->jsWithFolderPrefix($ret);
 
+        if ($firstRun) {
+            return $this->jsWithFolderPrefix($ret);
         }
         return $ret;
     }
 
-    private function jsWithFolderPrefix($files){
+    private function jsWithFolderPrefix($files)
+    {
         $files = array_unique($files);
-        $prefix = $this->getRootFolder().$this->getJSFolder();
-        foreach($files as & $file){
-            $file = $prefix.$file;
+        $prefix = $this->getRootFolder() . $this->getJSFolder();
+        foreach ($files as & $file) {
+            $file = $prefix . $file;
         }
 
         return array_values($files);
     }
 
-    private function getModuleKeys($namespace, $module){
-        $ret = array_keys($module['modules']);
-        foreach($ret as &$value){
-            $value = $namespace."/".$value;
+    private function getModuleKeys($namespace, $module)
+    {
+
+        if (is_string($module)) return array();
+        if (is_array($module) && !isset($module['modules'])) {
+            $ret = array_keys($module);
+        } else {
+            if ($this->isMultiDimensional($module['modules'])) {
+                $ret = array_keys($module['modules']);
+            } else {
+                $ret = $module['modules'];
+            }
+        }
+        if (!is_array($ret)) {
+            $ret = array($ret);
+        }
+        foreach ($ret as &$value) {
+            $value = $namespace . "/" . $value;
         }
         return $ret;
+    }
+
+    private function isMultiDimensional($array)
+    {
+        if (count($array) == count($array, COUNT_RECURSIVE)) {
+            return false;
+        }
+        return true;
     }
 
     private function toFileName($item)

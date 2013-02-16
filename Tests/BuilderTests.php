@@ -76,7 +76,8 @@ class BuilderTests extends PHPUnit_Framework_TestCase
 
         // when
         $files = $ludoJs->getFilesFor(array('Core'));
-        $expected = array('ludo.js', 'effect.js', 'language/default.js', 'storage/storage.js', 'object-factory.js', 'config.js','core.js');
+        $expected = array('../ludojs/src/ludo.js', '../ludojs/src/effect.js', '../ludojs/src/language/default.js',
+            '../ludojs/src/storage/storage.js', '../ludojs/src/object-factory.js', '../ludojs/src/config.js','../ludojs/src/core.js');
         // then
 
         $this->assertEquals($expected, $files);
@@ -91,7 +92,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
 
         // when
         $files = $ludoJs->getFilesFor(array('tpl'));
-        $expected = array('tpl/parser.js');
+        $expected = array('../ludojs/src/tpl/parser.js');
         // then
 
         $this->assertEquals($expected, $files);

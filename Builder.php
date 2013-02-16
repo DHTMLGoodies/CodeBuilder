@@ -27,20 +27,45 @@ class Builder implements LudoDBService
     {
         $package = $this->getPackageClass($this->package);
         $files = $package->getAllJsFiles();
-
         $toFile = $package->getJSFileName();
         $fh = fopen($toFile, "w");
+
+        fwrite($fh, $this->getJSfromDependingPackages($package));
+        fwrite($fh, $this->getFileContent($files));
+        fclose($fh);
+        return $toFile. ", ".filesize($toFile);
+    }
+
+    private function getJSfromDependingPackages(Package $object){
+        $ret = "";
+
+        $dependencies = $object->getExternalModuleDependencies();
+
+        if(is_array($dependencies)){
+
+            foreach($dependencies as $dep){
+                if(!isset($dep['package']) || !isset($dep['modules'])){
+                    throw new LudoDBException("Invalid dependency configuration");
+                }
+                $instance = $this->getPackageClass($dep['package']);
+                $files = $instance->getFilesFor($dep['modules']);
+                $ret .= $this->getFileContent($files);
+            }
+        }
+
+        return $ret;
+    }
+
+    private function getFileContent($files){
+        $ret = "";
         foreach($files as $file){
             if(!file_exists($file)){
                 throw new LudoDBException("File $file not found");
             }
-            fwrite($fh, "// $file\n");
-            fwrite($fh, file_get_contents($file));
-
-
+            $ret .= "// $file\n";
+            #$ret .= file_get_contents($file);
         }
-        fclose($fh);
-        return $toFile. ", ".filesize($toFile);
+        return $ret;
     }
 
     /**
@@ -48,7 +73,7 @@ class Builder implements LudoDBService
      * @return Package
      */
     private function getPackageClass($name){
-        return new $this->package;
+        return new $name;
     }
 
     public function minify()
