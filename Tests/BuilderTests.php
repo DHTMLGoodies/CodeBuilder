@@ -29,7 +29,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // given
         $ludoJs = new LudoJS();
         // then
-        $this->assertEquals('LudoJS', $ludoJs->getName());
+        $this->assertEquals('ludojs', $ludoJs->getName());
 
     }
 
@@ -144,7 +144,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         $cssFiles = $ludoJS->getCssFor("View");
 
         // then
-        $this->assertEquals(array("../ludojs/css/view.css"), $cssFiles);
+        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/resize.css"), $cssFiles);
     }
     /**
      * @test
@@ -156,7 +156,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // when
         $cssFiles = $ludoJS->getCssFor("FramedView");
         // then
-        $this->assertEquals(array("../ludojs/css/view.css"), $cssFiles);
+        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/resize.css"), $cssFiles);
 
 
         // given
@@ -165,6 +165,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // when
         $expected = array(
             "../ludojs/css/view.css",
+            "../ludojs/css/resize.css",
             "../ludojs/css/form/form.css",
             "../ludojs/css/form/text.css"
         );
@@ -185,7 +186,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // when
         $cssFiles = $ludoJS->getCssFor("grid");
         // then
-        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/grid/grid.css"), $cssFiles);
+        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/resize.css", "../ludojs/css/grid/grid.css"), $cssFiles);
     }
 
     /**
