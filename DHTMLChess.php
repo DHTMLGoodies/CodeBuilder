@@ -96,6 +96,9 @@ class DhtmlChess extends Package implements PackageInterface
                 ),
                 "position" => array(
                     "modules" => array("Board", "Pieces", "Dialog" => array("css" => true), "Castling", "SideToMove")
+                ),
+                "pgn" => array(
+                    "modules" => array('Grid')
                 )
 
             ),
@@ -117,7 +120,7 @@ class DhtmlChess extends Package implements PackageInterface
                 "modules" => array("Reader", "GameReader")
             ),
             "datasource" => array(
-                "modules" => array("FolderTree", "GameList")
+                "modules" => array("FolderTree", "GameList","PgnGames")
             ),
             "pgn" => array(
                 "modules" => "Parser"
