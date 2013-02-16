@@ -128,7 +128,9 @@ class DHTMLChess extends Package implements PackageInterface
         return array(
             array("package" => "LudoJS",
                 "modules" => array(
-                    "View","grid","dialog","form"
+                    "View","grid","dialog","form/Text","controller","model","menu","Panel","canvas","remote",
+                    "form/SubmitButton","form/CancelButton","tree","card",
+                    "layout"
                 )
             )
 

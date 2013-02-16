@@ -235,9 +235,9 @@ class LudoJS extends Package implements PackageInterface
             ),
             'form' => array(
                 'modules' => array(
-                    'Element' => array('dependencies' => array('View'), 'hidden' => true),
+                    'Element' => array('dependencies' => array('View'), 'hidden' => true, 'css' => 'form.css'),
                     'LabelElement' => array('dependencies' => array('form/Element'), 'hidden' => true),
-                    'Button' => array('dependencies' => array('form/Element')),
+                    'Button' => array('dependencies' => array('form/Element'), "css" => "button.css"),
                     'ToggleGroup' => array('dependencies' => array('Core'), 'hidden' => true),
                     'TinyButton' => array('dependencies' => array('form/Button')),
                     'SubmitButton' => array('dependencies' => array('form/Button', 'form/Manager')),
@@ -246,7 +246,7 @@ class LudoJS extends Package implements PackageInterface
                     'Combo' => array('dependencies' => array('form/Element')),
                     'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree')),
                     'Hidden' => array('dependencies' => array('form/Element')),
-                    'Text' => array('dependencies' => array('form/LabelElement')),
+                    'Text' => array('dependencies' => array('form/LabelElement'), 'css' => 'text.css'),
                     'Textarea' => array('dependencies' => array('form/Text')),
                     'DisplayField' => array('dependencies' => array('form/Element')),
                     'Checkbox' => array('dependencies' => array('form/Element')),
@@ -289,7 +289,8 @@ class LudoJS extends Package implements PackageInterface
                 'hidden' => true
             ),
             'Panel' => array(
-                'dependencies' => array('View')
+                'dependencies' => array('View'),
+                'css' => array('Panel.css')
             ),
             'Anchor' => array(
                 'dependencies' => array('View')
@@ -313,7 +314,7 @@ class LudoJS extends Package implements PackageInterface
             ),
             'canvas' => array(
                 'modules' => array(
-                    'Engine' => array('dependencies' => array()),
+                    'Engine' => array('dependencies' => array("Core")),
                     'Node' => array('dependencies' => array('canvas/Engine')),
                     'Paint' => array('dependencies' => array('canvas/Node')),
                     'Element' => array('dependencies' => array('Core', 'canvas/Node')),

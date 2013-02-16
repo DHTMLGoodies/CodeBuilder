@@ -23,16 +23,16 @@
       <file leaf-file-name="CodeBuilderTests.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/CodeBuilderTests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="-12.423077">
+            <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LudoJS.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="LudoJS.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/LudoJS.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="31" selection-start="578" selection-end="578" vertical-scroll-proportion="-1.2307693">
+            <state line="239" column="90" selection-start="10903" selection-end="10903" vertical-scroll-proportion="0.47930282">
               <folding />
             </state>
           </provider>
@@ -41,7 +41,7 @@
       <file leaf-file-name="DHTMLChess.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="20" selection-start="4247" selection-end="4247" vertical-scroll-proportion="-2.8076923">
+            <state line="134" column="13" selection-start="4472" selection-end="4472" vertical-scroll-proportion="-8.961538">
               <folding />
             </state>
           </provider>
@@ -50,7 +50,7 @@
       <file leaf-file-name="BuilderTests.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/BuilderTests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="104" column="20" selection-start="2363" selection-end="2363" vertical-scroll-proportion="-1.7058823">
+            <state line="151" column="20" selection-start="3503" selection-end="3503" vertical-scroll-proportion="-3.8846154">
               <folding />
             </state>
           </provider>
@@ -59,7 +59,16 @@
       <file leaf-file-name="Builder.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Builder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="13" selection-start="1754" selection-end="1754" vertical-scroll-proportion="-21.666666">
+            <state line="34" column="20" selection-start="823" selection-end="823" vertical-scroll-proportion="-5.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="YUICompressor.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/YUICompressor.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="99" column="9" selection-start="2630" selection-end="2630" vertical-scroll-proportion="-14.153846">
               <folding />
             </state>
           </provider>
@@ -68,16 +77,16 @@
       <file leaf-file-name="CodeBuilderInterfaces.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="-7.1923075">
+            <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Package.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Package.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Package.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="21" selection-start="2650" selection-end="2650" vertical-scroll-proportion="0.7307692">
+            <state line="158" column="9" selection-start="4395" selection-end="4397" vertical-scroll-proportion="-3.0784314">
               <folding>
                 <element signature="e#6#95#0" expanded="true" />
               </folding>
@@ -88,8 +97,10 @@
       <file leaf-file-name="LudoDBRequestHandler.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBRequestHandler.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="121" column="13" selection-start="4379" selection-end="4384" vertical-scroll-proportion="10.431373">
-              <folding />
+            <state line="28" column="26" selection-start="625" selection-end="631" vertical-scroll-proportion="8.3529415">
+              <folding>
+                <element signature="e#6#205#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -97,7 +108,7 @@
       <file leaf-file-name="router.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/router.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="31" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
+            <state line="7" column="31" selection-start="198" selection-end="198" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
@@ -118,11 +129,12 @@
         <option value="$PROJECT_DIR$/Tests/PackageTests.php" />
         <option value="$PROJECT_DIR$/Tests/CodeBuilderTests.php" />
         <option value="$PROJECT_DIR$/CodeBuilderInterfaces.php" />
-        <option value="$PROJECT_DIR$/LudoJS.php" />
-        <option value="$PROJECT_DIR$/Builder.php" />
         <option value="$PROJECT_DIR$/DHTMLChess.php" />
+        <option value="$PROJECT_DIR$/YUICompressor.php" />
         <option value="$PROJECT_DIR$/Tests/BuilderTests.php" />
         <option value="$PROJECT_DIR$/Package.php" />
+        <option value="$PROJECT_DIR$/Builder.php" />
+        <option value="$PROJECT_DIR$/LudoJS.php" />
       </list>
     </option>
   </component>
@@ -194,7 +206,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+    <navigator proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -205,53 +217,17 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="code-builder" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Tests" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="options.lastSelected" value="Errors" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
+    <property name="options.lastSelected" value="Errors" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ludo-js-manager" />
     <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -276,7 +252,7 @@
       <recent name="C:\www\code-builder" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.shouldRearrangeFiles">
+  <component name="RunManager" selected="PHPUnit.BuilderTests">
     <configuration default="false" name="CodeBuilderTests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="CodeBuilderTests" file="$PROJECT_DIR$/Tests/CodeBuilderTests.php" scope="Class" />
       <RunnerSettings RunnerId="PhpRunner" />
@@ -295,6 +271,12 @@
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <method />
     </configuration>
+    <configuration default="false" name="BuilderTests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="BuilderTests" file="$PROJECT_DIR$/Tests/BuilderTests.php" scope="Class" />
+      <RunnerSettings RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
@@ -305,16 +287,18 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <list size="3">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="PHPUnit.CodeBuilderTests" />
       <item index="1" class="java.lang.String" itemvalue="PHPUnit.PackageTests" />
       <item index="2" class="java.lang.String" itemvalue="PHPUnit.shouldRearrangeFiles" />
+      <item index="3" class="java.lang.String" itemvalue="PHPUnit.BuilderTests" />
     </list>
     <recent_temporary>
-      <list size="3">
-        <item index="0" class="java.lang.String" itemvalue="PHPUnit.shouldRearrangeFiles" />
-        <item index="1" class="java.lang.String" itemvalue="PHPUnit.CodeBuilderTests" />
-        <item index="2" class="java.lang.String" itemvalue="PHPUnit.PackageTests" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.BuilderTests" />
+        <item index="1" class="java.lang.String" itemvalue="PHPUnit.shouldRearrangeFiles" />
+        <item index="2" class="java.lang.String" itemvalue="PHPUnit.CodeBuilderTests" />
+        <item index="3" class="java.lang.String" itemvalue="PHPUnit.PackageTests" />
       </list>
     </recent_temporary>
   </component>
@@ -358,7 +342,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27112675" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33626762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -424,22 +408,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Package.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="1" selection-start="207" selection-end="207" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#6#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBObject.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="916" selection-end="1032" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBInterfaces.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="57" column="7" selection-start="1577" selection-end="1577" vertical-scroll-proportion="0.0">
@@ -456,35 +424,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="6" column="19" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBObject.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="54" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.37777779">
-          <folding />
-        </state>
+        <state line="56" column="54" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.37777779" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/CodeBuilderTests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="-12.423077">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBRequestHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="121" column="13" selection-start="4379" selection-end="4384" vertical-scroll-proportion="10.431373">
+        <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -498,45 +448,75 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="-7.1923075">
+        <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LudoJS.php">
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_8.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="31" selection-start="578" selection-end="578" vertical-scroll-proportion="-1.2307693">
+        <state line="774" column="9" selection-start="24016" selection-end="24016" vertical-scroll-proportion="-3.9615386">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="130" column="20" selection-start="4247" selection-end="4247" vertical-scroll-proportion="-2.8076923">
+        <state line="134" column="13" selection-start="4472" selection-end="4472" vertical-scroll-proportion="-8.961538">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/router.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="31" selection-start="198" selection-end="198" vertical-scroll-proportion="-0.65384614">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBRequestHandler.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="26" selection-start="625" selection-end="631" vertical-scroll-proportion="8.3529415">
+          <folding>
+            <element signature="e#6#205#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YUICompressor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="99" column="9" selection-start="2630" selection-end="2630" vertical-scroll-proportion="-14.153846">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/BuilderTests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="104" column="20" selection-start="2363" selection-end="2363" vertical-scroll-proportion="-1.7058823">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Builder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="13" selection-start="1754" selection-end="1754" vertical-scroll-proportion="-21.666666">
+        <state line="151" column="20" selection-start="3503" selection-end="3503" vertical-scroll-proportion="-3.8846154">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Package.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="21" selection-start="2650" selection-end="2650" vertical-scroll-proportion="0.7307692">
+        <state line="158" column="9" selection-start="4395" selection-end="4397" vertical-scroll-proportion="-3.0784314">
           <folding>
             <element signature="e#6#95#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="20" selection-start="823" selection-end="823" vertical-scroll-proportion="-5.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LudoJS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="239" column="90" selection-start="10903" selection-end="10903" vertical-scroll-proportion="0.47930282">
+          <folding />
         </state>
       </provider>
     </entry>

@@ -19,7 +19,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // given
         $builder = new Builder("ludoJS","build");
         // then
-        $this->assertEquals('ludoJS', $builder->getPackage());
+        $this->assertInstanceOf('ludoJS', $builder->getPackage());
     }
 
     /**
@@ -41,7 +41,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         $ludoJs = new LudoJS();
 
         // then
-        $this->assertEquals('../ludojs/js/ludojs-all.js', $ludoJs->getJSFileName());
+        $this->assertEquals('../ludojs/js/ludojs.js', $ludoJs->getJSFileName());
     }
 
     /**
@@ -108,10 +108,12 @@ class BuilderTests extends PHPUnit_Framework_TestCase
 
         // when
         $files = $ludoJs->getFilesFor(array('View', 'Core'));
-        $posCore = array_search("core.js", $files);
-        $posView = array_search("view.js", $files);
+        $posCore = array_search("../ludojs/src/core.js", $files);
+        $posView = array_search("../ludojs/src/view.js", $files);
 
         // then
+        $this->assertLessThan($posView, $posCore);
+
         $this->assertTrue($posView > $posCore);
 
     }
@@ -126,7 +128,54 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // when
         $files = $ludoJS->getAllJsFiles();
 
+        $this->assertEquals("../ludojs/src/ludo.js", $files[0]);
+        $this->assertTrue(in_array("../ludojs/src/canvas/element.js", $files));
+        $this->assertTrue(in_array("../ludojs/src/view.js", $files));
+    }
 
-        $this->assertEquals(array('alf'), $files);
+    /**
+     * @test
+     */
+    public function shouldGetCssFiles(){
+        // given
+        $ludoJS = new LudoJS();
+
+        // when
+        $cssFiles = $ludoJS->getCssFor("View");
+
+        // then
+        $this->assertEquals(array("../ludojs/css/view.css"), $cssFiles);
+    }
+    /**
+     * @test
+     */
+    public function shouldGetCssFilesForDepending(){
+        // given
+        $ludoJS = new LudoJS();
+
+        // when
+        $cssFiles = $ludoJS->getCssFor("FramedView");
+        // then
+        $this->assertEquals(array("../ludojs/css/view.css"), $cssFiles);
+
+
+        // given
+        $ludoJS = new LudoJS();
+
+        // when
+        $expected = array(
+            "../ludojs/css/view.css",
+            "../ludojs/css/form/form.css",
+            "../ludojs/css/form/text.css"
+        );
+        $cssFiles = $ludoJS->getCssFor('form/Text');
+
+        // then
+        $this->assertEquals($expected, $cssFiles);
+
+    }
+
+    public function shouldGetCssFilesInsideANamespace(){
+
     }
 }
