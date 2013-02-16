@@ -48,10 +48,12 @@ class Builder implements LudoDBService
         $this->minifySkin = true;
 
         $ret = array();
-        $ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
         $ret['js'][] = $this->minifyJS();
+
+        $ret["css"] = $this->buildCSS();
         $ret['css'][] = $this->minifyCss();
+        
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
 
