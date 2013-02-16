@@ -24,7 +24,7 @@ class DHTMLChess extends Package implements PackageInterface
             "view" => array(
                 "notation" => array(
                     'modules' => array(
-                        "Panel"
+                        "Panel" => array("css" => true)
                     )
                 ),
                 "seek" => array(
@@ -35,7 +35,8 @@ class DHTMLChess extends Package implements PackageInterface
                 "board" => array(
                     'modules' => array(
                         "Gui", "Board", "Piece"
-                    )
+                    ),
+                    "css" => true
                 ),
                 "highlight" => array(
                     'modules' => array(
@@ -49,7 +50,7 @@ class DHTMLChess extends Package implements PackageInterface
                 ),
                 "gamelist" => array(
                     "modules" => array(
-                        "Grid"
+                        "Grid" => array("css" => "grid.css")
                     )
                 ),
                 "metadata" => array(
@@ -59,12 +60,12 @@ class DHTMLChess extends Package implements PackageInterface
                 ),
                 "message" => array(
                     "modules" => array(
-                        "TacticsMessage"
+                        "TacticsMessage" => array("css" => true)
                     )
                 ),
                 "dialog" => array(
                     "modules" => array(
-                        "NewGame", "OverwriteMove", "Promote", "Comment", "GameImport"
+                        "NewGame", "OverwriteMove", "Promote" => array("css" => true), "Comment", "GameImport"
                     )
                 ),
                 "button" => array(
@@ -87,13 +88,14 @@ class DHTMLChess extends Package implements PackageInterface
                     "modules" => array("LoginButton", "Controller", "RegisterButton", "LogoutButton", "RegisterWindow", "Panel", "LoginWindow", "SettingsButton", "ProfileWindow", "UserModel")
                 ),
                 "command" => array(
-                    "modules" => array("Line", "Controller", "Panel")
+                    "modules" => array("Line", "Controller", "Panel"),
+                    "css" => true
                 ),
                 "menu-item" => array(
                     "modules" => array("GameImport", "SaveGame", "NewGame")
                 ),
                 "position" => array(
-                    "modules" => array("Board", "Pieces", "Dialog", "Castling", "SideToMove")
+                    "modules" => array("Board", "Pieces", "Dialog" => array("css" => true), "Castling", "SideToMove")
                 )
 
             ),
@@ -128,7 +130,7 @@ class DHTMLChess extends Package implements PackageInterface
         return array(
             array("package" => "LudoJS",
                 "modules" => array(
-                    "View","grid","dialog","form/Text","controller","model","menu","Panel","canvas","remote",
+                    "View","grid","dialog","form/Number","controller","model","menu","Panel","canvas","remote",
                     "form/SubmitButton","form/CancelButton","tree","card",
                     "layout"
                 )

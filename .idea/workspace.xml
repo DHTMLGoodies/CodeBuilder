@@ -23,16 +23,16 @@
       <file leaf-file-name="CodeBuilderTests.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/CodeBuilderTests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
+            <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="-0.65384614">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LudoJS.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="LudoJS.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LudoJS.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="239" column="90" selection-start="10903" selection-end="10903" vertical-scroll-proportion="0.47930282">
+            <state line="295" column="69" selection-start="14846" selection-end="14846" vertical-scroll-proportion="-3.3333333">
               <folding />
             </state>
           </provider>
@@ -41,7 +41,7 @@
       <file leaf-file-name="DHTMLChess.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="13" selection-start="4472" selection-end="4472" vertical-scroll-proportion="-8.961538">
+            <state line="65" column="28" selection-start="1878" selection-end="2075" vertical-scroll-proportion="-3.1176472">
               <folding />
             </state>
           </provider>
@@ -50,7 +50,7 @@
       <file leaf-file-name="BuilderTests.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/BuilderTests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="20" selection-start="3503" selection-end="3503" vertical-scroll-proportion="-3.8846154">
+            <state line="198" column="31" selection-start="4729" selection-end="4729" vertical-scroll-proportion="-7.423077">
               <folding />
             </state>
           </provider>
@@ -59,7 +59,7 @@
       <file leaf-file-name="Builder.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Builder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="20" selection-start="823" selection-end="823" vertical-scroll-proportion="-5.0">
+            <state line="17" column="0" selection-start="367" selection-end="367" vertical-scroll-proportion="-5.6666665">
               <folding />
             </state>
           </provider>
@@ -77,16 +77,16 @@
       <file leaf-file-name="CodeBuilderInterfaces.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="0.0">
+            <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="-7.1923075">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Package.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Package.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Package.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="158" column="9" selection-start="4395" selection-end="4397" vertical-scroll-proportion="-3.0784314">
+            <state line="276" column="40" selection-start="7969" selection-end="7969" vertical-scroll-proportion="0.8405316">
               <folding>
                 <element signature="e#6#95#0" expanded="true" />
               </folding>
@@ -101,15 +101,6 @@
               <folding>
                 <element signature="e#6#205#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="router.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/router.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="31" selection-start="198" selection-end="198" vertical-scroll-proportion="-0.65384614">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -129,12 +120,12 @@
         <option value="$PROJECT_DIR$/Tests/PackageTests.php" />
         <option value="$PROJECT_DIR$/Tests/CodeBuilderTests.php" />
         <option value="$PROJECT_DIR$/CodeBuilderInterfaces.php" />
-        <option value="$PROJECT_DIR$/DHTMLChess.php" />
         <option value="$PROJECT_DIR$/YUICompressor.php" />
-        <option value="$PROJECT_DIR$/Tests/BuilderTests.php" />
-        <option value="$PROJECT_DIR$/Package.php" />
         <option value="$PROJECT_DIR$/Builder.php" />
         <option value="$PROJECT_DIR$/LudoJS.php" />
+        <option value="$PROJECT_DIR$/DHTMLChess.php" />
+        <option value="$PROJECT_DIR$/Tests/BuilderTests.php" />
+        <option value="$PROJECT_DIR$/Package.php" />
       </list>
     </option>
   </component>
@@ -221,13 +212,18 @@
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="recentsLimit" value="5" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
     <property name="options.lastSelected" value="Errors" />
+    <property name="recentsLimit" value="5" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../ludo-js-manager" />
     <property name="GoToClass.includeJavaFiles" value="false" />
-    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PublishConfig">
     <servers>
@@ -252,15 +248,9 @@
       <recent name="C:\www\code-builder" />
     </key>
   </component>
-  <component name="RunManager" selected="PHPUnit.BuilderTests">
+  <component name="RunManager" selected="PHPUnit.shouldGetNameOfModulesInABranch">
     <configuration default="false" name="CodeBuilderTests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
       <TestRunner class="CodeBuilderTests" file="$PROJECT_DIR$/Tests/CodeBuilderTests.php" scope="Class" />
-      <RunnerSettings RunnerId="PhpRunner" />
-      <ConfigurationWrapper RunnerId="PhpRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="PackageTests" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
-      <TestRunner class="PackageTests" file="$PROJECT_DIR$/Tests/BuilderTests.php" scope="Class" />
       <RunnerSettings RunnerId="PhpRunner" />
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <method />
@@ -277,6 +267,18 @@
       <ConfigurationWrapper RunnerId="PhpRunner" />
       <method />
     </configuration>
+    <configuration default="false" name="shouldGetCssFilesInsideANamespace" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="BuilderTests" file="$PROJECT_DIR$/Tests/BuilderTests.php" method="shouldGetCssFilesInsideANamespace" scope="Method" />
+      <RunnerSettings RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="shouldGetNameOfModulesInABranch" type="PHPUnitRunConfigurationType" factoryName="PHPUnit" temporary="true">
+      <TestRunner class="BuilderTests" file="$PROJECT_DIR$/Tests/BuilderTests.php" method="shouldGetNameOfModulesInABranch" scope="Method" />
+      <RunnerSettings RunnerId="PhpRunner" />
+      <ConfigurationWrapper RunnerId="PhpRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
       <TestRunner />
       <method />
@@ -287,18 +289,20 @@
     <configuration default="true" type="PhpUnitRemoteRunConfigurationType" factoryName="PHPUnit on Server">
       <method />
     </configuration>
-    <list size="4">
+    <list size="5">
       <item index="0" class="java.lang.String" itemvalue="PHPUnit.CodeBuilderTests" />
-      <item index="1" class="java.lang.String" itemvalue="PHPUnit.PackageTests" />
-      <item index="2" class="java.lang.String" itemvalue="PHPUnit.shouldRearrangeFiles" />
-      <item index="3" class="java.lang.String" itemvalue="PHPUnit.BuilderTests" />
+      <item index="1" class="java.lang.String" itemvalue="PHPUnit.shouldRearrangeFiles" />
+      <item index="2" class="java.lang.String" itemvalue="PHPUnit.BuilderTests" />
+      <item index="3" class="java.lang.String" itemvalue="PHPUnit.shouldGetCssFilesInsideANamespace" />
+      <item index="4" class="java.lang.String" itemvalue="PHPUnit.shouldGetNameOfModulesInABranch" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="PHPUnit.BuilderTests" />
-        <item index="1" class="java.lang.String" itemvalue="PHPUnit.shouldRearrangeFiles" />
-        <item index="2" class="java.lang.String" itemvalue="PHPUnit.CodeBuilderTests" />
-        <item index="3" class="java.lang.String" itemvalue="PHPUnit.PackageTests" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="PHPUnit.shouldGetNameOfModulesInABranch" />
+        <item index="1" class="java.lang.String" itemvalue="PHPUnit.shouldGetCssFilesInsideANamespace" />
+        <item index="2" class="java.lang.String" itemvalue="PHPUnit.BuilderTests" />
+        <item index="3" class="java.lang.String" itemvalue="PHPUnit.shouldRearrangeFiles" />
+        <item index="4" class="java.lang.String" itemvalue="PHPUnit.CodeBuilderTests" />
       </list>
     </recent_temporary>
   </component>
@@ -337,12 +341,12 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17204301" sideWeight="0.99823946" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33626762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33626762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -408,20 +412,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBInterfaces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="7" selection-start="1577" selection-end="1577" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="198" selection-end="198" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.htaccess">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="19" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" />
@@ -434,7 +424,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Tests/CodeBuilderTests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="0.0">
+        <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="-0.65384614">
           <folding />
         </state>
       </provider>
@@ -446,23 +436,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/com/jetbrains/php/lang/psi/stubs/data/standard_8.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="774" column="9" selection-start="24016" selection-end="24016" vertical-scroll-proportion="-3.9615386">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="134" column="13" selection-start="4472" selection-end="4472" vertical-scroll-proportion="-8.961538">
           <folding />
         </state>
       </provider>
@@ -490,33 +466,61 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/BuilderTests.php">
+    <entry file="file://$PROJECT_DIR$/../ludojs/css/resize.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="20" selection-start="3503" selection-end="3503" vertical-scroll-proportion="-3.8846154">
+        <state line="9" column="31" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Package.php">
+    <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="158" column="9" selection-start="4395" selection-end="4397" vertical-scroll-proportion="-3.0784314">
-          <folding>
-            <element signature="e#6#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Builder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="20" selection-start="823" selection-end="823" vertical-scroll-proportion="-5.0">
+        <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="-7.1923075">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LudoJS.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="239" column="90" selection-start="10903" selection-end="10903" vertical-scroll-proportion="0.47930282">
+        <state line="295" column="69" selection-start="14846" selection-end="14846" vertical-scroll-proportion="-3.3333333">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dhtml-chess/css/chess.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="9" selection-start="454" selection-end="454" vertical-scroll-proportion="-6.7686276">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="65" column="28" selection-start="1878" selection-end="2075" vertical-scroll-proportion="-3.1176472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Tests/BuilderTests.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="198" column="31" selection-start="4729" selection-end="4729" vertical-scroll-proportion="-7.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="0" selection-start="367" selection-end="367" vertical-scroll-proportion="-5.6666665">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Package.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="276" column="40" selection-start="7969" selection-end="7969" vertical-scroll-proportion="0.8405316">
+          <folding>
+            <element signature="e#6#95#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

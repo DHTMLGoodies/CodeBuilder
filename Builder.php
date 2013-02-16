@@ -129,6 +129,16 @@ class Builder implements LudoDBService
 
     public function minify()
     {
+        $ret = $this->build();
+
+        $ret[] = $this->minifyJS();
+
+        $ret[]  =$this->minifyCss();
+
+        return $ret;
+    }
+
+    private function minifyJS(){
         $files = $this->package->getAllJsFiles();
 
         $js = $this->getJSfromDependingPackages($this->package);
@@ -140,9 +150,11 @@ class Builder implements LudoDBService
         if(!strlen($js)){
             throw new LudoDBException("Minify failed");
         }
-        file_put_contents($this->package->getJSFileNameMinified(), $js);
+        $fn = $this->package->getJSFileNameMinified();
+        file_put_contents($fn, $js);
 
-        $this->minifyCss();
+        return array('file' => $fn, 'size' => filesize($fn));
+
     }
 
     private function minifyCss(){
@@ -152,7 +164,9 @@ class Builder implements LudoDBService
         if(!strlen($css)){
             throw new LudoDBException("Minify failed");
         }
-        file_put_contents($this->package->getCSSFileNameMinified(), $css);
+        $fn = $this->package->getCSSFileNameMinified();
+        file_put_contents($fn, $css);
+        return array('file' => $fn, 'size' => filesize($fn));
 
     }
 

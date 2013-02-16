@@ -46,7 +46,8 @@ class Package
         return array();
     }
 
-    protected function getRootFolder(){
+    protected function getRootFolder()
+    {
         return "";
     }
 
@@ -62,12 +63,14 @@ class Package
         return $folder . "/" . strtolower($this->getName()) . "-minified.js";
     }
 
-    public function getCSSFileName(){
+    public function getCSSFileName()
+    {
         $folder = implode("/", array($this->getRootFolder() . "css"));
         return $folder . "/" . strtolower($this->getName()) . ".css";
     }
 
-    public function getCSSFileNameMinified(){
+    public function getCSSFileNameMinified()
+    {
         $folder = implode("/", array($this->getRootFolder() . "css"));
         return $folder . "/" . strtolower($this->getName()) . "-minified.css";
     }
@@ -98,7 +101,8 @@ class Package
         return $currentModule;
     }
 
-    public function getAllCssFiles(){
+    public function getAllCssFiles()
+    {
         return $this->getCSSFor($this->getRootNodes());
     }
 
@@ -123,42 +127,60 @@ class Package
         $ret = array();
 
         foreach ($modules as $moduleName) {
-            if ($this->isModule($moduleName)) {
-                $module = $this->getAModule($moduleName);
-
-                if ($this->isNamespace($moduleName)) {
-                    $ret = array_merge($ret, $this->getCssFor($this->getModuleKeys($moduleName, $module), false));
-                } else {
-
-                    if (is_array($module) && isset($module['dependencies'])) {
-                        $deps = $this->getDependenciesInRightOrder($module);
-                        foreach ($deps as $dependency) {
-                            if (!$this->isFile($dependency)) {
-                                $ret = array_merge($ret, $this->getCssFor(array($dependency), false));
-                            }
-                        }
-                    }
-                    if (is_array($module) && isset($module['css'])) {
-                        if (is_string($module['css'])) {
-                            $ret[] = $this->getFolder($moduleName) . $module['css'];
-                        } else {
-                            foreach($module['css'] as $cssFile){
-                                $ret[] = $this->getFolder($moduleName) . $cssFile;
-                            }
+            $module = $this->getAModule($moduleName);
+            if ($this->isNamespace($moduleName)) {
+                $ret = array_merge($ret, $this->getCssFromNode($moduleName, $module));
+                $ret = array_merge($ret, $this->getCssFor($this->getModuleKeys($moduleName, $module), false));
+            } else if ($this->isModule($moduleName)) {
+                if (is_array($module) && isset($module['dependencies'])) {
+                    $deps = $this->getDependenciesInRightOrder($module);
+                    foreach ($deps as $dependency) {
+                        if (!$this->isFile($dependency)) {
+                            $ret = array_merge($ret, $this->getCssFor(array($dependency), false));
                         }
                     }
                 }
+
+                $ret = array_merge($ret, $this->getCssFromNode($moduleName, $module));
             }
         }
-        if($firstRun){
+        if ($firstRun) {
             $ret = $this->toCssPaths($ret);
         }
         return $ret;
     }
 
-    private function toCssPaths($files){
+    private function getCssFromNode($name, $node)
+    {
+        $ret = array();
+        if (is_array($node) && isset($node['css'])) {
+            if (is_bool($node['css'])) {
+                $node['css'] = $this->getFileName($name) . ".css";
+            }
+            if (is_string($node['css'])) {
+                $ret[] = $this->getFolder($name) . $node['css'];
+            } else {
+                foreach ($node['css'] as $cssFile) {
+                    $ret[] = $this->getFolder($name) . $cssFile;
+                }
+            }
+        }
+        return $ret;
+
+    }
+
+    private function getFileName($modulePath)
+    {
+        $ret = array_pop(explode("/", $modulePath));
+        $ret = preg_replace("/([A-Z])/s", "-$1", $ret);
+        $ret = trim($ret, "-");
+        return strtolower($ret);
+    }
+
+    private function toCssPaths($files)
+    {
         $files = array_unique($files);
-        foreach($files as & $file){
+        foreach ($files as & $file) {
             $file = $this->getRootFolder() . $this->getCSSFolder() . $file;
         }
         return $files;
@@ -166,7 +188,6 @@ class Package
 
     public function getFilesFor(array $modules, $firstRun = true)
     {
-
         $ret = array();
         foreach ($modules as $moduleName) {
             $module = $this->getAModule($moduleName);
@@ -221,18 +242,21 @@ class Package
         return array_values($files);
     }
 
-    private function getModuleKeys($namespace, $module)
+    public function getModuleKeys($namespace, $module)
     {
 
         if (is_string($module)) return array();
         if (is_array($module) && !isset($module['modules'])) {
             $ret = array_keys($module);
         } else {
-            if ($this->isMultiDimensional($module['modules'])) {
-                $ret = array_keys($module['modules']);
-            } else {
-                $ret = $module['modules'];
+            $ret = array();
+            if(is_string($module['modules'])){
+                $module['modules'] = array($module['modules']);
             }
+            foreach($module['modules'] as $key=>$value){
+                $ret[] = is_array($value) ? $key : $value;
+            }
+
         }
         if (!is_array($ret)) {
             $ret = array($ret);
@@ -241,14 +265,6 @@ class Package
             $value = $namespace . "/" . $value;
         }
         return $ret;
-    }
-
-    private function isMultiDimensional($array)
-    {
-        if (count($array) == count($array, COUNT_RECURSIVE)) {
-            return false;
-        }
-        return true;
     }
 
     private function toFileName($item)
@@ -264,7 +280,12 @@ class Package
     private function getFolder($item)
     {
         if (strstr($item, "/")) {
-            return array_shift(explode("/", $item)) . "/";
+            $tokens = explode("/", $item);
+            $lastItem = array_pop($tokens);
+            if(!$this->isModule($lastItem)){
+                $tokens[] = $lastItem;
+            }
+            return implode("/", $tokens) . "/";
         }
         return "";
     }
@@ -274,7 +295,8 @@ class Package
         return strstr($item, ".");
     }
 
-    public function getExternalModuleDependencies(){
+    public function getExternalModuleDependencies()
+    {
         return array();
     }
 }

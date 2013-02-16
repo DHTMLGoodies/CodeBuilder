@@ -50,12 +50,12 @@ class LudoJS extends Package implements PackageInterface
                 'modules' => array(
                     'Factory' => array('dependencies' => array(), 'hidden' => true),
                     'Resizer' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'Base' => array('dependencies' => array('layout/Resizer', 'layout/TextBox'), 'hidden' => true),
+                    'Base' => array('dependencies' => array('layout/Resizer', 'layout/TextBox'), 'hidden' => true, array("collapse-bar.css")),
                     'Linear' => array('dependencies' => array('layout/Base'), 'hidden' => true),
                     'LinearHorizontal' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
                     'LinearVertical' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
                     'Card' => array('dependencies' => array('layout/Base'), 'hidden' => false),
-                    'Tab' => array('dependencies' => array('layout/Relative', 'layout/TabStrip'), 'hidden' => false),
+                    'Tab' => array('dependencies' => array('layout/Relative', 'layout/TabStrip'), 'hidden' => false, "css" => array("tab.css")),
                     'Fill' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Grid' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Popup' => array('dependencies' => array('layout/Base'), 'hidden' => false),
@@ -78,7 +78,7 @@ class LudoJS extends Package implements PackageInterface
                     'layout/Factory',
                     'layout/Base'
                 ),
-                'css' => array('view.css')
+                'css' => array('view.css','resize.css')
             ),
             'Notification' => array(
                 'dependencies' => array('View')
@@ -95,16 +95,16 @@ class LudoJS extends Package implements PackageInterface
                 'dependencies' => array('FramedView')
             ),
             'Window' => array(
-                'dependencies' => array('FramedView')
+                'dependencies' => array('FramedView'),'css' => 'window.css'
             ),
             'Accordion' => array(
-                'dependencies' => array('FramedView')
+                'dependencies' => array('FramedView'),'css' => true
             ),
             'grid' => array(
                 'modules' => array(
                     'Grid' => array('dependencies' => array(
                         'View', 'scroller.js', 'grid/grid-header.js', 'grid/ColumnMove', 'col-resize.js', 'grid/column-manager.js', 'grid/row-manager.js', 'data-source/Collection'
-                    ), 'css' => array('grid/grid.css')),
+                    ), 'css' => array('grid.css')),
                     'ColumnMove' => array('hidden' => true, 'dependencies' => array('effect/DragDrop')),
                 )
             ),
@@ -119,7 +119,7 @@ class LudoJS extends Package implements PackageInterface
             ),
             'calendar' => array(
                 'modules' => array(
-                    'Base' => array('dependencies' => array('View'), 'hidden' => true),
+                    'Base' => array('dependencies' => array('View'), 'hidden' => true, 'css' => 'calendar.css'),
                     'Calendar' => array('dependencies' => array('calendar/Base')),
                     'Days' => array('dependencies' => array('calendar/Base')),
                     'NavBar' => array('dependencies' => array('calendar/Base')),
@@ -162,18 +162,18 @@ class LudoJS extends Package implements PackageInterface
             ),
             'menu' => array(
                 'modules' => array(
-                    'MenuItem' => array('dependencies' => array('View', 'menu/MenuHandler')),
+                    'MenuItem' => array('dependencies' => array('View', 'menu/MenuHandler'),'css' => 'menu.css'),
                     'Menu' => array('dependencies' => array('View', 'menu/MenuHandler', 'menu/MenuItem')),
                     'Context' => array('dependencies' => array('menu/Menu')),
                     'DropDown' => array('dependencies' => array('menu/Menu')),
                     'MenuHandler' => array('hidden' => true),
-                    'Button' => array('dependencies' => array('View')),
+                    'Button' => array('dependencies' => array('View'),'css' => 'button.css'),
                 )
             ),
             'tree' => array(
                 'modules' => array(
                     'Tree' => array(
-                        'dependencies' => array('View')
+                        'dependencies' => array('View'),'css' => 'tree.css'
                     ),
                     'DragDrop' => array(
                         'dependencies' => array('Movable', 'tree/Modifications')
@@ -239,28 +239,28 @@ class LudoJS extends Package implements PackageInterface
                     'LabelElement' => array('dependencies' => array('form/Element'), 'hidden' => true),
                     'Button' => array('dependencies' => array('form/Element'), "css" => "button.css"),
                     'ToggleGroup' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'TinyButton' => array('dependencies' => array('form/Button')),
+                    'TinyButton' => array('dependencies' => array('form/Button'),"css" => "tiny-button.css"),
                     'SubmitButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'CancelButton' => array('dependencies' => array('form/Button')),
                     'ResetButton' => array('dependencies' => array('form/Button', 'form/Manager')),
-                    'Combo' => array('dependencies' => array('form/Element')),
+                    'Combo' => array('dependencies' => array('form/Element'), "css" => "combo.css"),
                     'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree')),
                     'Hidden' => array('dependencies' => array('form/Element')),
                     'Text' => array('dependencies' => array('form/LabelElement'), 'css' => 'text.css'),
                     'Textarea' => array('dependencies' => array('form/Text')),
                     'DisplayField' => array('dependencies' => array('form/Element')),
                     'Checkbox' => array('dependencies' => array('form/Element')),
-                    'Radio' => array('dependencies' => array('form/Element')),
+                    'Radio' => array('dependencies' => array('form/Element'), "css" => "radio.css"),
                     'Manager' => array('dependencies' => array('Core')),
                     'Password' => array('dependencies' => array('form/Text', 'external/Md5')),
                     'Number' => array('dependencies' => array('form/Text')),
                     'Email' => array('dependencies' => array('form/Text')),
-                    'Spinner' => array('dependencies' => array('form/Text')),
+                    'Spinner' => array('dependencies' => array('form/Text'), "css" => "spinner.css"),
                     'Select' => array('dependencies' => array('form/LabelElement')),
                     'FilterText' => array('dependencies' => array('form/Text')),
                     'RadioGroup' => array('dependencies' => array('form/Element', 'form/Checkbox')),
-                    'File' => array('dependencies' => array('form/Element', 'form/LabelElement')),
-                    'Slider' => array('dependencies' => array('form/LabelElement', 'form/LabelElement', 'effect/Drag')),
+                    'File' => array('dependencies' => array('form/Element', 'form/LabelElement'), "css" => "file.css"),
+                    'Slider' => array('dependencies' => array('form/LabelElement', 'form/LabelElement', 'effect/Drag'), "css" => "slider.css"),
                     'SearchField' => array('dependencies' => array('form/Text')),
                 ),
                 'validator' => array(
@@ -293,16 +293,17 @@ class LudoJS extends Package implements PackageInterface
                 'css' => array('Panel.css')
             ),
             'Anchor' => array(
-                'dependencies' => array('View')
+                'dependencies' => array('View'),'css' => 'anchor.css'
             ),
             'dialog' => array(
                 'modules' => array(
-                    'Dialog' => array('dependencies' => array('Window')),
+                    'Dialog' => array('dependencies' => array('Window'), 'css' => 'dialog.css'),
                     'Confirm' => array('dependencies' => array('dialog/Dialog')),
                     'Alert' => array('dependencies' => array('dialog/Dialog')),
                     'Prompt' => array('dependencies' => array('dialog/Dialog', 'form/Text')),
                     'Form' => array('dependencies' => array('dialog/Dialog', 'form/Text')),
-                )
+                ),
+
             ),
             'video' => array(
                 'modules' => array(

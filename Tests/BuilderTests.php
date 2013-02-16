@@ -175,7 +175,34 @@ class BuilderTests extends PHPUnit_Framework_TestCase
 
     }
 
+    /**
+     * @test
+     */
     public function shouldGetCssFilesInsideANamespace(){
+        // given
+        $ludoJS = new LudoJS();
+
+        // when
+        $cssFiles = $ludoJS->getCssFor("grid");
+        // then
+        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/grid/grid.css"), $cssFiles);
+    }
+
+    /**
+     * @test
+     */
+    public function shouldGetNameOfModulesInABranch(){
+        // given
+        $obj = new LudoJS();
+        $expected = array("NewGame", "OverwriteMove", "Promote","Comment", "GameImport");
+        $names = $obj->getModuleKeys("", array(
+            "modules" => array(
+                "NewGame", "OverwriteMove", "Promote" => array("css" => true), "Comment", "GameImport"
+            )
+        ));
+        $this->assertEquals($expected, $names);
+
+        // public function getModuleKeys($namespace, $module)
 
     }
 }
