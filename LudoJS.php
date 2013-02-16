@@ -346,4 +346,13 @@ class LudoJS extends Package implements PackageInterface
     public function getExternalModuleDependencies(){
         return array();
     }
+
+    public function getCssSkins(){
+        return array(
+            "blue" =>  "ludo-all-blue-skin.css",
+            "gray" =>  "ludo-all-gray-skin.css",
+            "light-gray" =>  "ludo-all-light-gray-skin.css",
+            "ocean" =>  "ludo-all-ocean-skin.css"
+        );
+    }
 }

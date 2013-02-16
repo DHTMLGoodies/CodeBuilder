@@ -194,7 +194,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
     public function shouldGetNameOfModulesInABranch(){
         // given
         $obj = new LudoJS();
-        $expected = array("NewGame", "OverwriteMove", "Promote","Comment", "GameImport");
+        $expected = array("/NewGame", "/OverwriteMove", "/Promote","/Comment", "/GameImport");
         $names = $obj->getModuleKeys("", array(
             "modules" => array(
                 "NewGame", "OverwriteMove", "Promote" => array("css" => true), "Comment", "GameImport"

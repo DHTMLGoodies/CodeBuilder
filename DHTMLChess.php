@@ -5,7 +5,7 @@
  * Date: 16.02.13
  * Time: 01:57
  */
-class DHTMLChess extends Package implements PackageInterface
+class DhtmlChess extends Package implements PackageInterface
 {
     public function getRootFolder()
     {
@@ -130,12 +130,16 @@ class DHTMLChess extends Package implements PackageInterface
         return array(
             array("package" => "LudoJS",
                 "modules" => array(
-                    "View","grid","dialog","form/Number","controller","model","menu","Panel","canvas","remote",
-                    "form/SubmitButton","form/CancelButton","tree","card",
+                    "View","Application", "grid","dialog","form/Password", "form/Email", "form/Number", "form/Checkbox", "controller","model","menu","Panel","canvas","remote",
+                    "form/SubmitButton","form/CancelButton","form/ResetButton", "tree","card",
                     "layout"
                 )
             )
 
         );
+    }
+
+    public function getCssSkins(){
+        return array();
     }
 }

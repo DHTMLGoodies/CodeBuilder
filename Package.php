@@ -14,6 +14,8 @@ class Package
     public function __construct()
     {
         $this->name = get_class($this);
+        $this->name = preg_replace("/([A-Z][a-z])/s", "-$1", $this->name);
+        $this->name = trim(strtolower($this->name), "-");
     }
 
     public function getName()
@@ -63,10 +65,11 @@ class Package
         return $folder . "/" . strtolower($this->getName()) . "-minified.js";
     }
 
-    public function getCSSFileName()
+    public function getCSSFileName($skinName = null)
     {
+        if(isset($skinName))$skinName = "-".$skinName;
         $folder = implode("/", array($this->getRootFolder() . "css"));
-        return $folder . "/" . strtolower($this->getName()) . ".css";
+        return $folder . "/" . strtolower($this->getName()) . $skinName . ".css";
     }
 
     public function getCSSFileNameMinified()
@@ -288,6 +291,19 @@ class Package
             return implode("/", $tokens) . "/";
         }
         return "";
+    }
+
+    public function getCssSkinFiles(){
+        $skins = $this->getCssSkins();
+        $ret = array();
+        foreach($skins as $name=>&$file){
+            $ret[$name] = $this->getRootFolder().$this->getCSSFolder()."skin/". $file;
+        }
+        return $ret;
+    }
+
+    public function getCssSkins(){
+        return array();
     }
 
     private function isFile($item)

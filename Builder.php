@@ -8,6 +8,7 @@
 class Builder implements LudoDBService
 {
     private $package;
+    private $minifySkin = false;
 
     public function __construct()
     {
@@ -30,67 +31,161 @@ class Builder implements LudoDBService
     public function build()
     {
         $ret = array();
-        $ret[] = $this->buildCSS();
-        $ret[] = $this->buildJS();
+        $ret["css"] = $this->buildCSS();
+        $ret["js"] = $this->buildJS();
         return $ret;
 
     }
 
-    private function buildJS(){
+    private function buildJS()
+    {
         $files = $this->package->getAllJsFiles();
         $toFile = $this->package->getJSFileName();
         $fh = fopen($toFile, "w");
-        fwrite($fh, $this->getJSfromDependingPackages($this->package));
+        fwrite($fh, $this->getJSFromDependingPackages($this->package));
         fwrite($fh, $this->getFileContent($files));
         fclose($fh);
-        return array("file" => $toFile, "size" => filesize($toFile));
+        return array(
+            array("file" => $toFile, "size" => filesize($toFile))
+        );
     }
 
-    private function buildCSS(){
+    private function buildCSS()
+    {
         $toFile = $this->package->getCSSFileName();
-        file_put_contents($toFile, $this->getAllCss($this->package));
-        return array("file" => $toFile, "size" => filesize($toFile));
+        $css = $this->getAllCss($this->package);
+        file_put_contents($toFile, $css);
 
-        // getCSSFileName
+        $ret = $this->buildSkinCss($this->package, $css);
+        $dependencies = $this->getDependingPackages();
+        foreach ($dependencies as $package) {
+            $ret = array_merge($ret, $this->buildSkinCss($package, $css));
+        }
+        $ret[] = array("file" => $toFile, "size" => filesize($toFile));
+        return $ret;
     }
 
-    private function getAllCss(Package $package){
+    private function buildSkinCss(Package $package, $css = null)
+    {
+        $ret = array();
+        if (!isset($css)) $css = $this->getAllCss($this->package);
+        $css = Minify_YUICompressor::minifyCss($css);
+        $skins = $package->getCssSkinFiles();
+        foreach ($skins as $name => $file) {
+            $fn = $this->package->getCSSFileName($name);
+            $content = file_get_contents($file);
+            if ($package->getName() !== $this->package->getName()) {
+                $content = $this->copyImageFiles($content, $package);
+            }
+            if($this->minifySkin)$content = Minify_YUICompressor::minifyCss($content);
+            file_put_contents($fn, $css . $content);
+            $ret[] = array("file" => $fn, "size" => filesize($fn));
+        }
+        return $ret;
+
+    }
+
+    private function copyImageFiles($css, Package $package)
+    {
+        preg_match_all("/url\(([^\)]+?)\)/si", $css, $matches, PREG_SET_ORDER);
+        foreach ($matches as $match) {
+            $file = $match[1];
+            $file = preg_replace("/[^0-9\-a-z\._\/]/si", "", $file);
+            $localPath = str_replace("../images", "../" . $this->package->getName() . "/" . $package->getName() . "/images", $file);
+            $remotePath = str_replace("../images", "../" . $package->getName() . "/images", $file);
+            $replacePath = str_replace("../images", "../"  . $package->getName() . "/images", $file);
+            if(strstr($file,".")){
+                if (file_exists($remotePath)) {
+                    $this->copyImageFile($remotePath, $localPath);
+                }
+                $css = str_replace($file, $replacePath, $css);
+            }
+        }
+        return $css;
+
+    }
+
+    private function copyImageFile($from, $to)
+    {
+
+        $tokens = explode("/", $to);
+        $current = "";
+        array_pop($tokens);
+        foreach ($tokens as $token) {
+            $current .= $token . "/";
+            if (!file_exists($current)) {
+                mkdir($current, 0775);
+            }
+        }
+
+        if (!is_dir($to) && !is_dir($from)) {
+
+            if (!copy($from, $to)) {
+                echo "$from to $to failed\n";
+            }
+        }
+    }
+
+    private function getDependingPackages()
+    {
+        $dependencies = $this->package->getExternalModuleDependencies();
+        $ret = array();
+        if (is_array($dependencies)) {
+            foreach ($dependencies as $dep) {
+                if (!isset($dep['package']) || !isset($dep['modules'])) {
+                    throw new LudoDBException("Invalid dependency configuration");
+                }
+                $instance = $this->getPackageClass($dep['package']);
+                $ret[] = $instance;
+            }
+        }
+        return $ret;
+
+    }
+
+    private function getAllCss(Package $package)
+    {
         $ret = "";
 
         $files = $package->getAllCssFiles();
 
-        $ret .= $this->getCssFromDependingPackages($package);;
-        $ret .= $this->getFileContent($files);;
+        $ret .= $this->getCssFromDependingPackages($package);
+        $ret .= $this->getFileContent($files);
+
 
         return $ret;
-
     }
 
-    private function getCssFromDependingPackages(Package $object){
+    private function getCssFromDependingPackages(Package $object)
+    {
         $ret = "";
         $dependencies = $object->getExternalModuleDependencies();
-        if(is_array($dependencies)){
-            foreach($dependencies as $dep){
-                if(!isset($dep['package']) || !isset($dep['modules'])){
+        if (is_array($dependencies)) {
+            foreach ($dependencies as $dep) {
+                if (!isset($dep['package']) || !isset($dep['modules'])) {
                     throw new LudoDBException("Invalid dependency configuration");
                 }
                 $instance = $this->getPackageClass($dep['package']);
                 $files = $instance->getCSSFor($dep['modules']);
-                $ret .= $this->getFileContent($files);
+                $content = $this->getFileContent($files);
+
+                $ret .= $this->copyImageFiles($content, $instance);
             }
         }
+
         return $ret;
     }
 
-    private function getJSfromDependingPackages(Package $object){
+    private function getJSFromDependingPackages(Package $object)
+    {
         $ret = "";
 
         $dependencies = $object->getExternalModuleDependencies();
 
-        if(is_array($dependencies)){
+        if (is_array($dependencies)) {
 
-            foreach($dependencies as $dep){
-                if(!isset($dep['package']) || !isset($dep['modules'])){
+            foreach ($dependencies as $dep) {
+                if (!isset($dep['package']) || !isset($dep['modules'])) {
                     throw new LudoDBException("Invalid dependency configuration");
                 }
                 $instance = $this->getPackageClass($dep['package']);
@@ -102,13 +197,14 @@ class Builder implements LudoDBService
         return $ret;
     }
 
-    private function getFileContent($files){
+    private function getFileContent($files)
+    {
         $ret = "";
-        foreach($files as $file){
-            if(!file_exists($file)){
+        foreach ($files as $file) {
+            if (!file_exists($file)) {
                 throw new LudoDBException("File $file not found");
             }
-            $ret .= "// $file\n";
+            $ret .= "/* $file */\n";
             $ret .= file_get_contents($file);
         }
         return $ret;
@@ -118,8 +214,9 @@ class Builder implements LudoDBService
      * @param $name
      * @return Package
      */
-    private function getPackageClass($name){
-        if(!class_exists($name)){
+    private function getPackageClass($name)
+    {
+        if (!class_exists($name)) {
             throw new Exception("$name does not exists");
         }
         return new $name;
@@ -129,25 +226,26 @@ class Builder implements LudoDBService
 
     public function minify()
     {
+        $this->minifySkin = true;
         $ret = $this->build();
 
-        $ret[] = $this->minifyJS();
-
-        $ret[]  =$this->minifyCss();
+        $ret['js'][] = $this->minifyJS();
+        $ret['css'][] = $this->minifyCss();
 
         return $ret;
     }
 
-    private function minifyJS(){
+    private function minifyJS()
+    {
         $files = $this->package->getAllJsFiles();
 
-        $js = $this->getJSfromDependingPackages($this->package);
+        $js = $this->getJSFromDependingPackages($this->package);
         $js .= $this->getFileContent($files);
 
 
         $js = Minify_YUICompressor::minifyJs($js);
 
-        if(!strlen($js)){
+        if (!strlen($js)) {
             throw new LudoDBException("Minify failed");
         }
         $fn = $this->package->getJSFileNameMinified();
@@ -157,11 +255,12 @@ class Builder implements LudoDBService
 
     }
 
-    private function minifyCss(){
+    private function minifyCss()
+    {
         $css = $this->getAllCss($this->package);
         $css = Minify_YUICompressor::minifyCss($css);
 
-        if(!strlen($css)){
+        if (!strlen($css)) {
             throw new LudoDBException("Minify failed");
         }
         $fn = $this->package->getCSSFileNameMinified();

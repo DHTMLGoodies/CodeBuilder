@@ -20,19 +20,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="CodeBuilderTests.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Tests/CodeBuilderTests.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="-0.65384614">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="LudoJS.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LudoJS.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="295" column="69" selection-start="14846" selection-end="14846" vertical-scroll-proportion="-3.3333333">
+            <state line="337" column="13" selection-start="17496" selection-end="17496" vertical-scroll-proportion="-6.3076925">
               <folding />
             </state>
           </provider>
@@ -41,7 +32,7 @@
       <file leaf-file-name="DHTMLChess.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="28" selection-start="1878" selection-end="2075" vertical-scroll-proportion="-3.1176472">
+            <state line="12" column="5" selection-start="240" selection-end="240" vertical-scroll-proportion="-4.0">
               <folding />
             </state>
           </provider>
@@ -50,16 +41,16 @@
       <file leaf-file-name="BuilderTests.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tests/BuilderTests.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="31" selection-start="4729" selection-end="4729" vertical-scroll-proportion="-7.423077">
+            <state line="200" column="13" selection-start="4851" selection-end="4851" vertical-scroll-proportion="-8.730769">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Builder.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Builder.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Builder.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="367" selection-end="367" vertical-scroll-proportion="-5.6666665">
+            <state line="79" column="15" selection-start="2405" selection-end="2405" vertical-scroll-proportion="0.6080508">
               <folding />
             </state>
           </provider>
@@ -68,7 +59,7 @@
       <file leaf-file-name="YUICompressor.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/YUICompressor.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="99" column="9" selection-start="2630" selection-end="2630" vertical-scroll-proportion="-14.153846">
+            <state line="44" column="26" selection-start="1113" selection-end="1121" vertical-scroll-proportion="-3.0784314">
               <folding />
             </state>
           </provider>
@@ -77,16 +68,16 @@
       <file leaf-file-name="CodeBuilderInterfaces.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="-7.1923075">
+            <state line="18" column="4" selection-start="299" selection-end="328" vertical-scroll-proportion="-8.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Package.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Package.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Package.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="276" column="40" selection-start="7969" selection-end="7969" vertical-scroll-proportion="0.8405316">
+            <state line="17" column="24" selection-start="340" selection-end="340" vertical-scroll-proportion="-2.0">
               <folding>
                 <element signature="e#6#95#0" expanded="true" />
               </folding>
@@ -119,13 +110,14 @@
         <option value="$PROJECT_DIR$/router.php" />
         <option value="$PROJECT_DIR$/Tests/PackageTests.php" />
         <option value="$PROJECT_DIR$/Tests/CodeBuilderTests.php" />
-        <option value="$PROJECT_DIR$/CodeBuilderInterfaces.php" />
         <option value="$PROJECT_DIR$/YUICompressor.php" />
-        <option value="$PROJECT_DIR$/Builder.php" />
+        <option value="$PROJECT_DIR$/Tests/BuilderTests.php" />
+        <option value="$PROJECT_DIR$/CodeBuilderInterfaces.php" />
         <option value="$PROJECT_DIR$/LudoJS.php" />
         <option value="$PROJECT_DIR$/DHTMLChess.php" />
-        <option value="$PROJECT_DIR$/Tests/BuilderTests.php" />
         <option value="$PROJECT_DIR$/Package.php" />
+        <option value="$PROJECT_DIR$/../dhtml-chess/css/dhtml-chess-light-gray.css" />
+        <option value="$PROJECT_DIR$/Builder.php" />
       </list>
     </option>
   </component>
@@ -197,7 +189,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -208,7 +200,43 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-builder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-builder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-builder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-builder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="code-builder" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Tests" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
@@ -216,7 +244,7 @@
     <property name="options.lastSelected" value="Errors" />
     <property name="recentsLimit" value="5" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ludo-js-manager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chess-builder-old" />
     <property name="GoToClass.includeJavaFiles" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
@@ -339,19 +367,19 @@
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.28873238" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.17204301" sideWeight="0.99823946" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17204301" sideWeight="0.7112676" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33626762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33626762" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -412,23 +440,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/.htaccess">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="19" selection-start="216" selection-end="216" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBObject.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="54" selection-start="1255" selection-end="1255" vertical-scroll-proportion="0.37777779" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Tests/CodeBuilderTests.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="5" selection-start="437" selection-end="437" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBInterfaces.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="71" column="0" selection-start="1872" selection-end="1872" vertical-scroll-proportion="0.82011604">
@@ -459,30 +470,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/YUICompressor.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="99" column="9" selection-start="2630" selection-end="2630" vertical-scroll-proportion="-14.153846">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ludojs/css/resize.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="31" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="49" selection-start="261" selection-end="290" vertical-scroll-proportion="-7.1923075">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LudoJS.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="295" column="69" selection-start="14846" selection-end="14846" vertical-scroll-proportion="-3.3333333">
           <folding />
         </state>
       </provider>
@@ -494,33 +484,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="65" column="28" selection-start="1878" selection-end="2075" vertical-scroll-proportion="-3.1176472">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tests/BuilderTests.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="31" selection-start="4729" selection-end="4729" vertical-scroll-proportion="-7.423077">
+        <state line="200" column="13" selection-start="4851" selection-end="4851" vertical-scroll-proportion="-8.730769">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Builder.php">
+    <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="367" selection-end="367" vertical-scroll-proportion="-5.6666665">
+        <state line="18" column="4" selection-start="299" selection-end="328" vertical-scroll-proportion="-8.5">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="5" selection-start="240" selection-end="240" vertical-scroll-proportion="-4.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LudoJS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="337" column="13" selection-start="17496" selection-end="17496" vertical-scroll-proportion="-6.3076925">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dhtml-chess/css/dhtml-chess.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="245" column="37" selection-start="4871" selection-end="4871" vertical-scroll-proportion="0.33333334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dhtml-chess/css/dhtml-chess-light-gray.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="885" column="0" selection-start="18689" selection-end="18689" vertical-scroll-proportion="0.26666668">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Package.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="276" column="40" selection-start="7969" selection-end="7969" vertical-scroll-proportion="0.8405316">
+        <state line="17" column="24" selection-start="340" selection-end="340" vertical-scroll-proportion="-2.0">
           <folding>
             <element signature="e#6#95#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../dhtml-chess/css/dhtml-chess-gray.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="134" selection-start="37506" selection-end="37506" vertical-scroll-proportion="0.23333333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/YUICompressor.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="26" selection-start="1113" selection-end="1121" vertical-scroll-proportion="-3.0784314">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Builder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="15" selection-start="2405" selection-end="2405" vertical-scroll-proportion="0.6080508">
+          <folding />
         </state>
       </provider>
     </entry>

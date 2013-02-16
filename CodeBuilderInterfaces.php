@@ -16,4 +16,6 @@ interface PackageInterface{
 
     public function getExternalModuleDependencies();
 
+    public function getCssSkins();
+
 }
