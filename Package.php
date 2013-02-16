@@ -25,12 +25,12 @@ class Package
 
     protected function getJSFolder()
     {
-        return "src/";
+        return $this->getRootFolder() . "src/";
     }
 
     protected function getCSSFolder()
     {
-        return "css/";
+        return $this->getRootFolder() . "css/";
     }
 
     public function setCustomModules($modules)
@@ -55,26 +55,27 @@ class Package
 
     public function getJSFileName()
     {
-         $folder = $this->getRootFolder() . "/css";
+        $folder = $this->getRootFolder() . "js";
         return $folder . "/" . $this->getName() . ".js";
     }
 
     public function getJSFileNameMinified()
     {
-        $folder = $this->getRootFolder() . "/js";
+        $folder = $this->getRootFolder() . "js";
         return $folder . "/" . $this->getName() . "-minified.js";
     }
+
 
     public function getCSSFileName($skinName = null)
     {
         if(isset($skinName))$skinName = "-".$skinName;
-        $folder = $this->getRootFolder() . "/css";
+        $folder = $this->getRootFolder() . "css";
         return $folder . "/" . $this->getName() . $skinName . ".css";
     }
 
     public function getCSSFileNameMinified()
     {
-        $folder = $this->getRootFolder() . "/css";
+        $folder = $this->getRootFolder() . "css";
         return $folder . "/" . $this->getName() . "-minified.css";
     }
 
@@ -182,7 +183,7 @@ class Package
     {
         $files = array_unique($files);
         foreach ($files as & $file) {
-            $file = $this->getRootFolder() . $this->getCSSFolder() . $file;
+            $file = $this->getCSSFolder() . $file;
         }
         return $files;
     }
@@ -235,11 +236,10 @@ class Package
     private function jsWithFolderPrefix($files)
     {
         $files = array_unique($files);
-        $prefix = $this->getRootFolder() . $this->getJSFolder();
+        $prefix = $this->getJSFolder();
         foreach ($files as & $file) {
             $file = $prefix . $file;
         }
-
         return array_values($files);
     }
 
@@ -295,7 +295,7 @@ class Package
         $skins = $this->getCssSkins();
         $ret = array();
         foreach($skins as $name=>&$file){
-            $ret[$name] = $this->getRootFolder().$this->getCSSFolder()."skin/". $file;
+            $ret[$name] = $this->getCSSFolder()."skin/". $file;
         }
         return $ret;
     }

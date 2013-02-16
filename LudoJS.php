@@ -48,7 +48,7 @@ class LudoJS extends Package implements PackageInterface
             'layout' => array(
                 'hidden' => true,
                 'modules' => array(
-                    'Factory' => array('dependencies' => array(), 'hidden' => true),
+                    'Factory' => array('dependencies' => array('Core'), 'hidden' => true),
                     'Resizer' => array('dependencies' => array('Core'), 'hidden' => true),
                     'Base' => array('dependencies' => array('layout/Resizer', 'layout/TextBox'), 'hidden' => true, array("collapse-bar.css")),
                     'Linear' => array('dependencies' => array('layout/Base'), 'hidden' => true),

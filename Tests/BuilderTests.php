@@ -47,6 +47,22 @@ class BuilderTests extends PHPUnit_Framework_TestCase
     /**
      * @test
      */
+    public function shouldGetLudoAsFirstFile(){
+        $d = new LudoJS();
+
+        $files = $d->getFilesFor(array(
+            "layout", "View","Application", "grid","dialog","form/Password", "form/Email", "form/Number",
+            "form/Checkbox", "controller","model","menu","Panel","canvas","remote",
+            "form/SubmitButton","form/CancelButton","form/ResetButton", "tree","card",
+            "layout","form/ComboTree"
+        ));
+
+        $this->assertEquals('../ludojs/src/ludo.js', $files[0]);
+    }
+
+    /**
+     * @test
+     */
     public function shouldBeAbleToGetTopModules(){
         // given
         $ludoJS = new LudoJS();

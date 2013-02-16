@@ -262,7 +262,7 @@ class Builder implements LudoDBService
         if (!strlen($css)) {
             throw new LudoDBException("Minify failed");
         }
-        $fn = $this->package->getCSSFileNameMinified();
+        $fn = $this->package->getLicenseText() . $this->package->getCSSFileNameMinified();
         file_put_contents($fn, $css);
         return array('file' => $fn, 'size' => filesize($fn));
 

@@ -24,3 +24,12 @@ http://<hostname>)/code-builder/Builder/DHTMLChess/build
 ```
 
 can be executed directly from the Web browser.
+
+###Folder structure
+The code builder requires that the software are located inside a top folder corresponding to the name of the software, example:
+
+DhtmlChess -> folder dhtml-chess
+LudoJS -> folder ludojs
+LudoJs -> folder ludo-js
+
+Other arrangement can be made by returning static value from the getName() method.
