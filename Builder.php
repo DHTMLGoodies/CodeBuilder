@@ -117,11 +117,9 @@ class Builder implements LudoDBService
                 mkdir($current, 0775);
             }
         }
-
         if (!is_dir($to) && !is_dir($from)) {
-
             if (!copy($from, $to)) {
-                echo "$from to $to failed\n";
+                throw new Exception("Copy of $from to $to failed");
             }
         }
     }
@@ -213,6 +211,7 @@ class Builder implements LudoDBService
     /**
      * @param $name
      * @return Package
+     * @throws Exception
      */
     private function getPackageClass($name)
     {
