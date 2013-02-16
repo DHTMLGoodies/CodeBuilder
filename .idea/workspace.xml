@@ -2,12 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3401bf52-de7b-43f5-ad0d-0636dc858bab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Builder.php" afterPath="$PROJECT_DIR$/Builder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DHTMLChess.php" afterPath="$PROJECT_DIR$/DHTMLChess.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LudoJS.php" afterPath="$PROJECT_DIR$/LudoJS.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Package.php" afterPath="$PROJECT_DIR$/Package.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tests/BuilderTests.php" afterPath="$PROJECT_DIR$/Tests/BuilderTests.php" />
     </list>
     <ignored path="code-builder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,16 +26,16 @@
       <file leaf-file-name="LudoJS.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LudoJS.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="43" selection-start="2150" selection-end="2150" vertical-scroll-proportion="-3.6470587">
+            <state line="46" column="14" selection-start="1473" selection-end="1473" vertical-scroll-proportion="-0.64705884">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DHTMLChess.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="DHTMLChess.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="139" column="17" selection-start="4525" selection-end="4896" vertical-scroll-proportion="-4.5882354">
+            <state line="122" column="79" selection-start="4269" selection-end="4269" vertical-scroll-proportion="0.36079547">
               <folding />
             </state>
           </provider>
@@ -74,10 +70,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="82" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.90340906">
+            <state line="19" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -128,12 +124,12 @@
         <option value="$PROJECT_DIR$/YUICompressor.php" />
         <option value="$PROJECT_DIR$/CodeBuilderInterfaces.php" />
         <option value="$PROJECT_DIR$/../dhtml-chess/css/dhtml-chess-light-gray.css" />
-        <option value="$PROJECT_DIR$/DHTMLChess.php" />
         <option value="$PROJECT_DIR$/Builder.php" />
         <option value="$PROJECT_DIR$/Package.php" />
-        <option value="$PROJECT_DIR$/LudoJS.php" />
         <option value="$PROJECT_DIR$/Tests/BuilderTests.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/LudoJS.php" />
+        <option value="$PROJECT_DIR$/DHTMLChess.php" />
       </list>
     </option>
   </component>
@@ -146,7 +142,7 @@
     <option name="x" value="1" />
     <option name="y" value="1" />
     <option name="width" value="1364" />
-    <option name="height" value="727" />
+    <option name="height" value="728" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -379,7 +375,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1" y="1" width="1364" height="727" extended-state="0" />
+    <frame x="1" y="1" width="1364" height="728" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -388,11 +384,11 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32949308" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17204301" sideWeight="0.664903" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17204301" sideWeight="0.77640843" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33509701" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22359155" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -457,22 +453,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/router.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="31" selection-start="198" selection-end="198" vertical-scroll-proportion="-0.65384614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ludoDB/LudoDBRequestHandler.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="26" selection-start="625" selection-end="631" vertical-scroll-proportion="8.3529415">
-          <folding>
-            <element signature="e#6#205#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../ludojs/css/resize.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="31" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
@@ -515,25 +495,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="15" column="0" selection-start="240" selection-end="240" vertical-scroll-proportion="-9.807693">
-          <folding>
-            <element signature="e#6#95#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../dhtml-chess/js/dhtml-chess.js">
       <provider selected="true" editor-type-id="text-editor">
         <state line="108" column="13" selection-start="2868" selection-end="2868" vertical-scroll-proportion="0.3670103">
           <folding>
-            <marker date="1361049592428" expanded="false" signature="399904:399916" placeholder="..." />
-            <marker date="1361049592428" expanded="false" signature="399964:399976" placeholder="..." />
-            <marker date="1361049592428" expanded="false" signature="431801:431813" placeholder="..." />
-            <marker date="1361049592428" expanded="false" signature="431961:431971" placeholder="..." />
-            <marker date="1361049592428" expanded="false" signature="432057:432069" placeholder="..." />
-            <marker date="1361049592428" expanded="false" signature="563706:563723" placeholder="..." />
+            <marker date="1361050403882" expanded="false" signature="399904:399916" placeholder="..." />
+            <marker date="1361050403882" expanded="false" signature="399964:399976" placeholder="..." />
+            <marker date="1361050403882" expanded="false" signature="431801:431813" placeholder="..." />
+            <marker date="1361050403882" expanded="false" signature="431961:431971" placeholder="..." />
+            <marker date="1361050403882" expanded="false" signature="432057:432069" placeholder="..." />
+            <marker date="1361050403882" expanded="false" signature="563706:563723" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -544,20 +515,6 @@
           <folding>
             <element signature="e#6#95#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="139" column="17" selection-start="4525" selection-end="4896" vertical-scroll-proportion="-4.5882354">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LudoJS.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="43" selection-start="2150" selection-end="2150" vertical-scroll-proportion="-3.6470587">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -575,9 +532,39 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CodeBuilderInterfaces.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="0" selection-start="240" selection-end="240" vertical-scroll-proportion="-9.807693">
+          <folding>
+            <element signature="e#6#95#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../ludojs/css/layout/tab.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="62" selection-start="308" selection-end="308" vertical-scroll-proportion="0.34343433">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="82" selection-start="1363" selection-end="1363" vertical-scroll-proportion="0.90340906">
+        <state line="19" column="0" selection-start="876" selection-end="876" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LudoJS.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="46" column="14" selection-start="1473" selection-end="1473" vertical-scroll-proportion="-0.64705884">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="79" selection-start="4269" selection-end="4269" vertical-scroll-proportion="0.36079547">
           <folding />
         </state>
       </provider>

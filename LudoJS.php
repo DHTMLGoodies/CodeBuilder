@@ -55,7 +55,7 @@ class LudoJS extends Package implements PackageInterface
                     'LinearHorizontal' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
                     'LinearVertical' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
                     'Card' => array('dependencies' => array('layout/Base'), 'hidden' => false),
-                    'Tab' => array('dependencies' => array('layout/Relative', 'layout/TabStrip'), 'hidden' => false, "css" => true),
+                    'Tab' => array('dependencies' => array('layout/Relative', 'layout/TabStrip'), 'hidden' => false, "css" => array("tab.css","tab-strip.css")),
                     'Fill' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Grid' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Popup' => array('dependencies' => array('layout/Base'), 'hidden' => false),

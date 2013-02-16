@@ -120,7 +120,7 @@ class DhtmlChess extends Package implements PackageInterface
                 "modules" => array("Reader", "GameReader")
             ),
             "datasource" => array(
-                "modules" => array("FolderTree", "GameList","PgnGames")
+                "modules" => array("FolderTree", "GameList","PgnGames","PgnList")
             ),
             "pgn" => array(
                 "modules" => "Parser"
