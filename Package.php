@@ -11,6 +11,7 @@ class Package
     private $name;
     private $customModules;
 
+
     public function __construct()
     {
         $this->name = get_class($this);
@@ -46,11 +47,6 @@ class Package
     protected function getAllModules()
     {
         return array();
-    }
-
-    protected function getRootFolder()
-    {
-        return "";
     }
 
     public function getJSFileName()

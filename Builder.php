@@ -7,6 +7,9 @@
  */
 class Builder implements LudoDBService
 {
+    /**
+     * @var Package|PackageInterface
+     */
     private $package;
     private $minifySkin = false;
 
@@ -33,21 +36,57 @@ class Builder implements LudoDBService
         $ret = array();
         $ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
+
+        $this->insertLicenseMessages($ret['css']);
+        $this->insertLicenseMessages($ret['js']);
         return $ret;
 
     }
+
+    public function minify()
+    {
+        $this->minifySkin = true;
+
+        $ret = array();
+        $ret["css"] = $this->buildCSS();
+        $ret["js"] = $this->buildJS();
+        $ret['js'][] = $this->minifyJS();
+        $ret['css'][] = $this->minifyCss();
+        $this->insertLicenseMessages($ret['css']);
+        $this->insertLicenseMessages($ret['js']);
+
+        return $ret;
+    }
+
+
 
     private function buildJS()
     {
         $files = $this->package->getAllJsFiles();
         $toFile = $this->package->getJSFileName();
         $fh = fopen($toFile, "w");
+
         fwrite($fh, $this->getJSFromDependingPackages($this->package));
         fwrite($fh, $this->getFileContent($files));
         fclose($fh);
         return array(
             array("file" => $toFile, "size" => filesize($toFile))
         );
+    }
+
+    private function insertLicenseMessages($files){
+        foreach($files as $entry){
+            $this->insertLicenseMessage($entry['file']);
+        }
+    }
+
+    private function insertLicenseMessage($file){
+        $content = file_get_contents($file);
+        $lt = $this->package->getLicenseText();
+        $lt = str_replace("[DATE]", date("Y"), $lt);
+        $lt = preg_replace("/\n\s+/s", "\n", $lt);
+        $content = $lt . "\n". $content;
+        file_put_contents($file, $content);
     }
 
     private function buildCSS()
@@ -223,16 +262,7 @@ class Builder implements LudoDBService
 
     const TMP_PATH = "/tmp";
 
-    public function minify()
-    {
-        $this->minifySkin = true;
-        $ret = $this->build();
 
-        $ret['js'][] = $this->minifyJS();
-        $ret['css'][] = $this->minifyCss();
-
-        return $ret;
-    }
 
     private function minifyJS()
     {
@@ -262,7 +292,7 @@ class Builder implements LudoDBService
         if (!strlen($css)) {
             throw new LudoDBException("Minify failed");
         }
-        $fn = $this->package->getLicenseText() . $this->package->getCSSFileNameMinified();
+        $fn = $this->package->getCSSFileNameMinified();
         file_put_contents($fn, $css);
         return array('file' => $fn, 'size' => filesize($fn));
 
