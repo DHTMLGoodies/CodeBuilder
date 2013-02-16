@@ -53,7 +53,7 @@ class Builder implements LudoDBService
 
         $ret["css"] = $this->buildCSS();
         $ret['css'][] = $this->minifyCss();
-        
+
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
 

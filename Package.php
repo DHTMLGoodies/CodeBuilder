@@ -31,7 +31,7 @@ class Package
 
     protected function getCSSFolder()
     {
-        return $this->getRootFolder() . "css/";
+        return $this->getRootFolder() . "css-source/";
     }
 
     public function setCustomModules($modules)
