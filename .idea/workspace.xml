@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3401bf52-de7b-43f5-ad0d-0636dc858bab" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/DHTMLChess.php" afterPath="$PROJECT_DIR$/DHTMLChess.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LudoJS.php" afterPath="$PROJECT_DIR$/LudoJS.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="code-builder.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,10 +32,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DHTMLChess.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="DHTMLChess.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="122" column="79" selection-start="4269" selection-end="4269" vertical-scroll-proportion="0.36079547">
+            <state line="69" column="18" selection-start="2076" selection-end="2076" vertical-scroll-proportion="-5.745098">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".gitignore" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -130,6 +139,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/LudoJS.php" />
         <option value="$PROJECT_DIR$/DHTMLChess.php" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -499,12 +509,12 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="108" column="13" selection-start="2868" selection-end="2868" vertical-scroll-proportion="0.3670103">
           <folding>
-            <marker date="1361050403882" expanded="false" signature="399904:399916" placeholder="..." />
-            <marker date="1361050403882" expanded="false" signature="399964:399976" placeholder="..." />
-            <marker date="1361050403882" expanded="false" signature="431801:431813" placeholder="..." />
-            <marker date="1361050403882" expanded="false" signature="431961:431971" placeholder="..." />
-            <marker date="1361050403882" expanded="false" signature="432057:432069" placeholder="..." />
-            <marker date="1361050403882" expanded="false" signature="563706:563723" placeholder="..." />
+            <marker date="1361050645494" expanded="false" signature="399904:399916" placeholder="..." />
+            <marker date="1361050645494" expanded="false" signature="399964:399976" placeholder="..." />
+            <marker date="1361050645494" expanded="false" signature="431801:431813" placeholder="..." />
+            <marker date="1361050645494" expanded="false" signature="431961:431971" placeholder="..." />
+            <marker date="1361050645494" expanded="false" signature="432057:432069" placeholder="..." />
+            <marker date="1361050645494" expanded="false" signature="563706:563723" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -564,7 +574,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/DHTMLChess.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="122" column="79" selection-start="4269" selection-end="4269" vertical-scroll-proportion="0.36079547">
+        <state line="69" column="18" selection-start="2076" selection-end="2076" vertical-scroll-proportion="-5.745098">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="5" selection-start="5" selection-end="5" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
