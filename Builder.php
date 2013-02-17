@@ -40,10 +40,11 @@ class Builder implements LudoDBService
         if(!$this->minifySkin){
             $this->insertLicenseMessages($ret['css']);
             $this->insertLicenseMessages($ret['js']);
-        }
-        if(LudoDB::hasConnection()){
-            $this->logFileSizes($ret['css']);
-            $this->logFileSizes($ret['js']);
+
+            if(LudoDB::hasConnection()){
+                $this->logFileSizes($ret['css']);
+                $this->logFileSizes($ret['js']);
+            }
         }
 
         return $ret;
@@ -56,12 +57,16 @@ class Builder implements LudoDBService
 
         $ret = $this->build();
 
-        $ret["css"] = $this->buildCSS();
+        $ret["js"][] = $this->minifyJS();
         $ret['css'][] = $this->minifyCss();
 
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
 
+        if(LudoDB::hasConnection()){
+            $this->logFileSizes($ret['css']);
+            $this->logFileSizes($ret['js']);
+        }
         return $ret;
     }
 
@@ -70,7 +75,8 @@ class Builder implements LudoDBService
 
         foreach ($files as $entry) {
             $obj = new CodeBuilderLog();
-            $obj->setFileName($entry['file']);
+            $filename = array_pop(explode("/", $entry['file']));
+            $obj->setFileName($filename);
             $obj->setSize($entry['size']);
             $obj->commit();
         }
