@@ -346,7 +346,7 @@ class LudoJS extends Package implements PackageInterface
     public function getLicenseText(){
         return "/************************************************************************************************************
                 @fileoverview
-                Standalone script from ludoJS - Javascript framework
+                ludoJS - Javascript framework
                 Copyright (C) 2012-[DATE]  ludoJS.com, Alf Magne Kalleland
 
                 This library is free software; you can redistribute it and/or
