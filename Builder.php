@@ -39,6 +39,12 @@ class Builder implements LudoDBService
 
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
+
+        if(LudoDB::hasConnection()){
+            $this->logTime($ret['css']);
+            $this->logTime($ret['js']);
+        }
+
         return $ret;
 
     }
@@ -57,9 +63,24 @@ class Builder implements LudoDBService
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
 
+        if(LudoDB::hasConnection()){
+            $this->logTime($ret['css']);
+            $this->logTime($ret['js']);
+        }
         return $ret;
     }
 
+    private function logTime($files)
+    {
+
+        foreach ($files as $entry) {
+            $obj = new CodeBuilderLog();
+            $obj->setFileName($entry['file']);
+            $obj->setSize($entry['size']);
+            $obj->commit();
+        }
+
+    }
 
 
     private function buildJS()
@@ -76,18 +97,20 @@ class Builder implements LudoDBService
         );
     }
 
-    private function insertLicenseMessages($files){
-        foreach($files as $entry){
+    private function insertLicenseMessages($files)
+    {
+        foreach ($files as $entry) {
             $this->insertLicenseMessage($entry['file']);
         }
     }
 
-    private function insertLicenseMessage($file){
+    private function insertLicenseMessage($file)
+    {
         $content = file_get_contents($file);
         $lt = $this->package->getLicenseText();
         $lt = str_replace("[DATE]", date("Y"), $lt);
         $lt = preg_replace("/\n\s+/s", "\n", $lt);
-        $content = $lt . "\n". $content;
+        $content = $lt . "\n" . $content;
         file_put_contents($file, $content);
     }
 
@@ -118,7 +141,7 @@ class Builder implements LudoDBService
             if ($package->getName() !== $this->package->getName()) {
                 $content = $this->copyImageFiles($content, $package);
             }
-            if($this->minifySkin)$content = Minify_YUICompressor::minifyCss($content);
+            if ($this->minifySkin) $content = Minify_YUICompressor::minifyCss($content);
             file_put_contents($fn, $css . $content);
             $ret[] = array("file" => $fn, "size" => filesize($fn));
         }
@@ -134,8 +157,8 @@ class Builder implements LudoDBService
             $file = preg_replace("/[^0-9\-a-z\._\/]/si", "", $file);
             $localPath = str_replace("../images", "../" . $this->package->getName() . "/" . $package->getName() . "/images", $file);
             $remotePath = str_replace("../images", "../" . $package->getName() . "/images", $file);
-            $replacePath = str_replace("../images", "../"  . $package->getName() . "/images", $file);
-            if(strstr($file,".")){
+            $replacePath = str_replace("../images", "../" . $package->getName() . "/images", $file);
+            if (strstr($file, ".")) {
                 if (file_exists($remotePath)) {
                     $this->copyImageFile($remotePath, $localPath);
                 }
@@ -263,7 +286,6 @@ class Builder implements LudoDBService
     }
 
     const TMP_PATH = "/tmp";
-
 
 
     private function minifyJS()

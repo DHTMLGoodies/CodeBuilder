@@ -32,6 +32,7 @@ spl_autoload_register(
                 'carswithproperties' => '/ludoDB/Tests/classes/CarsWithProperties.php',
                 'city' => '/ludoDB/Tests/classes/City.php',
                 'client' => '/ludoDB/Tests/classes/Client.php',
+                'codebuilderlog' => '/CodeBuilderLog.php',
                 'codebuildertests' => '/Tests/CodeBuilderTests.php',
                 'collectiontest' => '/ludoDB/Tests/CollectionTest.php',
                 'columnaliastest' => '/ludoDB/Tests/ColumnAliasTest.php',
