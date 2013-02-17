@@ -37,12 +37,13 @@ class Builder implements LudoDBService
         $ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
 
-        $this->insertLicenseMessages($ret['css']);
-        $this->insertLicenseMessages($ret['js']);
-
+        if(!$this->minifySkin){
+            $this->insertLicenseMessages($ret['css']);
+            $this->insertLicenseMessages($ret['js']);
+        }
         if(LudoDB::hasConnection()){
-            $this->logTime($ret['css']);
-            $this->logTime($ret['js']);
+            $this->logFileSizes($ret['css']);
+            $this->logFileSizes($ret['js']);
         }
 
         return $ret;
@@ -53,9 +54,7 @@ class Builder implements LudoDBService
     {
         $this->minifySkin = true;
 
-        $ret = array();
-        $ret["js"] = $this->buildJS();
-        $ret['js'][] = $this->minifyJS();
+        $ret = $this->build();
 
         $ret["css"] = $this->buildCSS();
         $ret['css'][] = $this->minifyCss();
@@ -63,14 +62,10 @@ class Builder implements LudoDBService
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
 
-        if(LudoDB::hasConnection()){
-            $this->logTime($ret['css']);
-            $this->logTime($ret['js']);
-        }
         return $ret;
     }
 
-    private function logTime($files)
+    private function logFileSizes($files)
     {
 
         foreach ($files as $entry) {
