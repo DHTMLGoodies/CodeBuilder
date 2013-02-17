@@ -93,7 +93,8 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // when
         $files = $ludoJs->getFilesFor(array('Core'));
         $expected = array('../ludojs/src/ludo.js', '../ludojs/src/effect.js', '../ludojs/src/language/default.js',
-            '../ludojs/src/storage/storage.js', '../ludojs/src/object-factory.js', '../ludojs/src/config.js','../ludojs/src/core.js');
+            '../ludojs/src/storage/storage.js', '../ludojs/src/object-factory.js', '../ludojs/src/config.js',
+            '../ludojs/src/assets.js','../ludojs/src/core.js');
         // then
 
         $this->assertEquals($expected, $files);
@@ -147,6 +148,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         $this->assertEquals("../ludojs/src/ludo.js", $files[0]);
         $this->assertTrue(in_array("../ludojs/src/canvas/element.js", $files));
         $this->assertTrue(in_array("../ludojs/src/view.js", $files));
+        $this->assertTrue(in_array("../ludojs/src/form/validator/md5.js", $files), "md5 validator file missing");
     }
 
     /**
@@ -160,7 +162,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         $cssFiles = $ludoJS->getCssFor("View");
 
         // then
-        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/resize.css"), $cssFiles);
+        $this->assertEquals(array("../ludojs/css-source/view.css", "../ludojs/css-source/resize.css"), $cssFiles);
     }
     /**
      * @test
@@ -172,7 +174,7 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // when
         $cssFiles = $ludoJS->getCssFor("FramedView");
         // then
-        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/resize.css"), $cssFiles);
+        $this->assertEquals(array("../ludojs/css-source/view.css", "../ludojs/css-source/resize.css"), $cssFiles);
 
 
         // given
@@ -180,10 +182,10 @@ class BuilderTests extends PHPUnit_Framework_TestCase
 
         // when
         $expected = array(
-            "../ludojs/css/view.css",
-            "../ludojs/css/resize.css",
-            "../ludojs/css/form/form.css",
-            "../ludojs/css/form/text.css"
+            "../ludojs/css-source/view.css",
+            "../ludojs/css-source/resize.css",
+            "../ludojs/css-source/form/form.css",
+            "../ludojs/css-source/form/text.css"
         );
         $cssFiles = $ludoJS->getCssFor('form/Text');
 
@@ -202,7 +204,9 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         // when
         $cssFiles = $ludoJS->getCssFor("grid");
         // then
-        $this->assertEquals(array("../ludojs/css/view.css", "../ludojs/css/resize.css", "../ludojs/css/grid/grid.css"), $cssFiles);
+        $this->assertEquals(array("../ludojs/css-source/view.css",
+                "../ludojs/css-source/resize.css",
+                "../ludojs/css-source/grid/grid.css"), $cssFiles);
     }
 
     /**

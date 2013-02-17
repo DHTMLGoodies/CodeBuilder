@@ -245,7 +245,6 @@ class Package
 
     public function getModuleKeys($namespace, $module)
     {
-
         if (is_string($module)) return array();
         if (is_array($module) && !isset($module['modules'])) {
             $ret = array_keys($module);

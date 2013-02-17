@@ -16,7 +16,7 @@ class LudoJS extends Package implements PackageInterface
         return array(
             'Core' => array(
                 'dependencies' => array(
-                    'ludo.js', 'effect.js', 'language/default.js', 'storage/storage.js', 'object-factory.js', 'config.js'
+                    'ludo.js', 'effect.js', 'language/default.js', 'storage/storage.js', 'object-factory.js', 'config.js','assets.js'
                 ),
                 'hidden' => true
             ),
@@ -198,6 +198,9 @@ class LudoJS extends Package implements PackageInterface
                     'Collection' => array(
                         'dependencies' => array('data-source/JSON', 'data-source/CollectionSearch', 'data-source/Record')
                     ),
+                    'TreeCollection' => array(
+                        'dependencies' => array('data-source/Collection')
+                    ),
                     'CollectionSearch' => array(
                         'hidden' => true,
                         'dependencies' => array('data-source/SearchParser')
@@ -263,12 +266,12 @@ class LudoJS extends Package implements PackageInterface
                     'File' => array('dependencies' => array('form/Element', 'form/LabelElement'), "css" => true),
                     'Slider' => array('dependencies' => array('form/LabelElement', 'form/LabelElement', 'effect/Drag'), "css" => true),
                     'SearchField' => array('dependencies' => array('form/Text')),
-                ),
-                'validator' => array(
-                    'modules' => array(
-                        'Base' => array('dependencies' => array('Core'), 'hidden' => true),
-                        'Md5' => array('dependencies' => array('form/validator/Base')),
-                    )
+                    'validator' => array(
+                        'modules' => array(
+                            'Base' => array('dependencies' => array('Core'), 'hidden' => true),
+                            'Md5' => array('dependencies' => array('form/validator/Base')),
+                        )
+                    ),
                 )
             ),
             'paging' => array(
