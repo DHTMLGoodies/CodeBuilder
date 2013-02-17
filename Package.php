@@ -34,6 +34,10 @@ class Package
         return $this->getRootFolder() . "css-source/";
     }
 
+    public function getRootFolder(){
+        return "";
+    }
+
     public function setCustomModules($modules)
     {
         $this->customModules = $modules;
