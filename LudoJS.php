@@ -7,7 +7,6 @@
  */
 class LudoJS extends Package implements PackageInterface
 {
-
     public function getRootFolder(){
         return "../ludojs/";
     }
@@ -201,6 +200,7 @@ class LudoJS extends Package implements PackageInterface
                     'TreeCollection' => array(
                         'dependencies' => array('data-source/Collection')
                     ),
+                    'TreeCollectionSearch',
                     'CollectionSearch' => array(
                         'hidden' => true,
                         'dependencies' => array('data-source/SearchParser')
