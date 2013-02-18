@@ -119,7 +119,6 @@ class DhtmlChess extends Package implements PackageInterface
                 "pgn" => array(
                     "modules" => array('Grid')
                 )
-
             ),
 
             "parser0x88" => array(
@@ -131,7 +130,7 @@ class DhtmlChess extends Package implements PackageInterface
                 "modules" => array("Controller", "EnginePlayController", "TacticController", "AnalysisController", "GameplayController")
             ),
             "model" => array(
-                "modules" => array("Model", "Game")
+                "modules" => array("Game")
             ),
             "remote" => array(
                 "modules" => array("Reader", "GameReader")
