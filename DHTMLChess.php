@@ -37,6 +37,9 @@ class DhtmlChess extends Package implements PackageInterface
     {
         return array(
             "chess.js",
+            "language" => array(
+                "modules" => array("default.js")
+            ),
             "view" => array(
                 "notation" => array(
                     'modules' => array(
@@ -118,9 +121,7 @@ class DhtmlChess extends Package implements PackageInterface
                 )
 
             ),
-            "language" => array(
-                "modules" => array("default.js")
-            ),
+
             "parser0x88" => array(
                 "modules" => array(
                     "Config", "fen-parser-0x88.js", "move-0x88.js", "position-validator.js"
@@ -136,7 +137,7 @@ class DhtmlChess extends Package implements PackageInterface
                 "modules" => array("Reader", "GameReader")
             ),
             "datasource" => array(
-                "modules" => array("FolderTree", "GameList","PgnGames","PgnList")
+                "modules" => array("FolderTree", "GameList", "PgnGames", "PgnList")
             ),
             "pgn" => array(
                 "modules" => "Parser"
@@ -149,16 +150,17 @@ class DhtmlChess extends Package implements PackageInterface
         return array(
             array("package" => "LudoJS",
                 "modules" => array(
-                    "layout", "View","Application", "grid","dialog","form/Password", "form/Email", "form/Number",
-                    "form/Checkbox", "controller","model","menu","Panel","canvas/Path","canvas/Canvas", "remote",
-                    "form/SubmitButton","form/CancelButton","form/ResetButton", "tree","card",
-                    "layout","form/ComboTree"
+                    "layout", "View", "Application", "grid", "dialog", "form/Password", "form/Email", "form/Number",
+                    "form/Checkbox", "controller", "model", "menu", "Panel", "canvas/Path", "canvas/Canvas", "remote",
+                    "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree", "card",
+                    "layout", "form/ComboTree"
                 )
             )
         );
     }
 
-    public function getCssSkins(){
+    public function getCssSkins()
+    {
         return array();
     }
 }
