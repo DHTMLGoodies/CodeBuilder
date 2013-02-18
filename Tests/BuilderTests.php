@@ -223,7 +223,5 @@ class BuilderTests extends PHPUnit_Framework_TestCase
         ));
         $this->assertEquals($expected, $names);
 
-        // public function getModuleKeys($namespace, $module)
-
     }
 }

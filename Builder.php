@@ -324,7 +324,7 @@ class Builder implements LudoDBService
 
     }
 
-    public function cacheEnabledFor($service)
+    public function shouldCache($service)
     {
         return false;
     }
