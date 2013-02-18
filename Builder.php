@@ -110,6 +110,7 @@ class Builder implements LudoDBService
         $content = file_get_contents($file);
         $lt = $this->package->getLicenseText();
         $lt = str_replace("[DATE]", date("Y"), $lt);
+        $lt = "/* Generated ". date("D M j G:i:s T Y") . " */\n". $lt;
         $lt = preg_replace("/\n\s+/s", "\n", $lt);
         $content = $lt . "\n" . $content;
         file_put_contents($file, $content);
