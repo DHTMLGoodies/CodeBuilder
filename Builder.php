@@ -113,6 +113,7 @@ class Builder implements LudoDBService
         $lt = "/* Generated ". date("D M j G:i:s T Y") . " */\n". $lt;
         $lt = preg_replace("/\n\s+/s", "\n", $lt);
         $content = $lt . "\n" . $content;
+        $content =  str_replace("\n", "\r\n", $content);
         file_put_contents($file, $content);
     }
 
@@ -272,6 +273,7 @@ class Builder implements LudoDBService
             $ret .= file_get_contents($file);
         }
         return $ret;
+
     }
 
     /**
