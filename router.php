@@ -15,7 +15,6 @@ LudoDB::setHost('127.0.0.1');
 LudoDB::setDb('PHPUnit');
 
 LudoDB::enableLogging();
-LudoDB::enableSqlLogging();
 
 // For static(No db) installations
 

@@ -329,7 +329,7 @@ class LudoJS extends Package implements PackageInterface
                     'Stop' => array('dependencies' => array('canvas/Node')),
                     'Drag' => array('dependencies' => array('effect/Drag')),
                     'EventManager' => array('dependencies' => array()),
-                    'NamedNode' => array('dependencies' => array('canvas/Node')),
+                    'NamedNode' => array('dependencies' => array('canvas/Node','canvas/Paint')),
                     'Circle' => array('dependencies' => array('canvas/NamedNode')),
                     'Rect' => array('dependencies' => array('canvas/NamedNode')),
                     'Polyline' => array('dependencies' => array('canvas/NamedNode')),
