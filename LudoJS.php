@@ -257,6 +257,7 @@ class LudoJS extends Package implements PackageInterface
                     'Radio' => array('dependencies' => array('form/Element'), "css" => true),
                     'Manager' => array('dependencies' => array('Core')),
                     'Password' => array('dependencies' => array('form/Text', 'external/Md5')),
+                    'StrongPassword' => array('dependencies' => array('form/Password')),
                     'Number' => array('dependencies' => array('form/Text')),
                     'Email' => array('dependencies' => array('form/Text')),
                     'Spinner' => array('dependencies' => array('form/Text'), "css" => true),
