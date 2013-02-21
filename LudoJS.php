@@ -224,7 +224,7 @@ class LudoJS extends Package implements PackageInterface
             'progress' => array(
                 'modules' => array(
                     'Base' => array(
-                        'dependencies' => array('View', 'progress/Datasource'), 'hidden' => true
+                        'dependencies' => array('View', 'progress/Datasource'), 'hidden' => true,'css' => 'progress-bar.css'
                     ),
                     'Bar' => array(
                         'dependencies' => array('progress/Base')
