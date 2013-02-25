@@ -239,7 +239,7 @@ class LudoJS extends Package implements PackageInterface
             ),
             'form' => array(
                 'modules' => array(
-                    'Element' => array('dependencies' => array('View'), 'hidden' => true, 'css' => 'form.css'),
+                    'Element' => array('dependencies' => array('View','form/validator/fns.js'), 'hidden' => true, 'css' => 'form.css'),
                     'LabelElement' => array('dependencies' => array('form/Element'), 'hidden' => true),
                     'Button' => array('dependencies' => array('form/Element'), "css" => true),
                     'ToggleGroup' => array('dependencies' => array('Core'), 'hidden' => true),
@@ -248,7 +248,7 @@ class LudoJS extends Package implements PackageInterface
                     'CancelButton' => array('dependencies' => array('form/Button')),
                     'ResetButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'Combo' => array('dependencies' => array('form/Element'), "css" => true),
-                    'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree')),
+                    'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree'), "css" => "filter-tree.css"),
                     'Hidden' => array('dependencies' => array('form/Element')),
                     'Text' => array('dependencies' => array('form/LabelElement'), 'css' => 'text.css'),
                     'Textarea' => array('dependencies' => array('form/Text')),
