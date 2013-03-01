@@ -88,7 +88,7 @@ class LudoJS extends Package implements PackageInterface
                 )
             ),
             'FramedView' => array(
-                'dependencies' => array('View', 'view/button-bar.js', 'effect/Resize', 'view/status-bar.js', 'view/title-bar.js', 'effect/Drag')
+                'dependencies' => array('View', 'view/button-bar.js', 'effect/Resize', 'view/title-bar.js', 'effect/Drag')
             ),
             'Application' => array(
                 'dependencies' => array('FramedView')
