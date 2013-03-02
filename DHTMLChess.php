@@ -84,7 +84,7 @@ class DhtmlChess extends Package implements PackageInterface
                 ),
                 "dialog" => array(
                     "modules" => array(
-                        "NewGame", "OverwriteMove", "Promote" => array("css" => true), "Comment", "GameImport"
+                        "NewGame", "EditGameMetadata", "OverwriteMove", "Promote" => array("css" => true), "Comment", "GameImport"
                     )
                 ),
                 "button" => array(
