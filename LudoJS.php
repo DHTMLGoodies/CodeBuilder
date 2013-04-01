@@ -59,6 +59,9 @@ class LudoJS extends Package implements PackageInterface
                     'Grid' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Popup' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Relative' => array('dependencies' => array('layout/Base'), 'hidden' => false),
+                    'Menu' => array('dependencies' => array('layout/Base','layout/menu-container.js'), 'hidden' => true),
+                    'MenuHorizontal' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
+                    'MenuVertical' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
                     'TabStrip' => array('dependencies' => array('View'), 'hidden' => true),
                     'TextBox' => array('dependencies' => array('canvas/Canvas'), 'hidden' => true),
                     'Renderer' => array('dependencies' => array(), 'hidden' => true),
@@ -162,8 +165,8 @@ class LudoJS extends Package implements PackageInterface
             ),
             'menu' => array(
                 'modules' => array(
-                    'MenuItem' => array('dependencies' => array('View', 'menu/MenuHandler'),'css' => 'menu.css'),
-                    'Menu' => array('dependencies' => array('View', 'menu/MenuHandler', 'menu/MenuItem')),
+                    'Item' => array('dependencies' => array('View', 'menu/MenuHandler'),'css' => 'menu.css'),
+                    'Menu' => array('dependencies' => array('View', 'menu/MenuHandler', 'menu/Item')),
                     'Context' => array('dependencies' => array('menu/Menu')),
                     'DropDown' => array('dependencies' => array('menu/Menu')),
                     'MenuHandler' => array('hidden' => true),
