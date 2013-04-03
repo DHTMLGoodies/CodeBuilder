@@ -165,11 +165,10 @@ class LudoJS extends Package implements PackageInterface
             ),
             'menu' => array(
                 'modules' => array(
-                    'Item' => array('dependencies' => array('View', 'menu/MenuHandler'),'css' => 'menu.css'),
+                    'Item' => array('dependencies' => array('View'),'css' => 'menu.css'),
                     'Menu' => array('dependencies' => array('View', 'menu/MenuHandler', 'menu/Item')),
                     'Context' => array('dependencies' => array('menu/Menu')),
                     'DropDown' => array('dependencies' => array('menu/Menu')),
-                    'MenuHandler' => array('hidden' => true),
                     'Button' => array('dependencies' => array('View'),'css' => 'button.css'),
                 )
             ),
