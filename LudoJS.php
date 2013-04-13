@@ -184,6 +184,14 @@ class LudoJS extends Package implements PackageInterface
                     'Filter' => array('hidden' => true),
                 )
             ),
+            'ludo-db' => array(
+                'modules' => array(
+                    'Factory' => array(
+                        'dependencies' => array('Core'),
+                        'hidden' => true
+                    )
+                )
+            ),
             'data-source' => array(
                 'modules' => array(
                     'Base' => array(
