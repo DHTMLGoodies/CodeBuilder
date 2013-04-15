@@ -88,6 +88,7 @@ class Builder implements LudoDBService
     {
         $files = $this->package->getAllJsFiles();
         $toFile = $this->package->getJSFileName();
+        $this->createFolders($toFile);
         $fh = fopen($toFile, "w");
 
         fwrite($fh, $this->getJSFromDependingPackages($this->package));
@@ -113,6 +114,7 @@ class Builder implements LudoDBService
         $lt = "/* Generated ". date("D M j G:i:s T Y") . " */\n". $lt;
         $lt = preg_replace("/\n\s+/s", "\n", $lt);
         $content = $lt . "\n" . $content;
+
         file_put_contents($file, $content);
     }
 
@@ -120,7 +122,8 @@ class Builder implements LudoDBService
     {
         $toFile = $this->package->getCSSFileName();
         $css = $this->getAllCss($this->package);
-        file_put_contents($toFile, $css);
+
+        $this->writeToFile($toFile, $css);
 
         $ret = $this->buildSkinCss($this->package, $css);
         $dependencies = $this->getDependingPackages();
@@ -144,7 +147,9 @@ class Builder implements LudoDBService
                 $content = $this->copyImageFiles($content, $package);
             }
             if ($this->minifySkin) $content = Minify_YUICompressor::minifyCss($content);
-            file_put_contents($fn, $css . $content);
+
+            $this->writeToFile($fn, $css.$content);
+
             $ret[] = array("file" => $fn, "size" => filesize($fn));
         }
         return $ret;
@@ -173,19 +178,27 @@ class Builder implements LudoDBService
 
     private function copyImageFile($from, $to)
     {
+         $this->createFolders($to);
+        if (!is_dir($to) && !is_dir($from)) {
+            if (!copy($from, $to)) {
+                throw new Exception("Copy of $from to $to failed");
+            }
+        }
+    }
 
-        $tokens = explode("/", $to);
+    private function writeToFile($path, $content){
+        $this->createFolders($path);
+        file_put_contents($path, $content);
+    }
+
+    private function createFolders($pathToFile){
+        $tokens = explode("/", $pathToFile);
         $current = "";
         array_pop($tokens);
         foreach ($tokens as $token) {
             $current .= $token . "/";
             if (!file_exists($current)) {
                 mkdir($current, 0775);
-            }
-        }
-        if (!is_dir($to) && !is_dir($from)) {
-            if (!copy($from, $to)) {
-                throw new Exception("Copy of $from to $to failed");
             }
         }
     }
@@ -305,7 +318,8 @@ class Builder implements LudoDBService
             throw new LudoDBException("Minify failed");
         }
         $fn = $this->package->getJSFileNameMinified();
-        file_put_contents($fn, $js);
+
+        $this->writeToFile($fn, $js);
 
         return array('file' => $fn, 'size' => filesize($fn));
 
@@ -320,7 +334,9 @@ class Builder implements LudoDBService
             throw new LudoDBException("Minify failed");
         }
         $fn = $this->package->getCSSFileNameMinified();
-        file_put_contents($fn, $css);
+
+        $this->writeToFile($fn, $css);
+
         return array('file' => $fn, 'size' => filesize($fn));
 
     }
