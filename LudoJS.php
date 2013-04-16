@@ -42,6 +42,9 @@ class LudoJS extends Package implements PackageInterface
                 'hidden' => false,
                 'modules' => array(
                     'Color' => array('dependencies' => array(), 'hidden' => false),
+                    'Base' => array('dependencies' => array('View'), 'hidden' => false),
+                    'RGBSlider' => array('dependencies' => array('color/Base','form/Slider'), 'hidden' => false),
+                    'Boxes' => array('dependencies' => array('color/Base'), 'hidden' => false),
                 )
             ),
             'layout' => array(
@@ -167,7 +170,7 @@ class LudoJS extends Package implements PackageInterface
                 'modules' => array(
                     'Item' => array('dependencies' => array('View'),'css' => 'menu.css'),
                     'Menu' => array('dependencies' => array('View', 'menu/Item')),
-                    'Context' => array('dependencies' => array('menu/Menu')),
+                    'Context' => array('dependencies' => array('View')),
                     'DropDown' => array('dependencies' => array('menu/Menu')),
                     'Button' => array('dependencies' => array('View'),'css' => 'button.css'),
                 )
@@ -182,14 +185,6 @@ class LudoJS extends Package implements PackageInterface
                     ),
                     'Modifications' => array('hidden' => true),
                     'Filter' => array('hidden' => true),
-                )
-            ),
-            'ludo-db' => array(
-                'modules' => array(
-                    'Factory' => array(
-                        'dependencies' => array('Core'),
-                        'hidden' => true
-                    )
                 )
             ),
             'data-source' => array(
@@ -257,10 +252,10 @@ class LudoJS extends Package implements PackageInterface
                     'SubmitButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'CancelButton' => array('dependencies' => array('form/Button')),
                     'Date' => array('dependencies' => array('form/Combo','calendar/Calendar')),
+                    'Color' => array('dependencies' => array('form/Combo','color/Color','color/RGBSlider','color/Boxes'), 'css' => 'color.css'),
                     'ResetButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'Combo' => array('dependencies' => array('form/Text'), "css" => true),
                     'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree'), "css" => "filter-tree.css"),
-                    'Color' => array('dependencies' => array('form/Combo'), "css" => "color.css"),
                     'Hidden' => array('dependencies' => array('form/Element')),
                     'Text' => array('dependencies' => array('form/LabelElement'), 'css' => 'text.css'),
                     'Textarea' => array('dependencies' => array('form/Text')),
