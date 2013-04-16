@@ -29,7 +29,7 @@ if(isset($_POST['arguments'])){
 }
 
 $handler = new LudoDBRequestHandler();
-$handler->setResponseKey("data");
+
 
 echo $handler->handle($request);
 

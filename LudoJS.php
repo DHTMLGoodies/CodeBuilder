@@ -260,6 +260,7 @@ class LudoJS extends Package implements PackageInterface
                     'ResetButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'Combo' => array('dependencies' => array('form/Text'), "css" => true),
                     'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree'), "css" => "filter-tree.css"),
+                    'Color' => array('dependencies' => array('form/Combo'), "css" => "color.css"),
                     'Hidden' => array('dependencies' => array('form/Element')),
                     'Text' => array('dependencies' => array('form/LabelElement'), 'css' => 'text.css'),
                     'Textarea' => array('dependencies' => array('form/Text')),

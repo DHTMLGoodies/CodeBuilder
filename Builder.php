@@ -90,7 +90,6 @@ class Builder implements LudoDBService
         $toFile = $this->package->getJSFileName();
         $this->createFolders($toFile);
         $fh = fopen($toFile, "w");
-
         fwrite($fh, $this->getJSFromDependingPackages($this->package));
         fwrite($fh, $this->getFileContent($files));
         fclose($fh);
