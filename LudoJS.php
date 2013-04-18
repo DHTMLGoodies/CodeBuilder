@@ -38,6 +38,14 @@ class LudoJS extends Package implements PackageInterface
                     )
                 )
             ),
+            'ludo-db' => array(
+                'hidden' => true,
+                'modules' => array(
+                    'Factory' => array(
+                        'hidden' => false
+                    )
+                )
+            ),
             'color' => array(
                 'hidden' => false,
                 'modules' => array(
