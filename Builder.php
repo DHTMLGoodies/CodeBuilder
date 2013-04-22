@@ -72,7 +72,7 @@ class Builder implements LudoDBService
 
     private function logFileSizes($files)
     {
-
+        if(!LudoDB::hasConnection())return;
         foreach ($files as $entry) {
             $obj = new CodeBuilderLog();
             $filename = array_pop(explode("/", $entry['file']));

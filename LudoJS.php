@@ -26,7 +26,7 @@ class LudoJS extends Package implements PackageInterface
                 'modules' => array(
                     'JSON' => array('dependencies' => array()),
                     'Broadcaster' => array('dependencies' => array()),
-                    'Message' => array('dependencies' => array('View')),
+                    'Message' => array('dependencies' => array('View'),'css' => 'message.css'),
                     'ErrorMessage' => array('dependencies' => array('remote/Message')),
                 )
             ),
@@ -87,7 +87,8 @@ class LudoJS extends Package implements PackageInterface
                     'tpl/Parser',
                     'layout/Renderer',
                     'data-source/JSON',
-                    'view/loader.js',
+                    'view/shim.js',
+                    'data-source/shim.js',
                     'layout/Factory',
                     'layout/Base'
                 ),
