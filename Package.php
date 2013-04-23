@@ -66,11 +66,11 @@ class Package
     }
 
 
-    public function getCSSFileName($skinName = null)
+    public function getCSSFileName($skinName = null, $suffix = "")
     {
         if(isset($skinName))$skinName = "-".$skinName;
         $folder = $this->getRootFolder() . "css";
-        return $folder . "/" . $this->getName() . $skinName . ".css";
+        return $folder . "/" . $this->getName() . $skinName . $suffix . ".css";
     }
 
     public function getCSSFileNameMinified()

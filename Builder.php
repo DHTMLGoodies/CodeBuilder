@@ -137,6 +137,7 @@ class Builder implements LudoDBService
     {
         $ret = array();
         if (!isset($css)) $css = $this->getAllCss($this->package);
+        $fullCss = $css;
         $css = Minify_YUICompressor::minifyCss($css);
         $skins = $package->getCssSkinFiles();
         foreach ($skins as $name => $file) {
@@ -145,7 +146,10 @@ class Builder implements LudoDBService
             if ($package->getName() !== $this->package->getName()) {
                 $content = $this->copyImageFiles($content, $package);
             }
-            if ($this->minifySkin) $content = Minify_YUICompressor::minifyCss($content);
+            if ($this->minifySkin) {
+                $this->writeToFile($this->package->getCSSFileName($name, "-readable"), $fullCss.$content);
+                $content = Minify_YUICompressor::minifyCss($content);
+            }
 
             $this->writeToFile($fn, $css.$content);
 
