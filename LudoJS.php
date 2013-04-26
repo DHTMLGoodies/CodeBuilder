@@ -15,7 +15,7 @@ class LudoJS extends Package implements PackageInterface
         return array(
             'Core' => array(
                 'dependencies' => array(
-                    'ludo.js', 'effect.js', 'language/default.js', 'storage/storage.js', 'object-factory.js', 'config.js','assets.js'
+                    'ludo.js', 'effect.js', 'language/default.js', 'registry.js','storage/storage.js', 'object-factory.js', 'config.js','assets.js'
                 ),
                 'hidden' => true
             ),
