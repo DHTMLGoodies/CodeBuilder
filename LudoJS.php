@@ -34,10 +34,10 @@ class LudoJS extends Package implements PackageInterface
             ),
             'chart' => array(
                 'modules' => array(
-                    'Base' => array('dependencies' => array('View','chart/DataProvider','chart/EngineFactory'), 'hidden' => true),
+                    'Base' => array('dependencies' => array('View','chart/DataProvider','chart/EngineFactory','canvas/Effect'), 'hidden' => true),
                     'DataProvider' => array('dependencies' => array('Core'), 'hidden' => true),
                     'EngineFactory' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'Item' => array('dependencies' => array(), 'hidden' => true),
+                    'Item' => array('dependencies' => array('canvas/NamedNode'), 'hidden' => true),
                     'Pie' => array('dependencies' => array('chart/Base','chart/Tooltip','chart/PieSlice'), 'hidden' => false),
                     'PieSlice' => array('dependencies' => array('chart/Item'), 'hidden' => true),
                     'Tooltip' => array('dependencies' => array('canvas/Rect'), 'hidden' => true),
@@ -350,6 +350,7 @@ class LudoJS extends Package implements PackageInterface
             ),
             'canvas' => array(
                 'modules' => array(
+                    'Effect' => array('dependencies' => array()),
                     'Engine' => array('dependencies' => array("Core")),
                     'Node' => array('dependencies' => array('canvas/Engine')),
                     'Paint' => array('dependencies' => array('canvas/Node')),
