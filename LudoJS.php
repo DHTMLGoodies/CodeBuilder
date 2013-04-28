@@ -32,6 +32,18 @@ class LudoJS extends Package implements PackageInterface
                     'ErrorMessage' => array('dependencies' => array('remote/Message')),
                 )
             ),
+            'chart' => array(
+                'modules' => array(
+                    'Base' => array('dependencies' => array('View','chart/DataProvider','chart/EngineFactory'), 'hidden' => true),
+                    'DataProvider' => array('dependencies' => array('Core'), 'hidden' => true),
+                    'EngineFactory' => array('dependencies' => array('Core'), 'hidden' => true),
+                    'Item' => array('dependencies' => array(), 'hidden' => true),
+                    'Pie' => array('dependencies' => array('chart/Base','chart/Tooltip','chart/PieSlice'), 'hidden' => false),
+                    'PieSlice' => array('dependencies' => array('chart/Item'), 'hidden' => true),
+                    'Tooltip' => array('dependencies' => array('canvas/Rect'), 'hidden' => true),
+                )
+
+            ),
             'tpl' => array(
                 'hidden' => true,
                 'modules' => array(
