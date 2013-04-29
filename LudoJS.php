@@ -34,11 +34,11 @@ class LudoJS extends Package implements PackageInterface
             ),
             'chart' => array(
                 'modules' => array(
-                    'Base' => array('dependencies' => array('View','chart/DataProvider','chart/EngineFactory','canvas/Effect'), 'hidden' => true),
+                    'Chart' => array('dependencies' => array('View','chart/DataProvider','canvas/Effect'), 'hidden' => true),
                     'DataProvider' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'EngineFactory' => array('dependencies' => array('Core'), 'hidden' => true),
                     'Item' => array('dependencies' => array('canvas/NamedNode'), 'hidden' => true),
-                    'Pie' => array('dependencies' => array('chart/Base','chart/Tooltip','chart/PieSlice'), 'hidden' => false),
+                    'Group' => array('dependencies' => array('canvas/Element'), 'hidden' => true),
+                    'Pie' => array('dependencies' => array('chart/Group','chart/Tooltip','chart/PieSlice'), 'hidden' => false),
                     'PieSlice' => array('dependencies' => array('chart/Item'), 'hidden' => true),
                     'Tooltip' => array('dependencies' => array('canvas/Rect'), 'hidden' => true),
                 )
@@ -84,6 +84,7 @@ class LudoJS extends Package implements PackageInterface
                     'Grid' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Popup' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Relative' => array('dependencies' => array('layout/Base'), 'hidden' => false),
+                    'Canvas' => array('dependencies' => array('layout/Relative'), 'hidden' => false),
                     'Menu' => array('dependencies' => array('layout/Base','layout/menu-container.js'), 'hidden' => true),
                     'MenuHorizontal' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
                     'MenuVertical' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
