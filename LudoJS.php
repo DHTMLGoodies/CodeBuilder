@@ -34,13 +34,14 @@ class LudoJS extends Package implements PackageInterface
             ),
             'chart' => array(
                 'modules' => array(
-                    'Chart' => array('dependencies' => array('View','chart/DataProvider','canvas/Effect'), 'hidden' => true),
+                    'Chart' => array('dependencies' => array('View','chart/DataProvider','canvas/Effect'), 'hidden' => false),
                     'DataProvider' => array('dependencies' => array('Core'), 'hidden' => true),
                     'Item' => array('dependencies' => array('canvas/NamedNode'), 'hidden' => true),
                     'Group' => array('dependencies' => array('canvas/Element'), 'hidden' => true),
-                    'Pie' => array('dependencies' => array('chart/Group','chart/Tooltip','chart/PieSlice'), 'hidden' => false),
+                    'ChartBase' => array('dependencies' => array('chart/Group'), 'hidden' => true),
+                    'Pie' => array('dependencies' => array('chart/ChartBase','chart/Tooltip','chart/PieSlice'), 'hidden' => false),
                     'PieSlice' => array('dependencies' => array('chart/Item'), 'hidden' => true),
-                    'Tooltip' => array('dependencies' => array('canvas/Rect'), 'hidden' => true),
+                    'Tooltip' => array('dependencies' => array('canvas/NamedNode'), 'hidden' => true),
                 )
 
             ),
