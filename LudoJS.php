@@ -372,6 +372,8 @@ class LudoJS extends Package implements PackageInterface
                     'Path' => array('dependencies' => array('canvas/NamedNode')),
                     'Filter' => array('dependencies' => array('canvas/NamedNode')),
                     'Mask' => array('dependencies' => array('canvas/NamedNode')),
+                    'Curtain' => array('dependencies' => array('canvas/Node')),
+                    'Animation' => array('dependencies' => array()),
                 )
             )
         );
