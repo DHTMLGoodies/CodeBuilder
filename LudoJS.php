@@ -34,15 +34,16 @@ class LudoJS extends Package implements PackageInterface
             ),
             'chart' => array(
                 'modules' => array(
-                    'Chart' => array('dependencies' => array('View','chart/DataProvider','canvas/Effect'), 'hidden' => false),
-                    'DataProvider' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'Item' => array('dependencies' => array('canvas/NamedNode'), 'hidden' => true),
-                    'ChartBase' => array('dependencies' => array('canvas/Group'), 'hidden' => true),
-                    'Pie' => array('dependencies' => array('chart/ChartBase','chart/Tooltip','chart/PieSlice'), 'hidden' => false),
-                    'PieSlice' => array('dependencies' => array('chart/Item'), 'hidden' => true),
-                    'Tooltip' => array('dependencies' => array('canvas/NamedNode'), 'hidden' => true),
+                    'Chart' => array('dependencies' => array('View','chart/DataProvider','chart/Record','canvas/Effect'), 'hidden' => false),
+                    'DataProvider' => array('dependencies' => array('dataSource/Collection'), 'hidden' => true),
+                    'Fragment' => array('dependencies' => array('Core'), 'hidden' => true),
+                    'Base' => array('dependencies' => array('canvas/Group'), 'hidden' => true),
+                    'Pie' => array('dependencies' => array('chart/Base','chart/PieSlice'), 'hidden' => false),
+                    'PieSlice' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
+                    'Record' => array('dependencies' => array('dataSource/Record'), 'hidden' => true),
+                    'AddOn' => array('dependencies' => array('Core'), 'hidden' => true),
+                    'PieSliceHighlighted' => array('dependencies' => array('chart/AddOn'), 'hidden' => false),
                 )
-
             ),
             'tpl' => array(
                 'hidden' => true,
@@ -370,6 +371,7 @@ class LudoJS extends Package implements PackageInterface
                     'Polygon' => array('dependencies' => array('canvas/Polyline')),
                     'Ellipse' => array('dependencies' => array('canvas/NamedNode')),
                     'Path' => array('dependencies' => array('canvas/NamedNode')),
+                    'Text' => array('dependencies' => array('canvas/NamedNode')),
                     'Filter' => array('dependencies' => array('canvas/NamedNode')),
                     'Mask' => array('dependencies' => array('canvas/NamedNode')),
                     'Curtain' => array('dependencies' => array('canvas/Node')),
