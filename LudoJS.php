@@ -41,6 +41,8 @@ class LudoJS extends Package implements PackageInterface
                     'Pie' => array('dependencies' => array('chart/Base','chart/PieSlice'), 'hidden' => false),
                     'PieSlice' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
                     'Record' => array('dependencies' => array('dataSource/Record'), 'hidden' => true),
+                    'Labels' => array('dependencies' => array('chart/Base'), 'hidden' => false),
+                    'Label' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
                     'AddOn' => array('dependencies' => array('Core'), 'hidden' => true),
                     'PieSliceHighlighted' => array('dependencies' => array('chart/AddOn'), 'hidden' => false),
                 )
