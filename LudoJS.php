@@ -45,6 +45,7 @@ class LudoJS extends Package implements PackageInterface
                     'Label' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
                     'AddOn' => array('dependencies' => array('Core'), 'hidden' => true),
                     'PieSliceHighlighted' => array('dependencies' => array('chart/AddOn'), 'hidden' => false),
+                    'Tooltip' => array('dependencies' => array('chart/AddOn','canvas/TextBox','canvas/Rect'), 'hidden' => false),
                 )
             ),
             'tpl' => array(
@@ -378,6 +379,7 @@ class LudoJS extends Package implements PackageInterface
                     'Mask' => array('dependencies' => array('canvas/NamedNode')),
                     'Curtain' => array('dependencies' => array('canvas/Node')),
                     'Animation' => array('dependencies' => array()),
+                    'TextBox' => array('dependencies' => array('canvas/Group')),
                 )
             )
         );
