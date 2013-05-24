@@ -89,6 +89,7 @@ class LudoJS extends Package implements PackageInterface
                     'Popup' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Relative' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Canvas' => array('dependencies' => array('layout/Relative'), 'hidden' => false),
+                    'SlideIn' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Menu' => array('dependencies' => array('layout/Base','layout/menu-container.js'), 'hidden' => true),
                     'MenuHorizontal' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
                     'MenuVertical' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
