@@ -48,8 +48,9 @@ class LudoJSParts extends Package implements PackageInterface
                     "layout", "Application", "grid", "dialog", "form/Number",
                     "form/Checkbox", "controller", "model", "remote","Window",
                     "form/SubmitButton", "form/CancelButton", "form/ResetButton",
+                    "form/Select",
                     "layout", "form/Textarea", "Notification","paging",
-                    "form/DisplayField","progress","form/Select"
+                    "form/DisplayField","progress","form/Select","List"
                 )
             )
         );

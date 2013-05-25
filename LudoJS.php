@@ -211,12 +211,7 @@ class LudoJS extends Package implements PackageInterface
                 'modules' => array(
                     'Tree' => array(
                         'dependencies' => array('View'),'css' => 'tree.css'
-                    ),
-                    'DragDrop' => array(
-                        'dependencies' => array('Movable', 'tree/Modifications')
-                    ),
-                    'Modifications' => array('hidden' => true),
-                    'Filter' => array('hidden' => true),
+                    )
                 )
             ),
             'data-source' => array(
