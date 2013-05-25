@@ -114,6 +114,9 @@ class LudoJS extends Package implements PackageInterface
                 ),
                 'css' => array('view.css','resize.css')
             ),
+            'List' => array(
+                'dependencies' => array('View')
+            ),
             'Notification' => array(
                 'dependencies' => array('View')
             ),
