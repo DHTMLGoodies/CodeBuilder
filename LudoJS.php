@@ -114,8 +114,13 @@ class LudoJS extends Package implements PackageInterface
                 ),
                 'css' => array('view.css','resize.css')
             ),
+            'CollectionView' => array(
+                'dependencies' => array(
+                    'View'
+                )
+            ),
             'List' => array(
-                'dependencies' => array('View')
+                'dependencies' => array('CollectionView')
             ),
             'Notification' => array(
                 'dependencies' => array('View')
@@ -210,7 +215,7 @@ class LudoJS extends Package implements PackageInterface
             'tree' => array(
                 'modules' => array(
                     'Tree' => array(
-                        'dependencies' => array('View'),'css' => 'tree.css'
+                        'dependencies' => array('CollectionView','dataSource/TreeCollection'),'css' => 'tree.css'
                     )
                 )
             ),
@@ -275,7 +280,6 @@ class LudoJS extends Package implements PackageInterface
                     'LabelElement' => array('dependencies' => array('form/Element'), 'hidden' => true),
                     'Button' => array('dependencies' => array('form/Element'), "css" => true),
                     'ToggleGroup' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'TinyButton' => array('dependencies' => array('form/Button'),"css" => true),
                     'SubmitButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'CancelButton' => array('dependencies' => array('form/Button')),
                     'Date' => array('dependencies' => array('form/Combo','calendar/Calendar')),
@@ -319,6 +323,7 @@ class LudoJS extends Package implements PackageInterface
                     'PageInput' => array('dependencies' => array('form/Number')),
                     'TotalPages' => array('dependencies' => array('View')),
                     'NavBar' => array('dependencies' => array('View')),
+                    'PageSize' => array('dependencies' => array('form/Select')),
                 )
             ),
             'external' => array(
