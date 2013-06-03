@@ -104,7 +104,7 @@ class DhtmlChess extends Package implements PackageInterface
                     "modules" => array("SelectFolder")
                 ),
                 "user" => array(
-                    "modules" => array("Country","LoginButton", "Controller", "RegisterButton", "LogoutButton", "RegisterWindow", "Panel", "LoginWindow", "SettingsButton", "ProfileWindow", "UserModel")
+                    "modules" => array("Country","LoginButton", "Controller", "RegisterButton", "LogoutButton", "RegisterWindow", "Panel", "LoginWindow", "SettingsButton", "ProfileWindow")
                 ),
                 "command" => array(
                     "modules" => array("Line", "Controller", "Panel"),
@@ -150,7 +150,7 @@ class DhtmlChess extends Package implements PackageInterface
             array("package" => "LudoJS",
                 "modules" => array(
                     "layout", "View", "Application", "grid", "dialog", "form/StrongPassword", "form/Email", "form/Number",
-                    "form/Checkbox", "controller", "model", "menu", "Panel", "canvas/Path", "canvas/Canvas", "remote",
+                    "form/Checkbox", "controller", "menu", "Panel", "canvas/Path", "canvas/Canvas", "remote",
                     "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree", "card",
                     "layout", "Accordion", "form/Textarea", "Notification", "form/ComboTree","paging","form/DisplayField","progress","form/File","form/Radio","form/Select"
                 )

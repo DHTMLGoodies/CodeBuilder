@@ -196,13 +196,6 @@ class LudoJS extends Package implements PackageInterface
                 )
 
             ),
-            'model' => array(
-                'modules' => array(
-                    'Model' => array(
-                        'dependencies' => array()
-                    )
-                )
-            ),
             'menu' => array(
                 'modules' => array(
                     'Item' => array('dependencies' => array('View'),'css' => 'menu.css'),
