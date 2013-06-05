@@ -315,6 +315,7 @@ class LudoJS extends Package implements PackageInterface
                     'First' => array('dependencies' => array('paging/Button')),
                     'PageInput' => array('dependencies' => array('form/Number')),
                     'TotalPages' => array('dependencies' => array('View')),
+                    'CurrentPage' => array('dependencies' => array('View')),
                     'NavBar' => array('dependencies' => array('View')),
                     'PageSize' => array('dependencies' => array('form/Select')),
                 )
