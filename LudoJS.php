@@ -341,8 +341,7 @@ class LudoJS extends Package implements PackageInterface
                     'Dialog' => array('dependencies' => array('Window'), 'css' => 'dialog.css'),
                     'Confirm' => array('dependencies' => array('dialog/Dialog')),
                     'Alert' => array('dependencies' => array('dialog/Dialog')),
-                    'Prompt' => array('dependencies' => array('dialog/Dialog', 'form/Text')),
-                    'Form' => array('dependencies' => array('dialog/Dialog', 'form/Text')),
+                    'Prompt' => array('dependencies' => array('dialog/Dialog', 'form/Text'))
                 ),
 
             ),
