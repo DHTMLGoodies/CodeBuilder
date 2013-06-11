@@ -71,6 +71,8 @@ class LudoJS extends Package implements PackageInterface
                     'Base' => array('dependencies' => array('View'), 'hidden' => false),
                     'RGBSlider' => array('dependencies' => array('color/Base','form/Slider'), 'hidden' => false),
                     'Boxes' => array('dependencies' => array('color/Base'), 'hidden' => false),
+                    'NamedColors' => array('dependencies' => array('color/Boxes'), 'hidden' => false),
+                    'RgbColors' => array('dependencies' => array('color/Boxes'), 'hidden' => false),
                 )
             ),
             'layout' => array(
@@ -276,7 +278,7 @@ class LudoJS extends Package implements PackageInterface
                     'SubmitButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'CancelButton' => array('dependencies' => array('form/Button')),
                     'Date' => array('dependencies' => array('form/Combo','calendar/Calendar')),
-                    'Color' => array('dependencies' => array('form/Combo','color/Color','color/RGBSlider','color/Boxes'), 'css' => 'color.css'),
+                    'Color' => array('dependencies' => array('form/Combo','color/Color','color/RGBSlider','color/Boxes','color/NamedColors','color/RgbColors'), 'css' => 'color.css'),
                     'ResetButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'Combo' => array('dependencies' => array('form/Text'), "css" => true),
                     'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree'), "css" => "filter-tree.css"),
@@ -314,6 +316,7 @@ class LudoJS extends Package implements PackageInterface
                     'Last' => array('dependencies' => array('paging/Button')),
                     'First' => array('dependencies' => array('paging/Button')),
                     'PageInput' => array('dependencies' => array('form/Number')),
+                    'CurrentPage' => array('dependencies' => array('View')),
                     'TotalPages' => array('dependencies' => array('View')),
                     'NavBar' => array('dependencies' => array('View')),
                     'PageSize' => array('dependencies' => array('form/Select')),
