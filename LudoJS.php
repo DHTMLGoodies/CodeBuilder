@@ -24,12 +24,13 @@ class LudoJS extends Package implements PackageInterface
             ),
             'remote' => array(
                 'modules' => array(
-                    'Base' => array('dependencies' => array(), 'hidden' => true),
+                    'Base' => array('dependencies' => array('remote/Inject'), 'hidden' => true),
                     'JSON' => array('dependencies' => array('remote/Base')),
                     'HTML' => array('dependencies' => array('remote/Base')),
                     'Broadcaster' => array('dependencies' => array()),
                     'Message' => array('dependencies' => array('View'),'css' => 'message.css'),
                     'ErrorMessage' => array('dependencies' => array('remote/Message')),
+                    'Inject' => array('dependencies' => array()),
                 )
             ),
             'chart' => array(
@@ -318,7 +319,6 @@ class LudoJS extends Package implements PackageInterface
                     'PageInput' => array('dependencies' => array('form/Number')),
                     'CurrentPage' => array('dependencies' => array('View')),
                     'TotalPages' => array('dependencies' => array('View')),
-                    'CurrentPage' => array('dependencies' => array('View')),
                     'NavBar' => array('dependencies' => array('View')),
                     'PageSize' => array('dependencies' => array('form/Select')),
                 )
