@@ -22,7 +22,8 @@ class PuzzleAll extends Package implements PackageInterface
     public function getAllModules()
     {
         return array(
-            "Base",
+
+            "Base" => array("dependencies" => array("external/mootools-core-1.4.5.js")),
             "socket.js" => array("dependencies" => array("Base")),
             "model" => array(
                 "modules" => array(
