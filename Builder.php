@@ -37,11 +37,11 @@ class Builder implements LudoDBService
         $ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
 
-        if(!$this->minifySkin){
+        if (!$this->minifySkin) {
             $this->insertLicenseMessages($ret['css']);
             $this->insertLicenseMessages($ret['js']);
 
-            if(LudoDB::hasConnection()){
+            if (LudoDB::hasConnection()) {
                 $this->logFileSizes($ret['css']);
                 $this->logFileSizes($ret['js']);
             }
@@ -63,7 +63,7 @@ class Builder implements LudoDBService
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
 
-        if(LudoDB::hasConnection()){
+        if (LudoDB::hasConnection()) {
             $this->logFileSizes($ret['css']);
             $this->logFileSizes($ret['js']);
         }
@@ -72,7 +72,7 @@ class Builder implements LudoDBService
 
     private function logFileSizes($files)
     {
-        if(!LudoDB::hasConnection())return;
+        if (!LudoDB::hasConnection()) return;
         foreach ($files as $entry) {
             $obj = new CodeBuilderLog();
             $filename = array_pop(explode("/", $entry['file']));
@@ -110,7 +110,7 @@ class Builder implements LudoDBService
         $content = file_get_contents($file);
         $lt = $this->package->getLicenseText();
         $lt = str_replace("[DATE]", date("Y"), $lt);
-        $lt = "/* Generated ". date("D M j G:i:s T Y") . " */\n". $lt;
+        $lt = "/* Generated " . date("D M j G:i:s T Y") . " */\n" . $lt;
         $lt = preg_replace("/\n\s+/s", "\n", $lt);
         $content = $lt . "\n" . $content;
 
@@ -147,11 +147,11 @@ class Builder implements LudoDBService
                 $content = $this->copyImageFiles($content, $package);
             }
             if ($this->minifySkin) {
-                $this->writeToFile($this->package->getCSSFileName($name, "-readable"), $fullCss.$content);
+                $this->writeToFile($this->package->getCSSFileName($name, "-readable"), $fullCss . $content);
                 $content = Minify_YUICompressor::minifyCss($content);
             }
 
-            $this->writeToFile($fn, $css.$content);
+            $this->writeToFile($fn, $css . $content);
 
             $ret[] = array("file" => $fn, "size" => filesize($fn));
         }
@@ -181,7 +181,7 @@ class Builder implements LudoDBService
 
     private function copyImageFile($from, $to)
     {
-         $this->createFolders($to);
+        $this->createFolders($to);
         if (!is_dir($to) && !is_dir($from)) {
             if (!copy($from, $to)) {
                 throw new Exception("Copy of $from to $to failed");
@@ -189,12 +189,14 @@ class Builder implements LudoDBService
         }
     }
 
-    private function writeToFile($path, $content){
+    private function writeToFile($path, $content)
+    {
         $this->createFolders($path);
         file_put_contents($path, $content);
     }
 
-    private function createFolders($pathToFile){
+    private function createFolders($pathToFile)
+    {
         $tokens = explode("/", $pathToFile);
         $current = "";
         array_pop($tokens);
@@ -315,7 +317,7 @@ class Builder implements LudoDBService
         $js .= $this->getFileContent($files);
 
 
-        $js = Minify_YUICompressor::minifyJs($js);
+        $js = Minify_YUICompressor::minifyJs(trim($js));
 
         if (!strlen($js)) {
             throw new LudoDBException("Minify failed");
@@ -331,15 +333,18 @@ class Builder implements LudoDBService
     private function minifyCss()
     {
         $css = $this->getAllCss($this->package);
-        $css = Minify_YUICompressor::minifyCss($css);
 
-        if (!strlen($css)) {
-            throw new LudoDBException("Minify failed");
-        }
         $fn = $this->package->getCSSFileNameMinified();
 
-        $this->writeToFile($fn, $css);
+        if ($css) {
+            $css = Minify_YUICompressor::minifyCss($css);
 
+            if (!strlen($css)) {
+                throw new LudoDBException("Minify failed");
+            }
+        }
+
+        $this->writeToFile($fn, $css);
         return array('file' => $fn, 'size' => filesize($fn));
 
     }

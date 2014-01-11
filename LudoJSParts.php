@@ -45,12 +45,7 @@ class LudoJSParts extends Package implements PackageInterface
         return array(
             array("package" => "LudoJS",
                 "modules" => array(
-                    "layout", "Application", "grid", "dialog", "form/Number",
-                    "form/Checkbox", "controller", "model", "remote","Window",
-                    "form/SubmitButton", "form/CancelButton", "form/ResetButton",
-                    "form/Select",
-                    "layout", "form/Textarea", "Notification","paging",
-                    "form/DisplayField","progress","form/Select","List"
+                    "grid/Grid"
                 )
             )
         );
