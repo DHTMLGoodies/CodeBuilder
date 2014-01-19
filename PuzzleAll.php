@@ -25,6 +25,11 @@ class PuzzleAll extends Package implements PackageInterface
 
             "Base" => array("dependencies" => array("external/mootools-core-1.4.5.js","external/jquery.js")),
             "socket.js" => array("dependencies" => array("Base")),
+            "socket" => array(
+                "modules" => array(
+                    'Socket' => array('dependencies' => array(), 'hidden' => true),
+                )
+            ),
             "model" => array(
                 "modules" => array(
                     'Base' => array('dependencies' => array(), 'hidden' => true),
@@ -35,6 +40,13 @@ class PuzzleAll extends Package implements PackageInterface
                 "modules" => array(
                     'Base' => array('dependencies' => array(), 'hidden' => true),
                     'Sudoku' => array('dependencies' => array('view/Base'), 'hidden' => true, "css" => true)
+                ),
+                "sketchpad" => array(
+                    "modules" => array(
+                        "Base" => array("dependencies" => array("view/Base")),
+                        "Sudoku" => array("dependencies" => array("view/sketchpad/Base"))
+
+                    )
                 )
             )
         );
