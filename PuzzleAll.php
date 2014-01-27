@@ -22,31 +22,32 @@ class PuzzleAll extends Package implements PackageInterface
     public function getAllModules()
     {
         return array(
-
-            "Base" => array("dependencies" => array("external/mootools-core-1.4.5.js","external/jquery.js")),
-            "socket.js" => array("dependencies" => array("Base")),
+            "Base" => array("dependencies" => array("external/mootools-core-1.4.5.js", "external/jquery.js")),
+            "ConfigTemplate" => array("dependencies" => array("Base")),
+            "events"=>array(
+                "modules" =>array("Events")
+            ),
             "socket" => array(
                 "modules" => array(
                     'Socket' => array('dependencies' => array(), 'hidden' => true),
                 )
             ),
+            "storage" => array(
+                "modules" => array(
+                    'Storage' => array('dependencies' => array("Base"), 'hidden' => true),
+                )
+            ),
             "model" => array(
                 "modules" => array(
-                    'Base' => array('dependencies' => array(), 'hidden' => true),
+                    'Base' => array('dependencies' => array("Base", "events/Events"), 'hidden' => true),
                     'Sudoku' => array('dependencies' => array('model/Base'), 'hidden' => true)
                 )
             ),
             "view" => array(
                 "modules" => array(
-                    'Base' => array('dependencies' => array(), 'hidden' => true),
-                    'Sudoku' => array('dependencies' => array('view/Base'), 'hidden' => true, "css" => true)
-                ),
-                "sketchpad" => array(
-                    "modules" => array(
-                        "Base" => array("dependencies" => array("view/Base")),
-                        "Sudoku" => array("dependencies" => array("view/sketchpad/Base"))
-
-                    )
+                    'Base' => array('dependencies' => array("Base"), 'hidden' => true),
+                    'Sudoku' => array('dependencies' => array('view/Base'), 'hidden' => true, "css" => true),
+                    "Notes" => array("dependencies" => array("view/Base"), "css"=> true)
                 )
             )
         );
