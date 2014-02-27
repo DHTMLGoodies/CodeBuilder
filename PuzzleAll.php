@@ -30,6 +30,7 @@ class PuzzleAll extends Package implements PackageInterface
             "socket" => array(
                 "modules" => array(
                     'Socket' => array('dependencies' => array(), 'hidden' => true),
+                    'Request' => array('dependencies' => array("Base"), 'hidden' => true),
                 )
             ),
             "storage" => array(
@@ -39,15 +40,17 @@ class PuzzleAll extends Package implements PackageInterface
             ),
             "model" => array(
                 "modules" => array(
-                    'Base' => array('dependencies' => array("Base", "events/Events"), 'hidden' => true),
-                    'Sudoku' => array('dependencies' => array('model/Base'), 'hidden' => true)
+                    'SudokuKakuroBase' => array('dependencies' => array("Base", "events/Events"), 'hidden' => true),
+                    'Sudoku' => array('dependencies' => array('model/SudokuKakuroBase'), 'hidden' => true)
                 )
             ),
             "view" => array(
                 "modules" => array(
+                    'Viewport' => array('dependencies' => array("Base"), 'hidden' => true, "css" => true),
                     'Base' => array('dependencies' => array("Base"), 'hidden' => true),
-                    'Sudoku' => array('dependencies' => array('view/Base'), 'hidden' => true, "css" => true),
-                    "Notes" => array("dependencies" => array("view/Base"), "css"=> true)
+                    'SudokuKakuroBase' => array('dependencies' => array("View/Base"), 'hidden' => true),
+                    'Sudoku' => array('dependencies' => array('view/SudokuKakuroBase'), 'hidden' => true, "css" => true),
+                    "Notes" => array("dependencies" => array("view/SudokuKakuroBase"), "css"=> true)
                 )
             )
         );
