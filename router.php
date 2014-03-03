@@ -9,10 +9,7 @@ ini_set('display_errors','on');
 /**
  * TODO move this code
  */
-LudoDB::setUser('root');
-LudoDB::setPassword('administrator');
-LudoDB::setHost('127.0.0.1');
-LudoDB::setDb('PHPUnit');
+require_once("database-connection.php");
 
 LudoDB::enableLogging();
 
@@ -29,6 +26,9 @@ if(isset($_POST['arguments'])){
 }
 
 $handler = new LudoDBRequestHandler();
+
+var_dump($request);
+
 
 
 echo $handler->handle($request);

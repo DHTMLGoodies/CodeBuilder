@@ -9,7 +9,7 @@ class PuzzleAll extends Package implements PackageInterface
 {
     public function getRootFolder()
     {
-        return "../puzzleall/www/";
+        return "../puzzleallweb/";
     }
 
     public function getLicenseText()
@@ -36,6 +36,16 @@ class PuzzleAll extends Package implements PackageInterface
             "storage" => array(
                 "modules" => array(
                     'Storage' => array('dependencies' => array("Base"), 'hidden' => true),
+                )
+            ),
+            "action" => array(
+                "modules" => array(
+                    'Action' => array('dependencies' => array(), 'hidden' => true),
+                )
+            ),
+            "factory" => array(
+                "modules" => array(
+                    'Factory' => array('dependencies' => array(), 'hidden' => true),
                 )
             ),
             "model" => array(

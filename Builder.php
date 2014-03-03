@@ -12,6 +12,7 @@ class Builder implements LudoDBService
      */
     private $package;
     private $minifySkin = false;
+    private static $logToDb = true;
 
     public function __construct()
     {
@@ -25,6 +26,9 @@ class Builder implements LudoDBService
         Minify_YUICompressor::$tempDir = self::TMP_PATH;
     }
 
+    public static function disableDB(){
+         self::$logToDb = false;
+    }
 
     public function getPackage()
     {
@@ -41,7 +45,7 @@ class Builder implements LudoDBService
             $this->insertLicenseMessages($ret['css']);
             $this->insertLicenseMessages($ret['js']);
 
-            if (LudoDB::hasConnection()) {
+            if (self::$logToDb && LudoDB::hasConnection()) {
                 $this->logFileSizes($ret['css']);
                 $this->logFileSizes($ret['js']);
             }
@@ -63,7 +67,7 @@ class Builder implements LudoDBService
         $this->insertLicenseMessages($ret['css']);
         $this->insertLicenseMessages($ret['js']);
 
-        if (LudoDB::hasConnection()) {
+        if (self::$logToDb && LudoDB::hasConnection()) {
             $this->logFileSizes($ret['css']);
             $this->logFileSizes($ret['js']);
         }
