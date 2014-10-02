@@ -15,22 +15,12 @@ LudoDB::enableLogging();
 
 // For static(No db) installations
 
-$request = array('request' => isset($_GET['request']) ? $_GET['request'] : $_POST['request']);
 
-if(isset($_POST['data'])){
-    $request['data'] = isset($_POST['data']) ? $_POST['data'] : null;
-}
 
-if(isset($_POST['arguments'])){
-    $request['arguments'] = $_POST['arguments'];
-}
+$request = isset($_GET['request']) ? $_GET['request'] : $_POST['request'];
+$requestData = isset($_POST['data']) ? $_POST['data'] : null;
 
 $handler = new LudoDBRequestHandler();
-
-var_dump($request);
-
-
-
 echo $handler->handle($request);
 
 

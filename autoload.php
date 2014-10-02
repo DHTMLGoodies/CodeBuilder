@@ -72,6 +72,7 @@ spl_autoload_register(
                 'ludodbcollection' => '/ludoDB/LudoDBCollection.php',
                 'ludodbcollectionconfigparser' => '/ludoDB/LudoDBCollectionConfigParser.php',
                 'ludodbconfigparser' => '/ludoDB/LudoDBConfigParser.php',
+                'ludodbvalidator' => '/ludoDB/LudoDBValidator.php',
                 'ludodbconnectionexception' => '/ludoDB/LudoDBExceptions.php',
                 'ludodbexception' => '/ludoDB/LudoDBExceptions.php',
                 'ludodbinvalidargumentsexception' => '/ludoDB/LudoDBExceptions.php',

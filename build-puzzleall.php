@@ -19,4 +19,4 @@ Builder::disableDB();
 $handler = new LudoDBRequestHandler();
 
 
-echo $handler->handle($request);
+echo $handler->handle($request, null);
