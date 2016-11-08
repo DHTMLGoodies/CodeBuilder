@@ -95,6 +95,7 @@ class Minify_YUICompressor {
 
         if(count($output) === 0){
             $cmd = self::_getCmd($options, $type, $tmpFile);
+            
             $cmd = str_replace("java ", 'C:\PROGRA~1\Java\jre7\bin\java ', $cmd);
             exec($cmd, $output);
         }

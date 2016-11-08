@@ -5,14 +5,22 @@
  * Date: 16.02.13
  * Time: 01:39
  */
+
+
+require_once "autoload.php";
+
 class Builder implements LudoDBService
 {
+    const TAR_COMMAND = "tar";
+
     /**
      * @var Package|PackageInterface
      */
     private $package;
     private $minifySkin = false;
     private static $logToDb = true;
+
+    private $fullVersion;
 
     public function __construct()
     {
@@ -26,6 +34,9 @@ class Builder implements LudoDBService
         Minify_YUICompressor::$tempDir = self::TMP_PATH;
     }
 
+
+
+
     public static function disableDB(){
          self::$logToDb = false;
     }
@@ -38,6 +49,8 @@ class Builder implements LudoDBService
     public function build()
     {
         $ret = array();
+
+        $ret["build"] = $this->getFullVersion();
         $ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
 
@@ -51,9 +64,62 @@ class Builder implements LudoDBService
             }
         }
 
+        $ret["zip"] = $this->buildZip();
+
         return $ret;
 
     }
+
+
+    public function getFullVersion(){
+
+        if(!isset($this->fullVersion)){
+            $versionFile = "build/". $this->package->getName() .".buildno";
+
+            $currentVersion = $this->package->getVersion();
+
+            if(file_exists($versionFile)){
+                $versionNo = file_get_contents($versionFile);
+
+
+
+                if($this->isSameVersion($versionNo, $currentVersion)){
+                    $this->fullVersion = $this->incrementBuildNumber($versionNo);
+                    file_put_contents($versionFile, $this->fullVersion );
+                }else{
+                    $buildNo = 1;
+                    $this->fullVersion =  $currentVersion . ".". $buildNo;
+                    file_put_contents($versionFile, $this->fullVersion);
+                }
+            }else{
+                $buildNo = 1;
+                $this->fullVersion =  $currentVersion . ".". $buildNo;
+                file_put_contents($versionFile, $this->fullVersion);
+            }
+        }
+
+        return $this->fullVersion;
+
+    }
+
+    private function incrementBuildNumber($version){
+        $tokens = explode(".", $version);
+        $tokens[count($tokens)-1]++;
+        return implode(".", $tokens);
+    }
+
+    private function isSameVersion($version1, $version2){
+        $tokens1 = explode(".", $version1);
+        $tokens2 = explode(".", $version2);
+
+        $len = min(count($tokens1), count($tokens2));
+
+        for($i=0;$i<$len;$i++){
+            if($tokens1[$i] != $tokens2[$i])return false;
+        }
+        return true;
+    }
+
 
     public function minify()
     {
@@ -113,6 +179,7 @@ class Builder implements LudoDBService
     {
         $content = file_get_contents($file);
         $lt = $this->package->getLicenseText();
+        $lt = str_replace("[VERSION]", $this->getFullVersion(), $lt);
         $lt = str_replace("[DATE]", date("Y"), $lt);
         $lt = "/* Generated " . date("D M j G:i:s T Y") . " */\n" . $lt;
         $lt = preg_replace("/\n\s+/s", "\n", $lt);
@@ -193,9 +260,62 @@ class Builder implements LudoDBService
         }
     }
 
+    private $zipPath;
+
+
+    private function buildZip(){
+        $zipPath = $this->getZipPath();
+
+        $files = $this->package->getFilesForZip();
+
+        $this->setWorkingDirectory();
+
+        foreach($files as $file){
+            $cmd = $this->getTarCommand($zipPath, $file);
+            exec($cmd);
+        }
+
+        $this->restoreWorkingDirectory();
+
+
+        return array(
+            "zip" => $zipPath,
+            "zip-size" => filesize($zipPath)
+        );
+
+    }
+
+    private $pwd;
+
+    private function setWorkingDirectory(){
+        $this->pwd = getcwd();
+        chdir($this->package->getRootFolder());
+    }
+
+    private function restoreWorkingDirectory(){
+        chdir($this->pwd);
+    }
+
+
+
+
+
+
+    private function getTarCommand($archivePath, $fileToAdd)
+    {
+        return self::TAR_COMMAND . " -rf " . $archivePath . " " . $fileToAdd;
+    }
+
+
+    private function getZipPath(){
+        if(!isset($this->zipPath)){
+            $this->zipPath = $this->package->getZipFolder() . $this->package->getName() . "-". $this->getFullVersion() . ".zip";
+        }
+        return $this->zipPath;
+    }
+
     private function writeToFile($path, $content)
     {
-        $this->createFolders($path);
         file_put_contents($path, $content);
     }
 
@@ -207,7 +327,8 @@ class Builder implements LudoDBService
         foreach ($tokens as $token) {
             $current .= $token . "/";
             if (!file_exists($current)) {
-                mkdir($current, 0775);
+                $success = mkdir($current, 0775);
+                if(!$success)die("ERROR: Unable to create directory ". $current);
             }
         }
     }
@@ -319,16 +440,17 @@ class Builder implements LudoDBService
 
         $js = $this->getJSFromDependingPackages($this->package);
         $js .= $this->getFileContent($files);
-
-
-        $js = Minify_YUICompressor::minifyJs(trim($js));
-
-        if (!strlen($js)) {
-            throw new LudoDBException("Minify failed");
-        }
         $fn = $this->package->getJSFileNameMinified();
 
-        $this->writeToFile($fn, $js);
+        $minifiedJs = Minify_YUICompressor::minifyJs(trim($js));
+
+        error_reporting(E_ALL);
+        if (!strlen($minifiedJs)) {
+            throw new LudoDBException("Minify failed " . $fn . "(" . strlen($js) . ")");
+        }
+
+
+        $this->writeToFile($fn, $minifiedJs);
 
         return array('file' => $fn, 'size' => filesize($fn));
 
@@ -344,7 +466,7 @@ class Builder implements LudoDBService
             $css = Minify_YUICompressor::minifyCss($css);
 
             if (!strlen($css)) {
-                throw new LudoDBException("Minify failed");
+                throw new LudoDBException("Minify failed " . $fn);
             }
         }
 

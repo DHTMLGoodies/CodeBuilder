@@ -15,7 +15,9 @@ class LudoJS extends Package implements PackageInterface
         return array(
             'Core' => array(
                 'dependencies' => array(
-                    'ludo.js', 'effect.js', 'language/default.js', 'registry.js','storage/storage.js', 'object-factory.js', 'config.js','assets.js'
+                    '../mootools/MooTools-Core-1.6.0.js',
+                    '../mootools/Mootools-More-1.6.0.js', 'ludo.js',
+                    'util.js', 'effect.js', 'language/default.js', 'registry.js','storage/storage.js', 'object-factory.js', 'config.js','assets.js'
                 ),
                 'hidden' => true
             ),
@@ -82,6 +84,8 @@ class LudoJS extends Package implements PackageInterface
                     'Factory' => array('dependencies' => array('Core'), 'hidden' => true),
                     'Resizer' => array('dependencies' => array('Core'), 'hidden' => true),
                     'Base' => array('dependencies' => array('layout/Resizer', 'layout/TextBox'), 'hidden' => true, array("collapse-bar.css")),
+                    'Table' => array('dependencies' => array('layout/Base'), 'hidden' => true),
+                    'Accordion' => array('dependencies' => array('layout/Base'), 'hidden' => true, 'css'=>array("accordion.css")),
                     'Linear' => array('dependencies' => array('layout/Base'), 'hidden' => true),
                     'LinearHorizontal' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
                     'LinearVertical' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
@@ -128,11 +132,6 @@ class LudoJS extends Package implements PackageInterface
             'Notification' => array(
                 'dependencies' => array('View')
             ),
-            'socket' => array(
-                'modules' => array(
-                    'Socket' => array('dependencies' => array('Core'))
-                )
-            ),
             'FramedView' => array(
                 'dependencies' => array('View', 'view/button-bar.js', 'effect/Resize', 'view/title-bar.js', 'effect/Drag')
             ),
@@ -141,9 +140,6 @@ class LudoJS extends Package implements PackageInterface
             ),
             'Window' => array(
                 'dependencies' => array('FramedView'),'css' => 'window.css'
-            ),
-            'Accordion' => array(
-                'dependencies' => array('FramedView'),'css' => true
             ),
             'grid' => array(
                 'modules' => array(
@@ -173,6 +169,7 @@ class LudoJS extends Package implements PackageInterface
                     'Today' => array('dependencies' => array('calendar/Base')),
                     'YearSelector' => array('dependencies' => array('calendar/Selector')),
                     'MonthYearSelector' => array('dependencies' => array('calendar/Selector')),
+                    'TimePicker' => array('dependencies' => array('View','util/geometry.js')),
                 ),
                 'css' => true
             ),
@@ -298,6 +295,8 @@ class LudoJS extends Package implements PackageInterface
                     'Select' => array('dependencies' => array('form/LabelElement')),
                     'FilterText' => array('dependencies' => array('form/Text')),
                     'RadioGroup' => array('dependencies' => array('form/Element', 'form/Checkbox')),
+                    'OnOffSwitch' => array('dependencies' => array('form/LabelElement'), "css" => true),
+                    'Seekbar' => array('dependencies' => array('form/Element'), "css" => true),
                     'File' => array('dependencies' => array('form/Element', 'form/LabelElement'), "css" => true),
                     'Slider' => array('dependencies' => array('form/LabelElement', 'form/LabelElement', 'effect/Drag'), "css" => true),
                     'SearchField' => array('dependencies' => array('form/Text')),
@@ -359,9 +358,9 @@ class LudoJS extends Package implements PackageInterface
                     'Engine' => array('dependencies' => array("Core")),
                     'Node' => array('dependencies' => array('canvas/Engine')),
                     'Paint' => array('dependencies' => array('canvas/Node')),
-                    'Element' => array('dependencies' => array('Core', 'canvas/Node')),
-                    'Canvas' => array('dependencies' => array('canvas/Element')),
-                    'Group' => array('dependencies' => array('canvas/Element')),
+                    'View' => array('dependencies' => array('Core', 'canvas/Node')),
+                    'Canvas' => array('dependencies' => array('canvas/View')),
+                    'Group' => array('dependencies' => array('canvas/View')),
                     'Gradient' => array('dependencies' => array('canvas/NamedNode')),
                     'RadialGradient' => array('dependencies' => array('canvas/Gradient')),
                     'Stop' => array('dependencies' => array('canvas/Node')),
@@ -388,7 +387,7 @@ class LudoJS extends Package implements PackageInterface
     public function getLicenseText(){
         return "/************************************************************************************************************
                 @fileoverview
-                ludoJS - Javascript framework
+                ludoJS - Javascript framework, [VERSION]
                 Copyright (C) 2012-[DATE]  ludoJS.com, Alf Magne Kalleland
 
                 This library is free software; you can redistribute it and/or
@@ -425,4 +424,18 @@ class LudoJS extends Package implements PackageInterface
             "ocean" =>  "ludo-all-ocean-skin.css"
         );
     }
+
+    public function getVersion(){
+        return "1.1";
+    }
+
+    public function getFilesForZip()
+    {
+        return array(
+            "images", "css", "src", "jquery", "readme.md", "demo"
+
+        );
+    }
+
+
 }

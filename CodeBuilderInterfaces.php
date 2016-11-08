@@ -18,4 +18,11 @@ interface PackageInterface{
 
     public function getCssSkins();
 
+    public function getVersion();
+
+    /**
+     * @return array
+     */
+    public function getFilesForZip();
+
 }

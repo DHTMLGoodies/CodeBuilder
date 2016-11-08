@@ -8,7 +8,7 @@
 
 class Package
 {
-    private $name;
+    protected $name;
     private $customModules;
 
 
@@ -35,7 +35,7 @@ class Package
     }
 
     public function getRootFolder(){
-        return "";
+        return $this->name;
     }
 
     public function setCustomModules($modules)
@@ -71,6 +71,10 @@ class Package
         if(isset($skinName))$skinName = "-".$skinName;
         $folder = $this->getRootFolder() . "css";
         return $folder . "/" . $this->getName() . $skinName . $suffix . ".css";
+    }
+
+    public function getZipFolder(){
+        return $this->getRootFolder() . "zip/";
     }
 
     public function getCSSFileNameMinified()
@@ -173,7 +177,8 @@ class Package
 
     private function getFileName($modulePath)
     {
-        $ret = array_pop(explode("/", $modulePath));
+        $array = explode("/", $modulePath);
+        $ret = array_pop($array);
         $ret = preg_replace("/([A-Z])/s", "-$1", $ret);
         $ret = trim($ret, "-");
         return strtolower($ret);

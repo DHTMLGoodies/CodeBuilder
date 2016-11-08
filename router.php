@@ -1,5 +1,6 @@
 <?php
 
+
 require_once(dirname(__FILE__)."/autoload.php");
 
 date_default_timezone_set("Europe/Berlin");
@@ -11,7 +12,10 @@ ini_set('display_errors','on');
  */
 require_once("database-connection.php");
 
+
+
 LudoDB::enableLogging();
+
 
 // For static(No db) installations
 

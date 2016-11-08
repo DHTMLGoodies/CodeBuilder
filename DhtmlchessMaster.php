@@ -5,16 +5,19 @@
  * Date: 16.02.13
  * Time: 01:57
  */
-class DhtmlChess extends Package implements PackageInterface
+class DhtmlchessMaster extends Package implements PackageInterface
 {
+    public function __construct()
+    {
+        parent::__construct();
+        $this->name = "dhtml-chess";
+
+    }
 
     public function getRootFolder()
     {
-        return "../dhtml-chess/";
+        return "../dhtmlchess-master/";
     }
-    
-    
-
 
     public function getLicenseText()
     {
@@ -166,4 +169,16 @@ class DhtmlChess extends Package implements PackageInterface
     {
         return array();
     }
+
+    public function getVersion()
+    {
+        return "1.1";
+    }
+
+    public function getFilesForZip()
+    {
+        return array("js", "css", "jquery", "demo");
+    }
+
+
 }
