@@ -317,4 +317,8 @@ class Package
     {
         return array();
     }
+
+    public function getUrlsToRunBeforeStart(){
+        return array();
+    }
 }

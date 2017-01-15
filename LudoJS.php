@@ -21,6 +21,11 @@ class LudoJS extends Package implements PackageInterface
                 ),
                 'hidden' => true
             ),
+            'theme' => array(
+                'modules' => array(
+                    'Themes' => array('dependencies' => array(), 'hidden' => true),
+                )
+            ),
             'Movable' => array(
                 'hidden' => true
             ),
@@ -37,18 +42,35 @@ class LudoJS extends Package implements PackageInterface
             ),
             'chart' => array(
                 'modules' => array(
-                    'Chart' => array('dependencies' => array('View','chart/DataProvider','chart/Record','canvas/Effect'), 'hidden' => false),
-                    'DataProvider' => array('dependencies' => array('dataSource/Collection'), 'hidden' => true),
+                    'Chart' => array('dependencies' => array('View','chart/DataSource','chart/Record','svg/Effect'), 'hidden' => false),
+                    'DataSource' => array('dependencies' => array('dataSource/JSON','color/Color'), 'hidden' => true),
+                    'ScatterDataSource' => array('dependencies' => array('chart/DataSource'), 'hidden' => true),
                     'Fragment' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'Base' => array('dependencies' => array('canvas/Group'), 'hidden' => true),
+                    'Base' => array('dependencies' => array('svg/Group'), 'hidden' => true),
                     'Pie' => array('dependencies' => array('chart/Base','chart/PieSlice'), 'hidden' => false),
                     'PieSlice' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
                     'Record' => array('dependencies' => array('dataSource/Record'), 'hidden' => true),
-                    'Labels' => array('dependencies' => array('chart/Base'), 'hidden' => false),
-                    'Label' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
+                    'LabelList' => array('dependencies' => array('chart/Base'), 'hidden' => false),
+                    'LabelListItem' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
                     'AddOn' => array('dependencies' => array('Core'), 'hidden' => true),
                     'PieSliceHighlighted' => array('dependencies' => array('chart/AddOn'), 'hidden' => false),
-                    'Tooltip' => array('dependencies' => array('chart/AddOn','canvas/TextBox','canvas/Rect'), 'hidden' => false),
+                    'Tooltip' => array('dependencies' => array('chart/AddOn','svg/TextBox','svg/Rect'), 'hidden' => false),
+                    'Text' => array('dependencies' => array('chart/Base'), 'hidden' => false),
+                    'ChartLabels' => array('dependencies' => array('chart/Base'), 'hidden' => false),
+                    'ChartValues' => array('dependencies' => array('chart/Base'), 'hidden' => false),
+                    'Bar' => array('dependencies' => array('chart/Base'), 'hidden' => false),
+                    'BarItem' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
+                    'Line' => array('dependencies' => array('chart/Base'), 'hidden' => false),
+                    'Area' => array('dependencies' => array('chart/Line'), 'hidden' => false),
+                    'LineItem' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
+                    'LineDot' => array('dependencies' => array('svg/Path'), 'hidden' => true),
+                    'Outline' => array('dependencies' => array('chart/Base'), 'hidden' => true),
+                    'LineUtil' => array('dependencies' => array(), 'hidden' => true),
+                    'Scatter' => array('dependencies' => array('chart/Base'), 'hidden' => true),
+                    'ScatterSeries' => array('dependencies' => array('chart/Fragment'), 'hidden' => true),
+                    'ChartUtil' => array('dependencies' => array(), 'hidden' => true),
+                    'Ticks' => array('dependencies' => array('chart/Base'), 'hidden' => true),
+                    'BgLines' => array('dependencies' => array('chart/Base'), 'hidden' => true),
                 )
             ),
             'tpl' => array(
@@ -72,7 +94,6 @@ class LudoJS extends Package implements PackageInterface
                 'modules' => array(
                     'Color' => array('dependencies' => array(), 'hidden' => false),
                     'Base' => array('dependencies' => array('View'), 'hidden' => false),
-                    'RGBSlider' => array('dependencies' => array('color/Base','form/Slider'), 'hidden' => false),
                     'Boxes' => array('dependencies' => array('color/Base'), 'hidden' => false),
                     'NamedColors' => array('dependencies' => array('color/Boxes'), 'hidden' => false),
                     'RgbColors' => array('dependencies' => array('color/Boxes'), 'hidden' => false),
@@ -83,25 +104,26 @@ class LudoJS extends Package implements PackageInterface
                 'modules' => array(
                     'Factory' => array('dependencies' => array('Core'), 'hidden' => true),
                     'Resizer' => array('dependencies' => array('Core'), 'hidden' => true),
-                    'Base' => array('dependencies' => array('layout/Resizer', 'layout/TextBox'), 'hidden' => true, array("collapse-bar.css")),
+                    'Base' => array('dependencies' => array('layout/Resizer', 'layout/TextBox'), 'hidden' => true, array()),
                     'Table' => array('dependencies' => array('layout/Base'), 'hidden' => true),
                     'Accordion' => array('dependencies' => array('layout/Base'), 'hidden' => true, 'css'=>array("accordion.css")),
                     'Linear' => array('dependencies' => array('layout/Base'), 'hidden' => true),
                     'LinearHorizontal' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
                     'LinearVertical' => array('dependencies' => array('layout/Linear'), 'hidden' => false),
-                    'Card' => array('dependencies' => array('layout/Base'), 'hidden' => false),
-                    'Tab' => array('dependencies' => array('layout/Relative', 'layout/TabStrip'), 'hidden' => false, "css" => array("tab.css","tab-strip.css")),
-                    'Fill' => array('dependencies' => array('layout/Base'), 'hidden' => false),
+                    'ViewPager' => array('dependencies' => array('layout/Base'), 'hidden' => false),
+                    'Tab' => array('dependencies' => array('layout/Relative', 'layout/Tabs'), 'hidden' => false, "css" => array("tab.css","tab-strip.css")),
+                    'Docking' => array('dependencies' => array('layout/Tab'), 'hidden' => false),
+                    'Fill' => array('dependencies' => array('layout/Relative'), 'hidden' => false),
                     'Grid' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Popup' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Relative' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Canvas' => array('dependencies' => array('layout/Relative'), 'hidden' => false),
-                    'SlideIn' => array('dependencies' => array('layout/Base'), 'hidden' => false),
+                    'NavBar' => array('dependencies' => array('layout/Base'), 'hidden' => false),
                     'Menu' => array('dependencies' => array('layout/Base','layout/menu-container.js'), 'hidden' => true),
                     'MenuHorizontal' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
                     'MenuVertical' => array('dependencies' => array('layout/Menu'), 'hidden' => false),
-                    'TabStrip' => array('dependencies' => array('View'), 'hidden' => true),
-                    'TextBox' => array('dependencies' => array('canvas/Canvas'), 'hidden' => true),
+                    'Tabs' => array('dependencies' => array('View'), 'hidden' => true),
+                    'TextBox' => array('dependencies' => array('svg/Canvas'), 'hidden' => true),
                     'Renderer' => array('dependencies' => array(), 'hidden' => true),
                     'CollapseBar' => array('dependencies' => array('View'), 'hidden' => true),
                 )
@@ -126,8 +148,8 @@ class LudoJS extends Package implements PackageInterface
                     'View'
                 )
             ),
-            'List' => array(
-                'dependencies' => array('CollectionView')
+            'ListView' => array(
+                'dependencies' => array('CollectionView'), 'css'=>true
             ),
             'Notification' => array(
                 'dependencies' => array('View')
@@ -144,20 +166,18 @@ class LudoJS extends Package implements PackageInterface
             'grid' => array(
                 'modules' => array(
                     'Grid' => array('dependencies' => array(
-                        'View', 'scroller.js', 'grid/grid-header.js', 'grid/ColumnMove', 'col-resize.js', 'grid/column-manager.js', 'grid/row-manager.js', 'data-source/Collection'
+                        'View', 'scroller.js', 'grid/grid-header.js', 'grid/ColumnMove', 'col-resize.js', 'grid/column-manager.js', 'grid/row-manager.js', 'data-source/JsonArray'
                     ), 'css' => array('grid.css')),
                     'ColumnMove' => array('hidden' => true, 'dependencies' => array('effect/DragDrop')),
                 )
             ),
-            'card' => array(
+            'view' => array(
                 'modules' => array(
-                    'Button' => array('dependencies' => array('form/Button')),
-                    'FinishButton' => array('dependencies' => array('card/Button')),
-                    'NextButton' => array('dependencies' => array('card/Button')),
-                    'PreviousButton' => array('dependencies' => array('card/Button')),
-                    'ProgressBar' => array('dependencies' => array('progress/Bar')),
+                    'ViewPagerNav' => array('dependencies' => array('View'), 'css' => true)
                 )
+
             ),
+
             'calendar' => array(
                 'modules' => array(
                     'Base' => array('dependencies' => array('View'), 'hidden' => true),
@@ -208,7 +228,7 @@ class LudoJS extends Package implements PackageInterface
             'tree' => array(
                 'modules' => array(
                     'Tree' => array(
-                        'dependencies' => array('CollectionView','dataSource/TreeCollection'),'css' => 'tree.css'
+                        'dependencies' => array('CollectionView','dataSource/JsonTree'),'css' => 'tree.css'
                     )
                 )
             ),
@@ -224,14 +244,14 @@ class LudoJS extends Package implements PackageInterface
                     'HTML' => array(
                         'dependencies' => array('data-source/Base')
                     ),
-                    'Collection' => array(
-                        'dependencies' => array('data-source/JSON', 'data-source/CollectionSearch', 'data-source/Record')
+                    'JsonArray' => array(
+                        'dependencies' => array('data-source/JSON', 'data-source/JsonArraySearch', 'data-source/Record')
                     ),
-                    'TreeCollection' => array(
-                        'dependencies' => array('data-source/Collection')
+                    'JsonTree' => array(
+                        'dependencies' => array('data-source/JsonArray')
                     ),
-                    'TreeCollectionSearch',
-                    'CollectionSearch' => array(
+                    'JsonTreeSearch',
+                    'JsonArraySearch' => array(
                         'hidden' => true,
                         'dependencies' => array('data-source/SearchParser')
                     ),
@@ -253,17 +273,11 @@ class LudoJS extends Package implements PackageInterface
             ),
             'progress' => array(
                 'modules' => array(
-                    'Base' => array(
-                        'dependencies' => array('View', 'progress/Datasource'), 'hidden' => true,'css' => 'progress-bar.css'
-                    ),
                     'Bar' => array(
-                        'dependencies' => array('progress/Base')
+                        'dependencies' => array('View'), 'css'=>true
                     ),
-                    'Text' => array(
-                        'dependencies' => array('progress/Base')
-                    ),
-                    'Datasource' => array(
-                        'dependencies' => array('data-source/JSON'), 'hidden' => true
+                    'Donut' => array(
+                        'dependencies' => array('View')
                     )
                 )
             ),
@@ -276,11 +290,11 @@ class LudoJS extends Package implements PackageInterface
                     'SubmitButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'CancelButton' => array('dependencies' => array('form/Button')),
                     'Date' => array('dependencies' => array('form/Combo','calendar/Calendar')),
-                    'Color' => array('dependencies' => array('form/Combo','color/Color','color/RGBSlider','color/Boxes','color/NamedColors','color/RgbColors'), 'css' => 'color.css'),
+                    'Color' => array('dependencies' => array('form/Combo','color/Color','color/Boxes','color/NamedColors','color/RgbColors'), 'css' => 'color.css'),
                     'ResetButton' => array('dependencies' => array('form/Button', 'form/Manager')),
                     'Combo' => array('dependencies' => array('form/Text'), "css" => true),
                     'ComboTree' => array('dependencies' => array('form/Element', 'tree/Tree'), "css" => "filter-tree.css"),
-                    'Hidden' => array('dependencies' => array('form/Element')),
+                    'Label' => array('dependencies' => array('form/Element')),
                     'Text' => array('dependencies' => array('form/LabelElement'), 'css' => 'text.css'),
                     'Textarea' => array('dependencies' => array('form/Text')),
                     'DisplayField' => array('dependencies' => array('form/Element')),
@@ -295,7 +309,7 @@ class LudoJS extends Package implements PackageInterface
                     'Select' => array('dependencies' => array('form/LabelElement')),
                     'FilterText' => array('dependencies' => array('form/Text')),
                     'RadioGroup' => array('dependencies' => array('form/Element', 'form/Checkbox')),
-                    'OnOffSwitch' => array('dependencies' => array('form/LabelElement'), "css" => true),
+                    'OnOff' => array('dependencies' => array('form/LabelElement'), "css" => true),
                     'Seekbar' => array('dependencies' => array('form/Element'), "css" => true),
                     'File' => array('dependencies' => array('form/Element', 'form/LabelElement'), "css" => true),
                     'Slider' => array('dependencies' => array('form/LabelElement', 'form/LabelElement', 'effect/Drag'), "css" => true),
@@ -332,9 +346,6 @@ class LudoJS extends Package implements PackageInterface
                 'dependencies' => array('View'),
                 'css' => array('Panel.css')
             ),
-            'Anchor' => array(
-                'dependencies' => array('View'),'css' => 'anchor.css'
-            ),
             'dialog' => array(
                 'modules' => array(
                     'Dialog' => array('dependencies' => array('Window'), 'css' => 'dialog.css'),
@@ -347,38 +358,36 @@ class LudoJS extends Package implements PackageInterface
             'video' => array(
                 'modules' => array(
                     'Video' => array('dependencies' => array('View'), 'hidden' => true),
-                    'YouTube' => array('dependencies' => array('video/Video')),
-                    'GoogleVideo' => array('dependencies' => array('video/Video')),
-                    'DailyMotion' => array('dependencies' => array('video/Video')),
+                    'YouTube' => array('dependencies' => array('video/Video'))
                 )
             ),
-            'canvas' => array(
+            'svg' => array(
                 'modules' => array(
                     'Effect' => array('dependencies' => array()),
                     'Engine' => array('dependencies' => array("Core")),
-                    'Node' => array('dependencies' => array('canvas/Engine')),
-                    'Paint' => array('dependencies' => array('canvas/Node')),
-                    'View' => array('dependencies' => array('Core', 'canvas/Node')),
-                    'Canvas' => array('dependencies' => array('canvas/View')),
-                    'Group' => array('dependencies' => array('canvas/View')),
-                    'Gradient' => array('dependencies' => array('canvas/NamedNode')),
-                    'RadialGradient' => array('dependencies' => array('canvas/Gradient')),
-                    'Stop' => array('dependencies' => array('canvas/Node')),
+                    'Node' => array('dependencies' => array('svg/Engine','svg/util.js')),
+                    'Paint' => array('dependencies' => array('svg/Node')),
+                    'View' => array('dependencies' => array('Core', 'svg/Node')),
+                    'Canvas' => array('dependencies' => array('svg/View','svg/Matrix')),
+                    'Group' => array('dependencies' => array('svg/View')),
+                    'Gradient' => array('dependencies' => array('svg/NamedNode')),
+                    'RadialGradient' => array('dependencies' => array('svg/Gradient')),
+                    'Stop' => array('dependencies' => array('svg/Node')),
                     'Drag' => array('dependencies' => array('effect/Drag')),
                     'EventManager' => array('dependencies' => array()),
-                    'NamedNode' => array('dependencies' => array('canvas/Node','canvas/Paint')),
-                    'Circle' => array('dependencies' => array('canvas/NamedNode')),
-                    'Rect' => array('dependencies' => array('canvas/NamedNode')),
-                    'Polyline' => array('dependencies' => array('canvas/NamedNode')),
-                    'Polygon' => array('dependencies' => array('canvas/Polyline')),
-                    'Ellipse' => array('dependencies' => array('canvas/NamedNode')),
-                    'Path' => array('dependencies' => array('canvas/NamedNode')),
-                    'Text' => array('dependencies' => array('canvas/NamedNode')),
-                    'Filter' => array('dependencies' => array('canvas/NamedNode')),
-                    'Mask' => array('dependencies' => array('canvas/NamedNode')),
-                    'Curtain' => array('dependencies' => array('canvas/Node')),
-                    'Animation' => array('dependencies' => array()),
-                    'TextBox' => array('dependencies' => array('canvas/Group')),
+                    'NamedNode' => array('dependencies' => array('svg/Node','svg/Paint')),
+                    'Circle' => array('dependencies' => array('svg/NamedNode')),
+                    'Rect' => array('dependencies' => array('svg/NamedNode')),
+                    'Polyline' => array('dependencies' => array('svg/NamedNode')),
+                    'Polygon' => array('dependencies' => array('svg/Polyline')),
+                    'Ellipse' => array('dependencies' => array('svg/NamedNode')),
+                    'Path' => array('dependencies' => array('svg/NamedNode')),
+                    'Text' => array('dependencies' => array('svg/NamedNode')),
+                    'Filter' => array('dependencies' => array('svg/NamedNode')),
+                    'Mask' => array('dependencies' => array('svg/NamedNode')),
+                    'Animation' => array('dependencies' => array('color/Color')),
+                    'TextBox' => array('dependencies' => array('svg/Group')),
+                    'Matrix' => array('dependencies' => array()),
                 )
             )
         );
@@ -418,10 +427,11 @@ class LudoJS extends Package implements PackageInterface
 
     public function getCssSkins(){
         return array(
-            "blue" =>  "ludo-all-blue-skin.css",
-            "gray" =>  "ludo-all-gray-skin.css",
-            "light-gray" =>  "ludo-all-light-gray-skin.css",
-            "ocean" =>  "ludo-all-ocean-skin.css"
+            "blue" =>  "blue.css",
+            "gray" =>  "gray.css",
+            "light-gray" =>  "light-gray.css",
+            "ocean" =>  "ocean.css",
+            "twilight" =>  "twilight.css"
         );
     }
 
@@ -432,10 +442,13 @@ class LudoJS extends Package implements PackageInterface
     public function getFilesForZip()
     {
         return array(
-            "images", "css", "src", "jquery", "readme.md", "demo"
+            "images", "js", "css", "src", "jquery", "README.md", "samples"
 
         );
     }
 
+    public function getUrlsToRunBeforeStart(){
+        return array("http://localhost/ludojs/demos-to-html.php");
+    }
 
 }

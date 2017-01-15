@@ -158,8 +158,8 @@ class DhtmlchessMaster extends Package implements PackageInterface
                 "modules" => array(
                     "layout", "View", "Application", "grid", "dialog", "form/StrongPassword", "form/Email", "form/Number",
                     "form/Checkbox", "controller", "menu", "Panel", "canvas/Path", "canvas/Canvas", "remote",
-                    "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree", "card",
-                    "layout", "Accordion", "form/Textarea", "Notification", "form/ComboTree","paging","form/DisplayField","progress","form/File","form/Radio","form/Select"
+                    "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree",
+                    "layout", "form/Textarea", "Notification", "form/ComboTree","paging","form/DisplayField","progress","form/File","form/Radio","form/Select"
                 )
             )
         );

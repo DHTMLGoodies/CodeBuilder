@@ -17,6 +17,7 @@ class Builder implements LudoDBService
      * @var Package|PackageInterface
      */
     private $package;
+    private $zipPathCurrent;
     private $minifySkin = false;
     private static $logToDb = true;
 
@@ -50,6 +51,9 @@ class Builder implements LudoDBService
     {
         $ret = array();
 
+
+        $this->runUrls();
+        
         $ret["build"] = $this->getFullVersion();
         $ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
@@ -68,6 +72,23 @@ class Builder implements LudoDBService
 
         return $ret;
 
+    }
+
+    private function runUrls(){
+        $urls = $this->package->getUrlsToRunBeforeStart();
+        foreach($urls as $url){
+            $options = array(
+                'http' => array(
+                    'header' => "Content-type: application/x-www-form-urlencoded\r\n",
+                    'method' => 'POST',
+                    'content' => ''
+                )
+            );
+            $context = stream_context_create($options);
+
+            file_get_contents($url, false, $context);
+
+        }
     }
 
 
@@ -209,14 +230,20 @@ class Builder implements LudoDBService
         $ret = array();
         if (!isset($css)) $css = $this->getAllCss($this->package);
         $fullCss = $css;
+        $allCss = $css;
         $css = Minify_YUICompressor::minifyCss($css);
         $skins = $package->getCssSkinFiles();
         foreach ($skins as $name => $file) {
             $fn = $this->package->getCSSFileName($name);
             $content = file_get_contents($file);
+
+
             if ($package->getName() !== $this->package->getName()) {
                 $content = $this->copyImageFiles($content, $package);
             }
+
+            $allCss .= "\n" . $content;
+            
             if ($this->minifySkin) {
                 $this->writeToFile($this->package->getCSSFileName($name, "-readable"), $fullCss . $content);
                 $content = Minify_YUICompressor::minifyCss($content);
@@ -226,6 +253,10 @@ class Builder implements LudoDBService
 
             $ret[] = array("file" => $fn, "size" => filesize($fn));
         }
+
+        $this->writeToFile($this->package->getCSSFileName("", "all-readable"), $allCss);
+        $fullCss = Minify_YUICompressor::minifyCss($allCss);
+        $this->writeToFile($this->package->getCSSFileName("", "all"), $allCss);
         return $ret;
 
     }
@@ -268,12 +299,17 @@ class Builder implements LudoDBService
 
         $files = $this->package->getFilesForZip();
 
+
+        file_put_contents($this->package->getZipFolder(). "current-zip.txt", $this->getFullVersion());
+
         $this->setWorkingDirectory();
 
         foreach($files as $file){
             $cmd = $this->getTarCommand($zipPath, $file);
             exec($cmd);
         }
+
+        copy($zipPath, $this->getZipPathCurrent() );
 
         $this->restoreWorkingDirectory();
 
@@ -309,9 +345,23 @@ class Builder implements LudoDBService
 
     private function getZipPath(){
         if(!isset($this->zipPath)){
-            $this->zipPath = $this->package->getZipFolder() . $this->package->getName() . "-". $this->getFullVersion() . ".zip";
+            $this->zipPath = $this->package->getZipFolder() . $this->getZipFileName();
         }
         return $this->zipPath;
+    }
+
+
+    private function getZipPathCurrent(){
+        if(!isset($this->zipPathCurrent)){
+            $this->zipPathCurrent = $this->package->getZipFolder() . $this->package->getName(). "-current.zip";
+        }
+        return $this->zipPathCurrent;
+    }
+
+
+    private function getZipFileName(){
+        return $this->package->getName() . "-". $this->getFullVersion() . ".zip";
+
     }
 
     private function writeToFile($path, $content)

@@ -41,6 +41,7 @@ class DhtmlChess extends Package implements PackageInterface
     {
         return array(
             "chess.js",
+            "cookie/cookie.js",
             "language" => array(
                 "modules" => array("default.js")
             ),
@@ -122,6 +123,9 @@ class DhtmlChess extends Package implements PackageInterface
                 ),
                 "pgn" => array(
                     "modules" => array('Grid')
+                ),
+                "score" => array(
+                    "modules" => array("Bar")
                 )
             ),
 
@@ -154,9 +158,9 @@ class DhtmlChess extends Package implements PackageInterface
             array("package" => "LudoJS",
                 "modules" => array(
                     "layout", "View", "Application", "grid", "dialog", "form/StrongPassword", "form/Email", "form/Number",
-                    "form/Checkbox", "controller", "menu", "Panel", "canvas/Path", "canvas/Canvas", "remote",
-                    "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree", "card",
-                    "layout", "Accordion", "form/Textarea", "Notification", "form/ComboTree","paging","form/DisplayField","progress","form/File","form/Radio","form/Select"
+                    "form/Checkbox", "controller", "menu", "Panel", "svg/Path", "svg/Canvas", "svg/Animation", "remote","svg/Group",
+                    "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree",'card/Button', 'card/PreviousButton', 'card/NextButton', 'card/FinishButton',
+                    "layout", "form/Textarea", "Notification", "form/ComboTree","paging","form/DisplayField","progress","form/File","form/Radio","form/Select","theme/Themes",'form/Label'
                 )
             )
         );
@@ -166,4 +170,16 @@ class DhtmlChess extends Package implements PackageInterface
     {
         return array();
     }
+
+    public function getVersion()
+    {
+        return "1.1";
+    }
+
+    public function getFilesForZip()
+    {
+        return array("js", "css", "jquery", "demo", "ludojs", "php", "router.php", "autoload.php" , "src",
+            ".htaccess", "README.md", "src-tests", "pgn", "garbochess-engine", "images");
+    }
+
 }
