@@ -36,10 +36,9 @@ class Builder implements LudoDBService
     }
 
 
-
-
-    public static function disableDB(){
-         self::$logToDb = false;
+    public static function disableDB()
+    {
+        self::$logToDb = false;
     }
 
     public function getPackage()
@@ -52,8 +51,8 @@ class Builder implements LudoDBService
         $ret = array();
 
 
-        $this->runUrls();
-        
+        $this->runStartUrls();
+
         $ret["build"] = $this->getFullVersion();
         $ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
@@ -70,13 +69,27 @@ class Builder implements LudoDBService
 
         $ret["zip"] = $this->buildZip();
 
+        $this->runEndURls();
+        
         return $ret;
 
     }
 
-    private function runUrls(){
-        $urls = $this->package->getUrlsToRunBeforeStart();
-        foreach($urls as $url){
+    private function runStartUrls()
+    {
+        $this->runUrls($this->package->getUrlsToRunBeforeStart());
+    }
+
+    private function runEndURls()
+    {
+        $this->runUrls($this->package->getUrlsToRunAtEnd());
+
+    }
+
+    private function runUrls($urls)
+    {
+
+        foreach ($urls as $url) {
             $options = array(
                 'http' => array(
                     'header' => "Content-type: application/x-www-form-urlencoded\r\n",
@@ -92,29 +105,29 @@ class Builder implements LudoDBService
     }
 
 
-    public function getFullVersion(){
+    public function getFullVersion()
+    {
 
-        if(!isset($this->fullVersion)){
-            $versionFile = "build/". $this->package->getName() .".buildno";
+        if (!isset($this->fullVersion)) {
+            $versionFile = "build/" . $this->package->getName() . ".buildno";
 
             $currentVersion = $this->package->getVersion();
 
-            if(file_exists($versionFile)){
+            if (file_exists($versionFile)) {
                 $versionNo = file_get_contents($versionFile);
 
 
-
-                if($this->isSameVersion($versionNo, $currentVersion)){
+                if ($this->isSameVersion($versionNo, $currentVersion)) {
                     $this->fullVersion = $this->incrementBuildNumber($versionNo);
-                    file_put_contents($versionFile, $this->fullVersion );
-                }else{
+                    file_put_contents($versionFile, $this->fullVersion);
+                } else {
                     $buildNo = 1;
-                    $this->fullVersion =  $currentVersion . ".". $buildNo;
+                    $this->fullVersion = $currentVersion . "." . $buildNo;
                     file_put_contents($versionFile, $this->fullVersion);
                 }
-            }else{
+            } else {
                 $buildNo = 1;
-                $this->fullVersion =  $currentVersion . ".". $buildNo;
+                $this->fullVersion = $currentVersion . "." . $buildNo;
                 file_put_contents($versionFile, $this->fullVersion);
             }
         }
@@ -123,20 +136,22 @@ class Builder implements LudoDBService
 
     }
 
-    private function incrementBuildNumber($version){
+    private function incrementBuildNumber($version)
+    {
         $tokens = explode(".", $version);
-        $tokens[count($tokens)-1]++;
+        $tokens[count($tokens) - 1]++;
         return implode(".", $tokens);
     }
 
-    private function isSameVersion($version1, $version2){
+    private function isSameVersion($version1, $version2)
+    {
         $tokens1 = explode(".", $version1);
         $tokens2 = explode(".", $version2);
 
         $len = min(count($tokens1), count($tokens2));
 
-        for($i=0;$i<$len;$i++){
-            if($tokens1[$i] != $tokens2[$i])return false;
+        for ($i = 0; $i < $len; $i++) {
+            if ($tokens1[$i] != $tokens2[$i]) return false;
         }
         return true;
     }
@@ -224,7 +239,9 @@ class Builder implements LudoDBService
         $ret[] = array("file" => $toFile, "size" => filesize($toFile));
         return $ret;
     }
-
+    
+    
+    
     private function buildSkinCss(Package $package, $css = null)
     {
         $ret = array();
@@ -243,7 +260,7 @@ class Builder implements LudoDBService
             }
 
             $allCss .= "\n" . $content;
-            
+
             if ($this->minifySkin) {
                 $this->writeToFile($this->package->getCSSFileName($name, "-readable"), $fullCss . $content);
                 $content = Minify_YUICompressor::minifyCss($content);
@@ -256,7 +273,7 @@ class Builder implements LudoDBService
 
         $this->writeToFile($this->package->getCSSFileName("", "all-readable"), $allCss);
         $fullCss = Minify_YUICompressor::minifyCss($allCss);
-        $this->writeToFile($this->package->getCSSFileName("", "all"), $allCss);
+        $this->writeToFile($this->package->getCSSFileName("", "all"), $fullCss);
         return $ret;
 
     }
@@ -294,22 +311,23 @@ class Builder implements LudoDBService
     private $zipPath;
 
 
-    private function buildZip(){
+    private function buildZip()
+    {
         $zipPath = $this->getZipPath();
 
         $files = $this->package->getFilesForZip();
 
 
-        file_put_contents($this->package->getZipFolder(). "current-zip.txt", $this->getFullVersion());
+        file_put_contents($this->package->getZipFolder() . "current-zip.txt", $this->getFullVersion());
 
         $this->setWorkingDirectory();
 
-        foreach($files as $file){
+        foreach ($files as $file) {
             $cmd = $this->getTarCommand($zipPath, $file);
             exec($cmd);
         }
 
-        copy($zipPath, $this->getZipPathCurrent() );
+        copy($zipPath, $this->getZipPathCurrent());
 
         $this->restoreWorkingDirectory();
 
@@ -323,18 +341,16 @@ class Builder implements LudoDBService
 
     private $pwd;
 
-    private function setWorkingDirectory(){
+    private function setWorkingDirectory()
+    {
         $this->pwd = getcwd();
         chdir($this->package->getRootFolder());
     }
 
-    private function restoreWorkingDirectory(){
+    private function restoreWorkingDirectory()
+    {
         chdir($this->pwd);
     }
-
-
-
-
 
 
     private function getTarCommand($archivePath, $fileToAdd)
@@ -343,24 +359,27 @@ class Builder implements LudoDBService
     }
 
 
-    private function getZipPath(){
-        if(!isset($this->zipPath)){
+    private function getZipPath()
+    {
+        if (!isset($this->zipPath)) {
             $this->zipPath = $this->package->getZipFolder() . $this->getZipFileName();
         }
         return $this->zipPath;
     }
 
 
-    private function getZipPathCurrent(){
-        if(!isset($this->zipPathCurrent)){
-            $this->zipPathCurrent = $this->package->getZipFolder() . $this->package->getName(). "-current.zip";
+    private function getZipPathCurrent()
+    {
+        if (!isset($this->zipPathCurrent)) {
+            $this->zipPathCurrent = $this->package->getZipFolder() . $this->package->getName() . "-current.zip";
         }
         return $this->zipPathCurrent;
     }
 
 
-    private function getZipFileName(){
-        return $this->package->getName() . "-". $this->getFullVersion() . ".zip";
+    private function getZipFileName()
+    {
+        return $this->package->getName() . "-" . $this->getFullVersion() . ".zip";
 
     }
 
@@ -378,7 +397,7 @@ class Builder implements LudoDBService
             $current .= $token . "/";
             if (!file_exists($current)) {
                 $success = mkdir($current, 0775);
-                if(!$success)die("ERROR: Unable to create directory ". $current);
+                if (!$success) die("ERROR: Unable to create directory " . $current);
             }
         }
     }

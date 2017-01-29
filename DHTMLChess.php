@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Comment pending.
  * User: Alf Magne Kalleland
@@ -12,8 +13,6 @@ class DhtmlChess extends Package implements PackageInterface
     {
         return "../dhtml-chess/";
     }
-    
-    
 
 
     public function getLicenseText()
@@ -41,7 +40,8 @@ class DhtmlChess extends Package implements PackageInterface
     {
         return array(
             "chess.js",
-            "cookie/cookie.js",
+            'view/chess.js',
+            'util/dynamic-styles.js',
             "language" => array(
                 "modules" => array("default.js")
             ),
@@ -58,7 +58,7 @@ class DhtmlChess extends Package implements PackageInterface
                 ),
                 "board" => array(
                     'modules' => array(
-                        "Gui", "Board", "Piece"
+                        "Gui", "Board", "Piece", 'Background'
                     ),
                     "css" => true
                 ),
@@ -69,7 +69,7 @@ class DhtmlChess extends Package implements PackageInterface
                 ),
                 "buttonbar" => array(
                     "modules" => array(
-                        "Game"
+                        "Game","Bar"
                     )
                 ),
                 "gamelist" => array(
@@ -89,7 +89,7 @@ class DhtmlChess extends Package implements PackageInterface
                 ),
                 "dialog" => array(
                     "modules" => array(
-                        "NewGame", "EditGameMetadata", "OverwriteMove", "Promote" => array("css" => true), "Comment", "GameImport"
+                        "Dialog", "NewGame", "EditGameMetadata", "OverwriteMove", "PuzzleSolved", "Promote" => array("css" => true), "Comment"
                     )
                 ),
                 "button" => array(
@@ -108,9 +108,11 @@ class DhtmlChess extends Package implements PackageInterface
                 "tree" => array(
                     "modules" => array("SelectFolder")
                 ),
+                /*
                 "user" => array(
-                    "modules" => array("Country","LoginButton", "Controller", "RegisterButton", "LogoutButton", "RegisterWindow", "Panel", "LoginWindow", "SettingsButton", "ProfileWindow")
+                    "modules" => array("Country", "LoginButton", "Controller", "RegisterButton", "LogoutButton", "RegisterWindow", "Panel", "LoginWindow", "SettingsButton", "ProfileWindow")
                 ),
+                */
                 "command" => array(
                     "modules" => array("Line", "Controller", "Panel"),
                     "css" => true
@@ -135,7 +137,7 @@ class DhtmlChess extends Package implements PackageInterface
                 )
             ),
             "controller" => array(
-                "modules" => array("Controller", "EnginePlayController", "TacticController", "TacticControllerGui", "AnalysisController", "GameplayController")
+                "modules" => array("Controller", "EnginePlayController", "TacticController", "TacticControllerGui", "AnalysisController", "GameplayController", "AnalysisEngineController")
             ),
             "model" => array(
                 "modules" => array("Game")
@@ -144,10 +146,14 @@ class DhtmlChess extends Package implements PackageInterface
                 "modules" => array("Reader", "GameReader")
             ),
             "datasource" => array(
-                "modules" => array("FolderTree", "GameList", "PgnGames", "PgnList")
+                "modules" => array("GameList", "PgnGames", "PgnList")
             ),
             "pgn" => array(
                 "modules" => "Parser"
+            ),
+            "wordpress" => array(
+               "modules" => array("GameListGrid", "PgnList", "GameList")
+                
             )
         );
     }
@@ -157,10 +163,11 @@ class DhtmlChess extends Package implements PackageInterface
         return array(
             array("package" => "LudoJS",
                 "modules" => array(
-                    "layout", "View", "Application", "grid", "dialog", "form/StrongPassword", "form/Email", "form/Number",
-                    "form/Checkbox", "controller", "menu", "Panel", "svg/Path", "svg/Canvas", "svg/Animation", "remote","svg/Group",
-                    "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree",'card/Button', 'card/PreviousButton', 'card/NextButton', 'card/FinishButton',
-                    "layout", "form/Textarea", "Notification", "form/ComboTree","paging","form/DisplayField","progress","form/File","form/Radio","form/Select","theme/Themes",'form/Label'
+                    "layout", "View", "Application", "grid", "dialog", "form/Number",
+                    "form/Checkbox", "controller", "menu", "Panel", 'svg/EventManager', "svg/Path", "svg/Canvas", "svg/Animation", "remote", "svg/Group",
+                    "form/SubmitButton", "form/CancelButton", "form/ResetButton", "tree", 'card/Button', 'card/PreviousButton', 'card/NextButton', 'card/FinishButton',
+                    "layout", "form/Textarea", "Notification", "paging", "form/DisplayField", "progress", "form/Radio", "form/Select", "theme/Themes", 'form/Label',
+                    'ListView'
                 )
             )
         );
@@ -178,8 +185,20 @@ class DhtmlChess extends Package implements PackageInterface
 
     public function getFilesForZip()
     {
-        return array("js", "css", "jquery", "demo", "ludojs", "php", "router.php", "autoload.php" , "src",
-            ".htaccess", "README.md", "src-tests", "pgn", "garbochess-engine", "images");
+        return array("js", "css", "jquery", "demo", "ludojs", "php", "router.php", "autoload.php", "src",
+            ".htaccess", "README.md", "src-tests", "pgn", "garbochess-engine", "images", "themes");
     }
 
+    public function getUrlsToRunBeforeStart()
+    {
+        return array();
+    }
+
+    public function getUrlsToRunAtEnd()
+    {
+        return array("http://localhost/dhtml-chess/wp-plugins/build-plugin.php",
+            "http://localhost/dhtml-chess/images/board/find-brightness.php",
+            "http://localhost/dhtml-chess/wordpress/minify-wordpress-js.php",
+            "http://localhost/dhtml-chess/images/board-bg/find-brightness.php");
+    }
 }

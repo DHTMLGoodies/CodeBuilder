@@ -321,4 +321,7 @@ class Package
     public function getUrlsToRunBeforeStart(){
         return array();
     }
+    public function getUrlsToRunAtEnd(){
+        return array();
+    }
 }
