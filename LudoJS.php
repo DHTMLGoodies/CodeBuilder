@@ -382,7 +382,7 @@ class LudoJS extends Package implements PackageInterface
                     'Mask' => array('dependencies' => array('svg/NamedNode')),
                     'Animation' => array('dependencies' => array('color/Color')),
                     'TextBox' => array('dependencies' => array('svg/Group')),
-                    'Matrix' => array('dependencies' => array()),
+                    'Matrix' => array('dependencies' => array('Core')),
                 )
             )
         );
@@ -425,7 +425,6 @@ class LudoJS extends Package implements PackageInterface
             "blue" =>  "blue.css",
             "gray" =>  "gray.css",
             "light-gray" =>  "light-gray.css",
-            "ocean" =>  "ocean.css",
             "twilight" =>  "twilight.css"
         );
     }

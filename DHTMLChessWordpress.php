@@ -6,7 +6,7 @@
  * Date: 16.02.13
  * Time: 01:57
  */
-class DhtmlChess extends Package implements PackageInterface
+class DhtmlChessWordpress extends Package implements PackageInterface
 {
 
     public function getRootFolder()
@@ -47,29 +47,24 @@ class DhtmlChess extends Package implements PackageInterface
             "view" => array(
                 "notation" => array(
                     'modules' => array(
-                        "Panel" => array("css" => true), "TacticPanel", "Table", "LastMove","LastComment"
-                    )
-                ),
-                "seek" => array(
-                    'modules' => array(
-                        "View"
+                        "Panel" => array("css" => true), "TacticPanel", "Table", "LastMove", "LastComment"
                     )
                 ),
                 "board" => array(
                     'modules' => array(
-                        "Gui", "Board", "Piece", 'Background',"SideToMove", 'BoardInteraction'
+                        "Gui", "Board", "Piece", 'Background', 'BoardInteraction','SideToMove'
                     ),
                     "css" => true
                 ),
                 "highlight" => array(
                     'modules' => array(
-                        "Base", "SquareBase", "Square", "ArrowSvg", "ArrowBase", "Arrow", "ArrowTactic", "SquareTacticHint",
-                        "ArrowPool", "ArrowNode", "ArrowBase", "SquarePool"
+                        "Base", "SquareBase", "Square", "ArrowBase", "Arrow", "ArrowTactic", "SquareTacticHint",
+                        "ArrowPool", "ArrowNode", "SquarePool"
                     )
                 ),
                 "buttonbar" => array(
                     "modules" => array(
-                        "Game", "Bar"
+                        "Bar"
                     )
                 ),
                 "gamelist" => array(
@@ -89,41 +84,28 @@ class DhtmlChess extends Package implements PackageInterface
                 ),
                 "dialog" => array(
                     "modules" => array(
-                        "Dialog", "NewGame", "EditGameMetadata", "OverwriteMove", "PuzzleSolved", "Promote" => array("css" => true), "Comment"
+                        "Dialog", "PuzzleSolved", "Promote" => array("css" => true), "Comment"
                     )
                 ),
                 "button" => array(
                     "modules" => array(
-                        "SaveGame", "TacticHint", "TacticSolution", "NextGame", "PreviousGame"
+                        "TacticHint", "TacticSolution", "NextGame", "PreviousGame"
                     )
-                ),
-                /*
-                "user" => array(
-                    "modules" => array("Country", "LoginButton", "Controller", "RegisterButton", "LogoutButton", "RegisterWindow", "Panel", "LoginWindow", "SettingsButton", "ProfileWindow")
-                ),
-                */
-                "command" => array(
-                    "modules" => array("Line", "Controller", "Panel"),
-                    "css" => true
-                ),
-                "menu-item" => array(
-                    "modules" => array("GameImport", "SaveGame", "NewGame")
-                ),
-                "position" => array(
-                    "modules" => array("Board", "Pieces", "Dialog" => array("css" => true), "Castling", "SideToMove")
                 ),
                 "pgn" => array(
                     "modules" => array('Grid')
-                ),
-                "score" => array(
-                    "modules" => array("Bar")
+                )
+            ),
+
+            "pgn" => array(
+                "modules" => array(
+                    "Parser"
                 )
             ),
             "util" => array(
                 "modules" => array(
                     "CoordinateUtil"
                 )
-
             ),
             "sound" => array(
                 "modules" => array("Sound")
@@ -134,7 +116,9 @@ class DhtmlChess extends Package implements PackageInterface
                 )
             ),
             "controller" => array(
-                "modules" => array("Controller", "EnginePlayController", "TacticController", "TacticControllerGui", "AnalysisController", "GameplayController", "AnalysisEngineController")
+                "modules" => array("Controller", "EnginePlayController",
+                    "TacticController", "TacticControllerGui",
+                    "PlayStockfishController","ComputerController")
             ),
             "model" => array(
                 "modules" => array("Game")
@@ -145,13 +129,34 @@ class DhtmlChess extends Package implements PackageInterface
             "datasource" => array(
                 "modules" => array("GameList", "PgnGames", "PgnList")
             ),
-            "pgn" => array(
-                "modules" => "Parser"
-            ),
             "wordpress" => array(
                 "modules" => array("GameListGrid", "PgnList", "GameList")
+            ),
+            "computer" => array(
+                "modules" => array("ComputerPlay")
+            ),
+            "wordpress/PgnStandings",
+            "wp-public/wp-template.js",
+            "wp-public/game-grid.js",
+            "wp-public/manager.js",
+            "wp-public/wpcom-message.js",
+            "wp-public/game/game-template.js",
+            "wp-public/game/game1.js",
+            "wp-public/game/game2.js",
+            "wp-public/game/game3.js",
+            "wp-public/game/game4.js",
+            "wp-public/game/game5.js",
+            "wp-public/game/game6.js",
+            "wp-public/pgn/viewer-template.js",
+            "wp-public/pgn/viewer1.js",
+            "wp-public/pgn/viewer2.js",
+            "wp-public/pgn/viewer3.js",
+            "wp-public/computer/comp1.js",
+            "wp-public/special/pinned.js",
+            "wp-public/special/standings.js",
+            "wp-public/tactics/tactics1.js",
+            "wp-public/tactics/tactics-game1.js",
 
-            )
         );
     }
 
@@ -160,31 +165,16 @@ class DhtmlChess extends Package implements PackageInterface
         return array(
             array("package" => "LudoJS",
                 "modules" => array(
-                    "layout", "View", "Application", "grid", "dialog", "form/Number",
-                    "form/Checkbox", "controller", "menu", "Panel", 'svg/EventManager', "svg/Path", "svg/Canvas", "svg/Animation",
-                    "remote", "svg/Group",
-                    "form/SubmitButton", "form/CancelButton",
-                    "layout", "form/Textarea", "Notification", "paging", "form/DisplayField", "progress", "form/Radio",
-                    "form/Select", "theme/Themes", 'form/Label',
-                    'ListView', "storage/Storage"
+                    "layout/Base",
+                    "View",
+                    "layout/Relative", "layout/LinearVertical", "layout/linearHorizontal", "layout/Fill", "layout/Tab", "layout/Table", "layout/Grid",
+                    "grid", "dialog",
+                    "controller", 'svg/EventManager', "svg/Path", "svg/Canvas", "remote", "svg/Group",
+                    "Notification", "paging", "theme/Themes", 'form/Label', "storage/Storage"
                 )
             )
         );
     }
-
-
-    public function getJSFileName()
-    {
-        $folder = $this->getRootFolder() . "js";
-        return $folder . "/" . $this->getName() . ".js";
-    }
-
-    public function getJSFileNameMinified()
-    {
-        $folder = $this->getRootFolder() . "js";
-        return $folder . "/" . $this->getName() . "-minified.js";
-    }
-
 
     public function getCssSkins()
     {
@@ -198,24 +188,32 @@ class DhtmlChess extends Package implements PackageInterface
 
     public function getFilesForZip()
     {
-        return array("js", "css", "jquery", "demo", "ludojs", "php", "router.php", "autoload.php", "src",
-            ".htaccess", "README.md", "src-tests", "pgn", "images", "themes", "stockfish-js", "tools");
     }
 
     public function getUrlsToRunBeforeStart()
     {
-        return array(
-            "http://localhost/CodeBuilder/router.php?request=Builder/DHTMLChessWordpress/minify"
-        );
+        return array();
     }
 
     public function getUrlsToRunAtEnd()
     {
+
         return array(
+            "http://localhost/CodeBuilder/router.php?request=Builder/DHTMLChessWordpressFree/minify",
             "http://localhost/dhtml-chess/src/wp-public/minify-wordpress-js.php",
             "http://localhost/dhtml-chess/wp-plugins/build-plugin.php",
-            "http://localhost/dhtml-chess/images/board/find-brightness.php",
-            "http://localhost/dhtml-chess/scripts/find-words.php",
-            "http://localhost/dhtml-chess/images/board-bg/find-brightness.php");
+            "http://localhost/dhtml-chess/wp-plugins/build-plugin-free.php"
+        );
+    }
+
+    public function shouldBuildCss()
+    {
+        return false;
+    }
+
+
+    public function shouldBuildZip()
+    {
+        return false;
     }
 }

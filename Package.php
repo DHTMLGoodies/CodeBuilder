@@ -235,6 +235,7 @@ class Package
                 array_unshift($ret, $dep);
             }
         }
+
         return $ret;
     }
 
@@ -323,5 +324,13 @@ class Package
     }
     public function getUrlsToRunAtEnd(){
         return array();
+    }
+
+    public function shouldBuildCss(){
+        return true;
+    }
+    
+    public function shouldBuildZip(){
+        return true;
     }
 }

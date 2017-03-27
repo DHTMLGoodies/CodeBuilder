@@ -47,6 +47,8 @@ spl_autoload_register(
                 'demostates' => '/ludoDB/examples/cities/DemoStates.php',
                 'dhtmlchess' => '/DHTMLChess.php',
                 'dhtmlchessmaster' => '/DhtmlchessMaster.php',
+                'dhtmlchesswordpress' => '/DHTMLChessWordpress.php',
+                'dhtmlchesswordpressfree' => '/DHTMLChessWordpressFree.php',
                 'firephp' => '/minify/min/lib/FirePHP.php',
                 'forsqltest' => '/ludoDB/Tests/classes/ForSQLTest.php',
                 'grandparent' => '/ludoDB/Tests/classes/Dependencies/GrandParent.php',

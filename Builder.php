@@ -54,7 +54,7 @@ class Builder implements LudoDBService
         $this->runStartUrls();
 
         $ret["build"] = $this->getFullVersion();
-        $ret["css"] = $this->buildCSS();
+        if($this->package->shouldBuildCss())$ret["css"] = $this->buildCSS();
         $ret["js"] = $this->buildJS();
 
         if (!$this->minifySkin) {
@@ -67,7 +67,10 @@ class Builder implements LudoDBService
             }
         }
 
-        $ret["zip"] = $this->buildZip();
+        if($this->package->shouldBuildZip()){
+            $ret["zip"] = $this->buildZip();
+
+        }
 
         $this->runEndURls();
         
@@ -181,7 +184,8 @@ class Builder implements LudoDBService
         if (!LudoDB::hasConnection()) return;
         foreach ($files as $entry) {
             $obj = new CodeBuilderLog();
-            $filename = array_pop(explode("/", $entry['file']));
+            $tokens = explode("/", $entry['file']);
+            $filename = array_pop($tokens);
             $obj->setFileName($filename);
             $obj->setSize($entry['size']);
             $obj->commit();
